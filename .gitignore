@@ -1,6 +1,5 @@
 .env
 .vscode
-.txt
 
 # dependencies
 /node_modules
