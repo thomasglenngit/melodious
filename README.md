@@ -10,7 +10,7 @@ To allow users to play melodies on an interactive virtual keyboard.
 
 
 
-## Tols, frameworks, libraries, APIs, modules and/or other resources to create this project:
+## Tools, frameworks, libraries, APIs, modules and/or other resources to create this project:
 
 
 
