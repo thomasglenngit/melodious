@@ -1,0 +1,8 @@
+Notes for creating, pushing and merging branches
+1. Before creating a feature branch, make sure the main branch is committed. 
+2. Now create a new branch and switch to that branch to make changes.
+3. When feature is added and functional, add and commit in the terminal.
+4. Once the changes have been committed, push to github with `git push + authorname + branchname`
+    For example `git push gt changeReadme` or `git push origin addCSS` or `git push bl makeDivs`
+    To check the author name, type `git remote -v` in the terminal and it will print out a few lines - the author name will be at the beginning of those lines.
+5. Go to the GitHub repo and select 
