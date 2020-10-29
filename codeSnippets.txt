@@ -5,4 +5,14 @@ Notes for creating, pushing and merging branches
 4. Once the changes have been committed, push to github with `git push + authorname + branchname`
     For example `git push gt changeReadme` or `git push origin addCSS` or `git push bl makeDivs`
     To check the author name, type `git remote -v` in the terminal and it will print out a few lines - the author name will be at the beginning of those lines.
-5. Go to the GitHub repo and select 
+5. Go to the GitHub repo and click on the green button that says "Compare & pull request"
+6. Add any notes about the pull request that might be important (what did you change, why did you change it, etc.)
+7. Click on the "Create pull request" button
+    After clicking "Create pull request", the next step might be further down on the page. Scroll if you don't see it.
+8. Click the "Merge pull request" button
+9. Click "Confirm merge"
+10. Once the page updates, click "Delete branch" to delete the branch from the remote repo (optional)
+11. Go back to the local terminal (terminal in VS code or command line) and switch into the main branch 
+12. Pull the changes down from GitHub using the command `git pull authorname main`
+    For example `git pull tg main` or `git pull origin main` or `git pull bl main`
+    Before you pull the changes down, you can check the author name by typing `git remote -v`
