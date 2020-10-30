@@ -16,27 +16,28 @@ html, body {
 .white-key {
   border: 1px solid #000;
   background-color: #FFF;
-  height: 190px;
+  height: 220px;
   justify-items: stretch;
   z-index: 0;
   border-radius: 5px;
+  position: absolute;
+  width: 6.66%;
 }
 
 .black-key{
   border: 1px solid #FFF;
   background-color: #000;
-  height: 170px;
+  height: 120px;
   color: #FFF;
   z-index: 1;
   border-radius: 5px;
-}
-
-.white-key, .black-key {
   position: absolute;
-  width: 7%;
+  width: 4.2%;
 }
 
-/* white keys c2 - g2 */
+
+
+/* white keys c2 - g2 "left values at increments 6.66% for both black and white keys (black - starting at 4.5%)" */ 
 #c2 {
   /* position: absolute; */
   top: 0;
@@ -45,73 +46,121 @@ html, body {
 
 #d2 {
   top: 0;
-  left: 7.14%;
+  left: 6.66%;
 }
 
 #e2 {
   top: 0;
-  left: 14.28%;
+  left: 13.32%;
 }
 
 #f2 {
   top: 0;
-  left: 21.42%;
+  left: 19.98%;
 }
 
 #g2 {
   top: 0;
-  left: 28.56%;
+  left: 26.64%;
 }
 
 
 /* white keys a3 - g3 */
 #a3 {
   top: 0;
-  left: 35.70%;
+  left: 33.30%;
 }
 
 #b3 {
   top: 0;
-  left: 42.84%;
+  left: 39.96%;
 }
 
 #c3 {
   top: 0;
-  left: 49.98%;
+  left: 46.62%;
 }
 
 #d3 {
   top: 0;
-  left: 57.12%;
+  left: 53.28%;
 }
 
 #e3 {
   top: 0;
-  left: 64.26%;
+  left: 59.94%;
 }
 
 #f3 {
   top: 0;
-  left: 71.40%;
+  left: 66.60%;
 } 
 
 #g3 {
   top: 0;
-  left: 78.54%;
+  left: 73.26%;
 } 
 
 /* white keys a4 - c4 */
 #a4 {
   top: 0;
-  left: 85.68%;
+  left: 79.92%;
 }
 
 #b4 {
   top: 0;
-  left: 92.82%;
+  left: 86.58%;
 }
 
 #c4 {
   top: 0;
-  left: 99.96%;
+  left: 93.24%;
 }
+
+/* black keys cs2 - as4 */
+
+#cs2 {
+  top: 0;
+  left: 4.54%;
+}
+
+#ds2 {
+  top: 0;
+  left: 11.2%;
+}
+
+#fs2 {
+  top: 0;
+  left: 24.52%;
+}
+#gs2 {
+  top: 0;
+  left: 31.18%;
+}
+#as3 {
+  top: 0;
+  left: 37.84%;
+}
+#cs3 {
+  top: 0;
+  left: 51.16%;
+}
+#ds3 {
+  top: 0;
+  left: 57.82%;
+}
+#fs3 {
+  top: 0;
+  left: 71.14%;
+}
+#gs3{
+  top: 0;
+  left: 77.80%;
+}
+#as4 {
+  top: 0;
+  left: 84.46%;
+}
+
+
+
