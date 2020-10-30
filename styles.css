@@ -10,17 +10,25 @@ html, body {
   padding: 20px;
   height: 200px;
   display: flex;
+  position: relative;
 }
 
 .white-key {
   border: 1px solid #000;
   background-color: #FFF;
-  height: 170px;
-  
+  height: 190px;
+  width: 80px;  
+  justify-items: stretch;
+  z-index: 1;
+  border-radius: 5px;
 }
 
 .black-key{
   border: 1px solid #FFF;
   background-color: #000;
   height: 170px;
+  width: 80px;
+  color: #FFF;
+  z-index: 2;
+  border-radius: 5px;
 }
