@@ -13,6 +13,10 @@ html, body {
   position: relative;
 }
 
+/* #keyboard > .white-key {
+  width: 7%;
+} */
+
 .white-key {
   border: 1px solid #000;
   background-color: #FFF;
@@ -33,4 +37,80 @@ html, body {
   border-radius: 5px;
 }
 
-/* First White Key */
+.white-key, .black-key {
+  position: absolute;
+  /* width: 7%; doesn't work*/
+}
+
+/* white keys c2 - g2 */
+#c2 {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+#d2 {
+  top: 0;
+  left: 7.14%;
+}
+
+#e2 {
+  top: 0;
+  left: 14.28%;
+}
+
+#f2 {
+  top: 0;
+  left: 21.42%;
+}
+
+#g2 {
+  top: 0;
+  left: 28.56%;
+}
+
+
+/* white keys a3 - g3 */
+#a3 {
+  top: 0;
+  left: 35.70%;
+}
+#b3 {
+  top: 0;
+  left: 42.84%;
+}
+#c3 {
+  top: 0;
+  left: 49.98%;
+}
+#d3 {
+  top: 0;
+  left: 57.12%;
+}
+#e3 {
+  top: 0;
+  left: 64.26%;
+}
+#f3 {
+  top: 0;
+  left: 71.40%;
+} 
+#g3 {
+  top: 0;
+  left: 78.54%;
+} 
+
+/* white keys a4 - c4 */
+
+#a4 {
+  top: 0;
+  left: 85.68%;
+}
+#b4 {
+  top: 0;
+  left: 92.82%;
+}
+#c4 {
+  top: 0;
+  left: 99.96%;
+}
