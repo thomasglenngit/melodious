@@ -6,6 +6,8 @@ Notes for creating, pushing and merging branches
     For example `git push gt changeReadme` or `git push origin addCSS` or `git push bl makeDivs`
     To check the author name, type `git remote -v` in the terminal and it will print out a few lines - the author name will be at the beginning of those lines.
 5. Go to the GitHub repo and click on the green button that says "Compare & pull request"
+*** If the green "Compare & pull request" button isn't at the top of the page, try refreshing the page.
+    If it's still not there, click "# branches" at the top of the list of files, click "New pull request" for the branch to merge in, the base should be the main branch, the compare should be the branch to merge in, then follow the next steps.
 6. Add any notes about the pull request that might be important (what did you change, why did you change it, etc.)
 7. Click on the "Create pull request" button
     After clicking "Create pull request", the next step might be further down on the page. Scroll if you don't see it.
@@ -16,3 +18,5 @@ Notes for creating, pushing and merging branches
 12. Pull the changes down from GitHub using the command `git pull authorname main`
     For example `git pull tg main` or `git pull origin main` or `git pull bl main`
     Before you pull the changes down, you can check the author name by typing `git remote -v`
+13. Make sure that the site works correctly from the main branch. Once it is confirmed that the main branch now has the integrated code and works correctly in the browser, the feature branch can be deleted with the command `git branch -D branchname`
+    For example `git branch -D addCss` or `git branch -D changeReadme`
