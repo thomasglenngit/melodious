@@ -9,19 +9,14 @@ html, body {
   background-color: plum;
   padding: 20px;
   height: 200px;
-  display: flex;
+  /* display: flex; */
   position: relative;
 }
-
-/* #keyboard > .white-key {
-  width: 7%;
-} */
 
 .white-key {
   border: 1px solid #000;
   background-color: #FFF;
   height: 190px;
-  width: 80px;  
   justify-items: stretch;
   z-index: 0;
   border-radius: 5px;
@@ -31,7 +26,6 @@ html, body {
   border: 1px solid #FFF;
   background-color: #000;
   height: 170px;
-  width: 80px;
   color: #FFF;
   z-index: 1;
   border-radius: 5px;
@@ -39,12 +33,12 @@ html, body {
 
 .white-key, .black-key {
   position: absolute;
-  /* width: 7%; doesn't work*/
+  width: 7%;
 }
 
 /* white keys c2 - g2 */
 #c2 {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0
 }
@@ -75,41 +69,48 @@ html, body {
   top: 0;
   left: 35.70%;
 }
+
 #b3 {
   top: 0;
   left: 42.84%;
 }
+
 #c3 {
   top: 0;
   left: 49.98%;
 }
+
 #d3 {
   top: 0;
   left: 57.12%;
 }
+
 #e3 {
   top: 0;
   left: 64.26%;
 }
+
 #f3 {
   top: 0;
   left: 71.40%;
 } 
+
 #g3 {
   top: 0;
   left: 78.54%;
 } 
 
 /* white keys a4 - c4 */
-
 #a4 {
   top: 0;
   left: 85.68%;
 }
+
 #b4 {
   top: 0;
   left: 92.82%;
 }
+
 #c4 {
   top: 0;
   left: 99.96%;
