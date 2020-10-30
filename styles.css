@@ -1,0 +1,26 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#keyboard {
+  border: 1px solid #333;
+  background-color: plum;
+  padding: 20px;
+  height: 200px;
+  display: flex;
+}
+
+.white-key {
+  border: 1px solid #000;
+  background-color: #FFF;
+  height: 170px;
+  
+}
+
+.black-key{
+  border: 1px solid #FFF;
+  background-color: #000;
+  height: 170px;
+}
