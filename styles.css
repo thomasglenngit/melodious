@@ -10,6 +10,7 @@ html, body {
   padding: 20px;
   height: 200px;
   /* display: flex; */
+  /* outline: none; => if you want to turn off the outline to keys." */
   position: relative;
 }
 

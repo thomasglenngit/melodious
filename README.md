@@ -3,7 +3,7 @@
 
 ## _Author Names: Brittany Lindgren and Thomas Glenn_
 
-<img src="img/KeyboardApp2.png" >
+![Image Alt](img/KeyboardApp2.png)
 
 ### Project’s Purpose or Goal: 
 To allow users to play melodies on an interactive virtual keyboard.
