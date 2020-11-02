@@ -15,7 +15,7 @@
     <h1>Melodius</h1>
     <div id="keyboard">
       <!--White Keys-->
-      <button id="c2" class="key white-key" onclick="logMessageOnClick()">C2</button>
+      <button id="c2" class="key white-key">C2</button>
       <button id="d2" class="key white-key">D2</button>
       <button id="e2" class="key white-key">E2</button>
       <button id="f2" class="key white-key">F2</button>
@@ -46,10 +46,13 @@
   </div>
   <script>
 
-    // console log when user clicks white key c2
-    const logMessageOnClick = function () {
-      console.log("You clicked c2!");
-    }
+    const c2 = document.getElementById("c2");
+    c2.addEventListener("click", function(){
+      console.log("You did it!");
+    })
+
+    // const keys = document.querySelectorAll(".key")  - return array of keys ?
+    // filter - get the key that matches the clicked key id and do something with it
 
   </script>
 
