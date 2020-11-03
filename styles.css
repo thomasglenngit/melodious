@@ -11,7 +11,10 @@ html, body {
   height: 200px;
   /* display: flex; */
   /* outline: none; => if you want to turn off the outline to keys." */
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .white-key {
