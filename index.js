@@ -35,7 +35,7 @@ window.addEventListener('load', (event) => {
     
     
     async function playSound() {
-      // const notes = ['c2']
+      // const notes = ['c2', 'cs2', ]
       let start = MIDI.currentTime
       // const note = notes[0]
       // MIDI.noteOn(0, note, 127, start) // velocity = volume, max is 128, start is used to schedule notes in the future
