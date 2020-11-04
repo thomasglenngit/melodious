@@ -2,21 +2,10 @@ window.addEventListener('load', (event) => {
 
     // import { MIDI } from 'MIDI.js/src'
     MIDI = MIDI.MIDI
+    // const range = ['A#3', 'A#4', 'A3', 'A4', 'B3', 'B4', 'C#2', 'C#3', 'C2', 'C3', 'C4', 'D#2', 'D#3', 'D2', 'D3', 'E2', 'E3', 'F#2', 'F#3', 'F2', 'F3', 'G#2', 'G#3', 'G2', 'G3']
     
     // global.MIDI = MIDI
     startup()
-    //selects only key with id of c2
-    const c2 = document.getElementById('c2');
-    c2.addEventListener('click', playSound);
-    
-    //selects all buttons with class of key - trying to 
-    // let allKeys = document.querySelectorAll('button.key')
-    // let clickedKey = allKeys.forEach(function(key){
-    //   key.addEventListener('click', logKey(key)
-    // )})
-
-    // console.log(clickedKey)
-    
     
     async function startup() {
       await MIDI.autoconnect()
@@ -30,17 +19,21 @@ window.addEventListener('load', (event) => {
           program
       })
       await MIDI.jobs.wait()
-    
     }
+  
+    const piano = document.getElementById('keyboard')
+    piano.addEventListener('click', function(event){
+      let keyPressed = event.target.textContent; //gets actual text of clicked key
+      playSound(keyPressed)
+      console.log(keyPressed);
+    })
     
-    
-    async function playSound() {
-      // const notes = ['c2', 'cs2', ]
+    async function playSound(noteToPlay){
+
       let start = MIDI.currentTime
-      // const note = notes[0]
       // MIDI.noteOn(0, note, 127, start) // velocity = volume, max is 128, start is used to schedule notes in the future
-      MIDI.noteOn(0, "F#2", 127, start);
-      MIDI.noteOff(0, "F#2", start + 1500) // Do we add a decay or delay here?
+      MIDI.noteOn(0, noteToPlay, 127, start);
+      MIDI.noteOff(0, noteToPlay, start + 1500) // Do we add a decay or delay here?
     
       // Do we need any of the following functions?:
       // getCurrentTime()
@@ -49,10 +42,6 @@ window.addEventListener('load', (event) => {
       // getSoundModule()
       // setSoundModule()
     }
-
-    // async function logKey(key){
-    //   console.log(key)
-    // }
     
     // MIDI.SoundModule gets the sound module or returns null and console warning if you don't have a sound module
     
