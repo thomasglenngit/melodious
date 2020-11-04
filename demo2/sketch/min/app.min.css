@@ -1,0 +1,21 @@
+/*
+  ___________           __         .__    .__
+ /   _____/  | __ _____/  |_  ____ |  |__ |__| ____
+ \_____  \|  |/ // __ \   __\/ ___\|  |  \|  |/  _ \
+ /        \    <\  ___/|  | \  \___|   Y  \  (  <_> )
+/_______  /__|_ \\___  >__|  \___  >___|  /__|\____/
+        \/     \/    \/          \/     \/
+
+ Sketch API v2020.0.617
+ Copyright (c) Sketch.IO, Inc. <https://sketch.io>
+ Commit: 4574c4558eadcb48109e40c934c631ea67cf21a2
+
+ SketchAPI uses certain modules under license from third parties.
+ Sketch.IO offers the SketchAPI, pursuant to its own license,
+ to you on the condition you accept the following modules under
+ their respective licenses:
+*/
+
+html{overflow-y:hidden}body{display:flex;flex-direction:column;height:100vh;opacity:1!important;transition:opacity .5s;width:100vw}.sketch-api{display:block;font-size:14px;margin:0;background:grey;overflow:hidden}.sketch-api *{box-sizing:border-box}.sketch-api sketch-Doc{height:100%;width:100%}.sketch-api sketch-DocLayout{background:#fff}
+
+
