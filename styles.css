@@ -2,19 +2,41 @@ html, body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /* background-image: url(img/pretty-colors.png); Need to pay for this image if we would like to use it*/
+  background-image: url(img/piano-background.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+header {
+  padding: 30px;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+}
+
+section {
+  padding-left: 10px;
+  font-size: 2rem;
+}
+
+h1, section {
+  color: #FFF;
 }
 
 #keyboard {
-  border: 1px solid #333;
-  background-color: plum;
-  padding: 20px;
+  border: none;
+  padding: 10px;
   height: 200px;
-  /* display: flex; */
   /* outline: none; => if you want to turn off the outline to keys." */
   position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  bottom: 5px;
+  right: 5px;
+  left: 5px;
 }
 
 .white-key {
@@ -23,27 +45,39 @@ html, body {
   height: 220px;
   justify-items: stretch;
   z-index: 0;
-  border-radius: 5px;
-  position: absolute;
   width: 6.66%;
+}
+
+.white-key > span {
+  left: 35%;
 }
 
 .black-key{
   border: 1px solid #FFF;
-  background-color: #000;
+  background-color: #142648;
+  /* background-color: #000; */
   height: 120px;
   color: #FFF;
   z-index: 1;
-  border-radius: 5px;
-  position: absolute;
   width: 4.2%;
 }
 
+.black-key > span {
+  left: 20%;
+}
 
+.key {
+  border-radius: 5px;
+  position: absolute;
+}
+
+.key > span {
+  position: absolute;
+  bottom: 3%;
+}
 
 /* white keys c2 - g2 "left values at increments 6.66% for both black and white keys (black - starting at 4.5%)". */ 
 #c2 {
-  /* position: absolute; */
   top: 0;
   left: 0
 }
@@ -168,3 +202,101 @@ html, body {
 
 
 
+/*
+POSSIBLE COLOR SCHEME
+
+INDIGO / DARKER PURPLE
+HTML/HEX code:	#4c5c76	
+RGB code:	rgb(76, 92, 118)	
+Hsl code:	hsl(217, 22%, 38%)	
+Hwb code:	hwb(217, 30%, 54%)	
+Cmyk code:	cmyk(36%, 22%, 0%, 54%)	
+Ncol code:	C62, 30%, 54%
+
+DARKER PURPLE
+HTML/HEX code:	#74748c	
+RGB code:	rgb(116, 116, 140)	
+Hsl code:	hsl(240, 9%, 50%)	
+Hwb code:	hwb(240, 45%, 45%)	
+Cmyk code:	cmyk(17%, 17%, 0%, 45%)	
+Ncol code:	B0, 45%, 45%
+
+DARKER PURPLE
+HTML/HEX code:	#6c7c8a	
+RGB code:	rgb(108, 124, 138)	
+Hsl code:	hsl(208, 12%, 48%)	
+Hwb code:	hwb(208, 42%, 46%)	
+Cmyk code:	cmyk(22%, 10%, 0%, 46%)	
+Ncol code:	C47, 42%, 46%
+
+MIDHTML/HEX code:	#aca4b4	
+RGB code:	rgb(172, 164, 180)	
+Hsl code:	hsl(270, 10%, 67%)	
+Hwb code:	hwb(270, 64%, 29%)	
+Cmyk code:	cmyk(4%, 9%, 0%, 29%)	
+Ncol code:	B50, 64%, 29%
+
+LAVENDER / LIGHT PURPLE
+HTML/HEX code:	#8e97a4	
+RGB code:	rgb(142, 151, 164)	
+Hsl code:	hsl(215, 11%, 60%)	
+Hwb code:	hwb(215, 56%, 36%)	
+Cmyk code:	cmyk(13%, 8%, 0%, 36%)	
+Ncol code:	C59, 56%, 36%
+
+DARK BLUEHTML/HEX code:	#142648	
+RGB code:	rgb(20, 38, 72)	
+Hsl code:	hsl(219, 57%, 18%)	
+Hwb code:	hwb(219, 8%, 72%)	
+Cmyk code:	cmyk(72%, 47%, 0%, 72%)	
+Ncol code:	C65, 8%, 72%
+
+SLATE GREY / LIGHT BLUE-PURPLE 1 
+HTML/HEX code:	#bbcbd2	
+RGB code:	rgb(187, 203, 210)	
+Hsl code:	hsl(198, 20%, 78%)	
+Hwb code:	hwb(198, 73%, 18%)	
+Cmyk code:	cmyk(11%, 3%, 0%, 18%)	
+Ncol code:	C30, 73%, 18%
+
+SLATE GREY / LIGHT BLUE-PURPLE 1 
+HTML/HEX code:	#bbced6	
+RGB code:	rgb(187, 206, 214)	
+Hsl code:	hsl(198, 25%, 79%)	
+Hwb code:	hwb(198, 73%, 16%)	
+Cmyk code:	cmyk(13%, 4%, 0%, 16%)	
+Ncol code:	C30, 73%, 16%
+
+
+DARK PINK
+HTML/HEX code:	#ebbcc4	
+RGB code:	rgb(235, 188, 196)	
+Hsl code:	hsl(350, 54%, 83%)	
+Hwb code:	hwb(350, 74%, 8%)	
+Cmyk code:	cmyk(0%, 20%, 17%, 8%)	
+Ncol code:	M83, 74%, 8%
+
+LIGHT PINK
+HTML/HEX code:	#e7dada	
+RGB code:	rgb(231, 218, 218)	
+Hsl code:	hsl(0, 21%, 88%)	
+Hwb code:	hwb(0, 85%, 9%)	
+Cmyk code:	cmyk(0%, 6%, 6%, 9%)	
+Ncol code:	R0, 85%, 9%
+
+DUSTY ORANGE
+HTML/HEX code:	#dc9c55	
+RGB code:	rgb(220, 156, 85)	
+Hsl code:	hsl(32, 66%, 60%)	
+Hwb code:	hwb(32, 33%, 14%)	
+Cmyk code:	cmyk(0%, 29%, 61%, 14%)	
+Ncol code:	R53, 33%, 14%
+
+PEACH
+HTML/HEX code:	#eccb9c	
+RGB code:	rgb(236, 203, 156)	
+Hsl code:	hsl(35, 68%, 77%)	
+Hwb code:	hwb(35, 61%, 7%)	
+Cmyk code:	cmyk(0%, 14%, 34%, 7%)	
+Ncol code:	R59, 61%, 7%
+*/
