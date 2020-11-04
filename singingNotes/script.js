@@ -1,5 +1,5 @@
 const { exec } = require('child_process')
-const {basename} = require('path')
+const { basename } = require('path')
 
 
 const fs = require('fs')
@@ -15,13 +15,13 @@ fs.readdir('.', async function (err, files) {
   for (const sound of mp3s) {
     let response = await getBase64(sound)
     let noteName = basename(sound, '.mp3')
-    soundFont[noteName] = 
-      {
-      noteData: 
-      `data:audio/mpeg;base64,${response}`
+    soundFont[noteName] = {
+
+        noteData:
+        `data:audio/mpeg;base64,${response}`
     }
   }
-  fs.writeFile('./index.json', JSON.stringify(soundFont), () => {
+  fs.writeFile('./index.json', JSON.stringify(soundFont, null, 2), () => {
     console.log('hi')
   })
 
