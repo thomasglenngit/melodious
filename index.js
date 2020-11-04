@@ -20,7 +20,7 @@ window.addEventListener('load', (event) => {
       })
       await MIDI.jobs.wait()
     }
-
+  
     const piano = document.getElementById('keyboard')
     piano.addEventListener('click', function(event){
       let keyPressed = event.target.textContent; //gets actual text of clicked key
@@ -29,6 +29,7 @@ window.addEventListener('load', (event) => {
     })
     
     async function playSound(noteToPlay){
+
       let start = MIDI.currentTime
       // MIDI.noteOn(0, note, 127, start) // velocity = volume, max is 128, start is used to schedule notes in the future
       MIDI.noteOn(0, noteToPlay, 127, start);
