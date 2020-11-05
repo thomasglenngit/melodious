@@ -36,6 +36,8 @@ To allow users to free play on the keyboard to hear notes and create animations 
 5. Visual Studio Code
 6. Git, GitHub, GitHub Projects
 7. Figma
+8. Unsplash - credit photographer if use this photo
+<span>Photo by <a href="https://unsplash.com/@ebuenclemente205?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ebuen Clemente Jr</a> on <a href="https://unsplash.com/s/photos/piano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 <br/>
 <br/>
 
