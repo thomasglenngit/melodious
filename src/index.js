@@ -1,3 +1,9 @@
+import _ from 'lodash'; // DO WE NEED FOR WEBPACK ?
+import './styles.css'; // DO WE NEED FOR WEBPACK ?
+// import image-name from './path.png' / DO WE NEED FOR WEBPACK ?
+
+
+
 window.addEventListener('load', (event) => {
 
     // import { MIDI } from 'MIDI.js/src'

@@ -4,7 +4,7 @@
 
 ## _Author Names: Brittany Lindgren and Thomas Glenn_
 
-![Overview of Melodius App](img/KeyboardAppOverview.png)
+![Overview of Melodius App](src/img/KeyboardAppOverview.png)
 
 ### Project’s Purpose or Goal: 
 To allow users to free play on the keyboard to hear notes and create animations using the Sketch.io API and to help users learn melodies on an interactive virtual keyboard.
@@ -14,13 +14,13 @@ To allow users to free play on the keyboard to hear notes and create animations 
 ### Wireframe
 | User Story | Image |
 |----------- | ----- |
-|  As a user I want to agree to continue to the application and see the instructions so that I know how to interact with the application  |  ![Consent to continue modal](img/userStoryContinue.png)  |
-|  As a user I want to be able to play any note on the keyboard   |    ![Image Alt](img/userStoryFreePlay1.png)     |
-|  As a user, when I play a note on the keyboard, I want to hear the corresponding sound and see animations occur on the screen   |    ![Image Alt](img/userStoryFreePlay2.png)     |
-|  As a user I want to be able to switch between `free play` mode and `learn melody` mode  |    ![Image Alt](img/userStoryLearnMel1.png)  |
-|  As a user I want to see an indication of which key is first in the melody so that I know how to begin playing the song  |    ![Image Alt](img/userStoryLearnMel2.png)     |
-|  As a user, when I play the indicated key, I want to hear the corresponding note and see the word or syllable at that stage in the song represented on the canvas. I want to see an indication of which note is next in the melody, so that I know how to continue playing the song  |    ![Image Alt](img/userStoryLearnMel3.png).      |
-|  As a user, I want to receive an indication when I have finished playing the song  |    ![Image Alt](img/userStoryLearnMel4.png)    |
+|  As a user I want to agree to continue to the application and see the instructions so that I know how to interact with the application  |  ![Consent to continue modal](./src/img/userStoryContinue.png)  |
+|  As a user I want to be able to play any note on the keyboard   |    ![Image Alt](./src/img/userStoryFreePlay1.png)     |
+|  As a user, when I play a note on the keyboard, I want to hear the corresponding sound and see animations occur on the screen   |    ![Image Alt](./src/img/userStoryFreePlay2.png)     |
+|  As a user I want to be able to switch between `free play` mode and `learn melody` mode  |    ![Image Alt](./src/img/userStoryLearnMel1.png)  |
+|  As a user I want to see an indication of which key is first in the melody so that I know how to begin playing the song  |    ![Image Alt](./src/img/userStoryLearnMel2.png)     |
+|  As a user, when I play the indicated key, I want to hear the corresponding note and see the word or syllable at that stage in the song represented on the canvas. I want to see an indication of which note is next in the melody, so that I know how to continue playing the song  |    ![Image Alt](./src/img/userStoryLearnMel3.png).      |
+|  As a user, I want to receive an indication when I have finished playing the song  |    ![Image Alt](./src/img/userStoryLearnMel4.png)    |
 
 - As a user, I want to be able to return to either `free play` or `learn melody` mode / pages
 - As a user, I want to know if I've made a mistake      
@@ -69,3 +69,20 @@ https://spdx.org/licenses/MITNFA.html
 `{ "name" : "foo", "config" : { "port" : "8080" } }`
 
 - note in npm docs - `Please do not put test harnesses or transpilers in your dependencies object.`
+
+
+4. Do we need to add the following to dependencies or devDependencies in package.json
+devDependencies:
+- style-loader
+- css-loader
+- file-loader
+- clean-webpack-plugin
+- webpack-dev-server
+- express ?
+    look at webpack docs development page at bottom
+    add "server": "node server.js", to package.json "scripts" ?
+- webpack-dev-middleware ?
+    (in config) - publicPath: '/',
+
+
+- if we add more than one .js file, look at webpack docs Output Management and Development chapters for setup

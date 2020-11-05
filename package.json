@@ -6,6 +6,8 @@
   "homepage": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
     "build": "webpack"
   },
   "keywords": ["keyboard", "MIDI.js", "Sketch.io", "music", "animations", "educational"],
@@ -38,3 +40,4 @@
 		"debug": "^2.6.1"
 	}
 }
+
