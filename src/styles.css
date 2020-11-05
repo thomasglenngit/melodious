@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   box-sizing: border-box;
   /* background-image: url(img/pretty-colors.png); Need to pay for this image if we would like to use it*/
-  background-image: url(img/piano-background.jpg);
+  background-image: url(./img/piano-background.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
