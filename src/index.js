@@ -1,13 +1,10 @@
 import _ from 'lodash'; // DO WE NEED FOR WEBPACK ?
 import './styles.css'; // DO WE NEED FOR WEBPACK ?
 // import image-name from './path.png' / DO WE NEED FOR WEBPACK ?
+import { MIDI } from './../MIDI.js';
+// import './../index.html';
 
-
-
-window.addEventListener('load', (event) => {
-
-    // import { MIDI } from 'MIDI.js/src'
-    MIDI = MIDI.MIDI
+window.addEventListener('load', (event) => {  // may want to remove... 
     // const range = ['A#3', 'A#4', 'A3', 'A4', 'B3', 'B4', 'C#2', 'C#3', 'C2', 'C3', 'C4', 'D#2', 'D#3', 'D2', 'D3', 'E2', 'E3', 'F#2', 'F#3', 'F2', 'F3', 'G#2', 'G#3', 'G2', 'G3']
     
     // global.MIDI = MIDI
@@ -16,9 +13,9 @@ window.addEventListener('load', (event) => {
     async function startup() {
       await MIDI.autoconnect()
       MIDI.channels = 1
-      // const {default: program} = await import('./singingNotes/C2.mp3')
-      const res = await fetch('./singingNotes/index.json')
-      const program = await res.json()
+      const {default: program} = await import('./../singingNotes/index.json')
+      // const res = await fetch('./singingNotes/index.json')
+      // const program = await res.json()
       // program will be a json file with all sound files in it
       await MIDI.programs.load({
           programID: 0,

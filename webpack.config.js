@@ -5,16 +5,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
-  devtool: 'inline-source-map',  // vs eval-source-map ???
+  devtool: 'inline-source-map', 
   devServer: {
     contentBase: './dist',
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),  // ??? OK ???  // DON'T NEED { cleanStale } ???
     new HtmlWebpackPlugin({
-      title: 'Melodius' // CHANGE TITLE ???
-      // template: './src/index.html',
-      // inject: 'body',
+      title: 'Melodius', 
+      template: './index.html',  // structure we want available as soon as it runs - makes template, inserts into body of dist/index.html
+      inject: 'body',
     }),
   ],
   output: {
@@ -41,14 +41,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/, // IS THIS IMPLICIT WITH WEBPACK ???
+        test: /\.js$/, 
         exclude: [ 
           /node_modules/,
           /spec/
-        ],
-        loader: 'eslint-loader'
+        ]
       },   // DO WE NEED CSV, TSV OR XML
-      // need rules for mp3 files? sketch files? images (PNG, JPEG, SVG, etc)?
+      // need rules for mp3 files? sketch files? 
       {
         test:/\.html$/,
         use: [

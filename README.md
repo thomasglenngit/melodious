@@ -70,19 +70,4 @@ https://spdx.org/licenses/MITNFA.html
 
 - note in npm docs - `Please do not put test harnesses or transpilers in your dependencies object.`
 
-
-4. Do we need to add the following to dependencies or devDependencies in package.json
-devDependencies:
-- style-loader
-- css-loader
-- file-loader
-- clean-webpack-plugin
-- webpack-dev-server
-- express ?
-    look at webpack docs development page at bottom
-    add "server": "node server.js", to package.json "scripts" ?
-- webpack-dev-middleware ?
-    (in config) - publicPath: '/',
-
-
 - if we add more than one .js file, look at webpack docs Output Management and Development chapters for setup
