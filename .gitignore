@@ -1,6 +1,7 @@
 .env
 .vscode
 .idea/
+dist/
 
 # dependencies
 node_modules

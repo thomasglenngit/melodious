@@ -1,5 +1,5 @@
 const sketch = global.sketch
-const Gesture = global.Gesture
+const Gesture = global.Gestures
 const dom = sketch.dom
 
 const $selectButton = dom.$('#select')

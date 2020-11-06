@@ -23,7 +23,7 @@ window.addEventListener('load', (event) => {
   
     const piano = document.getElementById('keyboard')
     piano.addEventListener('click', function(event){
-      let keyPressed = event.target.textContent; //gets actual text of clicked key
+      const keyPressed = event.target.textContent; //gets actual text of clicked key
       playSound(keyPressed)
       console.log(keyPressed);
     })
