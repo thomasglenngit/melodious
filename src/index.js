@@ -2,6 +2,7 @@ import _ from 'lodash'; // DO WE NEED FOR WEBPACK ?
 import './styles.css'; // DO WE NEED FOR WEBPACK ?
 // import image-name from './path.png' / DO WE NEED FOR WEBPACK ?
 import { MIDI } from './../MIDI.js';
+import '../sketch/media'
 // import './../index.html';
 
 window.addEventListener('load', (event) => {  // may want to remove... 
