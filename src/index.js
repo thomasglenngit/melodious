@@ -12,7 +12,8 @@ window.addEventListener('load', (event) => {  // may want to remove...
     startup()
     
     async function startup() {
-      await load(['sketch/babelHelpers.js', 'sketch/min/sketch-api.min.css', 'sketch/min/sketch-api.min.js', 'sketch/min/sketch-config.min.js'])
+      await load(['sketch/babelHelpers.js', 'sketch/min/sketch-api.min.js', 'sketch/min/sketch-config.min.js', 'sketch/min/sketch-api.min.css'])
+      // 'sketch/min/sketch-api.min.css',
       await MIDI.autoconnect()
       MIDI.channels = 1
       const {default: program} = await import('./../singingNotes/index.json')
