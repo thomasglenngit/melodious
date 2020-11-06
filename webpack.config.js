@@ -1,18 +1,24 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
-  devtool: 'inline-source-map', 
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: 'sketch', to: 'sketch' },
+      ],
+    }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),  // ??? OK ???  // DON'T NEED { cleanStale } ???
     new HtmlWebpackPlugin({
-      title: 'Melodius', 
+      title: 'Melodius',
       template: './index.html',  // structure we want available as soon as it runs - makes template, inserts into body of dist/index.html
       inject: 'body',
     }),
@@ -24,32 +30,32 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/, 
+        test: /\.css$/,
         use: [
-        'style-loader',
-        'css-loader',
+          'style-loader',
+          'css-loader',
         ],
-      }, 
+      },
       {
         test: /\.(png|svg|jpg|gif)$/,  // NEED TO MAKE CASE-INSENSITIVE ???
         use: [
           'file-loader',
           // options: {  ???
-            // name: '[name].[ext]',  ???
-            // outputPath: 'assets/images' ???
+          // name: '[name].[ext]',  ???
+          // outputPath: 'assets/images' ???
           // }
         ],
       },
       {
-        test: /\.js$/, 
-        exclude: [ 
+        test: /\.js$/,
+        exclude: [
           /node_modules/,
           /spec/
         ]
       },   // DO WE NEED CSV, TSV OR XML
       // need rules for mp3 files? sketch files? 
       {
-        test:/\.html$/,
+        test: /\.html$/,
         use: [
           'html-loader'
         ]
