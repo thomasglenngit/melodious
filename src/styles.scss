@@ -2,37 +2,41 @@ html, body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* background-image: url(img/pretty-colors.png); Need to pay for this image if we would like to use it*/
+}
+
+#melodius {
   background-image: url(./img/piano-background.jpg);
+  /* background-image: url(img/pretty-colors.png); Need to pay for this image if we would like to use it*/
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   /* height: 100vh; */
   z-index: 2;
-}
 
-header {
-  padding: 30px;
-}
-
-h1 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
-}
-
-section {
-  padding-left: 30px;
-  font-size: 2rem;
-}
-
-h1, section {
-  color: #FFF;
-}
-
-sketch-container.sketch-api {
-  width: 200px;
-  height: 200px;
-  background-color: red;
+  header {
+    padding: 30px;
+  }
+  
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+  }
+  
+  section {
+    padding-left: 30px;
+    font-size: 2rem;
+  }
+  
+  h1, section {
+    color: #FFF;
+  }
+  
+  sketch-container.sketch-api {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
+  
 }
 
 #keyboard {
@@ -44,44 +48,45 @@ sketch-container.sketch-api {
   bottom: 5px;
   right: 5px;
   left: 5px;
+  
+    .white-key {
+      border: 1px solid #000;
+      background-color: #FFF;
+      height: 220px;
+      justify-items: stretch;
+      z-index: 0;
+      width: 6.66%;
+  }
+  
+  .white-key > span {
+    left: 35%;
+  }
+  
+  .black-key{
+    border: 1px solid #FFF;
+    background-color: #142648;
+    /* background-color: #000; */
+    height: 120px;
+    color: #FFF;
+    z-index: 1;
+    width: 4.2%;
+  }
+  
+  .black-key > span {
+    left: 20%;
+  }
+  
+  .key {
+    border-radius: 5px;
+    position: absolute;
+  }
+  
+  .key > span {
+    position: absolute;
+    bottom: 3%;
+  }
 }
 
-.white-key {
-  border: 1px solid #000;
-  background-color: #FFF;
-  height: 220px;
-  justify-items: stretch;
-  z-index: 0;
-  width: 6.66%;
-}
-
-.white-key > span {
-  left: 35%;
-}
-
-.black-key{
-  border: 1px solid #FFF;
-  background-color: #142648;
-  /* background-color: #000; */
-  height: 120px;
-  color: #FFF;
-  z-index: 1;
-  width: 4.2%;
-}
-
-.black-key > span {
-  left: 20%;
-}
-
-.key {
-  border-radius: 5px;
-  position: absolute;
-}
-
-.key > span {
-  position: absolute;
-  bottom: 3%;
-}
 
 /* white keys c2 - g2 "left values at increments 6.66% for both black and white keys (black - starting at 4.5%)". */ 
 #c2 {
@@ -206,9 +211,6 @@ sketch-container.sketch-api {
   top: 0;
   left: 84.46%;
 }
-
-
-
 /*
 POSSIBLE COLOR SCHEME
 
