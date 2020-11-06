@@ -30,11 +30,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(css|css?2020.0.2)$/,
+        test: /\.css$/,
         use: [
           'style-loader',
           'css-loader',
-          'app-loader'
         ],
       },
       {
@@ -48,7 +47,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(js|js?2020.0.2)$/,
+        test: /\.js$/,
         exclude: [
           /node_modules/,
           /spec/

@@ -10,10 +10,6 @@ html, body {
   height: 100vh;
 }
 
-body {
-  opacity: 0;
-}
-
 header {
   padding: 30px;
 }
@@ -30,11 +26,6 @@ section {
 
 h1, section {
   color: #FFF;
-}
-
-.sketch-api {
-  width: 100px;
-  height: 100px;
 }
 
 #keyboard {
