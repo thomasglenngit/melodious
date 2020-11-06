@@ -13,8 +13,7 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: 'source', to: 'dest' },
-        { from: 'other', to: 'public' },
+        { from: 'sketch', to: 'sketch' },
       ],
     }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),  // ??? OK ???  // DON'T NEED { cleanStale } ???
