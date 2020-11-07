@@ -11,16 +11,16 @@ module.exports = {
     contentBase: './dist',
   },
   plugins: [
-    new CopyPlugin({
-      patterns: [
-        { from: 'sketch', to: 'sketch' },
-      ],
-    }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),  // ??? OK ???  // DON'T NEED { cleanStale } ???
     new HtmlWebpackPlugin({
       title: 'Melodius',
       template: './index.html',  // structure we want available as soon as it runs - makes template, inserts into body of dist/index.html
       inject: 'body',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'sketch', to: 'sketch' },
+      ],
     }),
   ],
   output: {
@@ -30,10 +30,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         use: [
           'style-loader',
           'css-loader',
+          'sass-loader'
         ],
       },
       {

@@ -1,5 +1,5 @@
 import _ from 'lodash'; // DO WE NEED FOR WEBPACK ?
-import './styles.css'; // DO WE NEED FOR WEBPACK ?
+import './styles.scss'; // DO WE NEED FOR WEBPACK ?
 // import image-name from './path.png' / DO WE NEED FOR WEBPACK ?
 import { MIDI } from './../MIDI.js';
 import { load } from './load';
@@ -12,7 +12,19 @@ window.addEventListener('load', (event) => {  // may want to remove...
     startup()
     
     async function startup() {
-      await load(['sketch/babelHelpers.js', 'sketch/min/sketch-api.min.css', 'sketch/min/sketch-api.min.js', 'sketch/min/sketch-config.min.js'])
+      await load(['sketch/min/sketch-api.min.css', 'sketch/min/app.min.css', 'sketch/babelHelpers.js', 'sketch/min/sketch-config.min.js', 'sketch/min/sketch-api.min.js'])
+      // 'sketch/min/sketch-api.min.css',
+      window.sketchOnReady = async function(){
+        const sketch = window.sketch;
+        const sketchConfig = window.sketchConfig;
+        const sketchContainer = document.querySelector('sketch-container');
+        sketch.$container = sketchContainer;
+        sketch.config(sketchConfig);
+        await sketch.createDocument({
+          element: sketchContainer
+        })
+      }
+
       await MIDI.autoconnect()
       MIDI.channels = 1
       const {default: program} = await import('./../singingNotes/index.json')
