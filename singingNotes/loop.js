@@ -10,14 +10,19 @@ right = 0
 // }
 
 //for naturals
-//if(noteArray.note.includes('s')) {
+//if(note)) {
 //   left+= '6.66%'
 // }
 
 
-for(let i=0; i<= 7; i++) {
-  noteArray.forEach(function(note) {
-    console.log('#' + note + octave + '{\n top: ;\n left: ;\n }\n')
+for (let i = 0; i <= 7; i++) {
+  noteArray.forEach(function (note) {
+    if (note.includes('s')) {
+      left += 4.54
+    } else if (note) {
+      left+= 6.66
+    }
+    console.log('#' + note + octave + '{\n top: 0 ;\n left:' + left + ';\n }\n')
   })
   octave++
 }
