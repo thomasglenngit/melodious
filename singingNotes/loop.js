@@ -17,12 +17,16 @@ right = 0
 
 for (let i = 0; i <= 7; i++) {
   noteArray.forEach(function (note) {
-    if (note.includes('s')) {
+    if(note.includes('cs' || 'fs')) {
+      left += 9.08
+    }
+    else if (note.includes('ds' || 'gs' || 'as')) {
       left += 4.54
-    } else if (note) {
+    } 
+    else if (note) {
       left+= 6.66
     }
-    console.log('#' + note + octave + '{\n top: 0 ;\n left:' + left + ';\n }\n')
+    console.log('#' + note + octave + '{\n top: 0 ;\n left:' + left.toFixed(2) + '%' + ';\n }\n')
   })
   octave++
 }
