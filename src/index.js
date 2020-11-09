@@ -44,6 +44,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       playSound(keyPressed)
       console.log(keyPressed);
     })
+    //dragging?
     
     async function playSound(noteToPlay){
 

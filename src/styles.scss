@@ -55,7 +55,7 @@ html, body {
       height: 220px;
       justify-items: stretch;
       z-index: 0;
-      width: 6.66%;
+      width: 6.66%; //1.06%
   }
   
   .white-key > span {
@@ -69,7 +69,7 @@ html, body {
     height: 120px;
     color: #FFF;
     z-index: 1;
-    width: 4.2%;
+    width: 4.2%; //0.63%
   }
   
   .black-key > span {
@@ -87,57 +87,52 @@ html, body {
   }
 }
 
-@mixin piano($note) {
-  $noteArray: []'a', 'as', 'b', 'c', 'cs', 'd', 'ds', 'e', 'f', 'fs', 'g', 'gs';
-  $keyBoardArray: [];
-  $octave: '1';
-  $left: 0;
-  $right: 0;
 
-  @for $i from 0 through 7 {
-    @each $note in $noteArray {
-      @if $note include 'cs' or 'fs' {
-          $left += 9.08;
-      } @else if $note includes 'ds' or 'gs' or 'as' {
-          $left += 4.54;
-      } @else if $note {
-          $left += 6.66;
-      }
-      console.log('#' + #{$note} + #{$octave} + '{\n top: 0 ;\n left:' + left.toFixed(2) + '%' + ';\n }\n')
-    }
-    octave++
+$whiteKeyNumber: 15; 
+$blackKeyNumber: 10;
+$increment: percentage(1 / $whiteKeyNumber);
+
+
+@for $i from 1 through $whiteKeyNumber {
+  #melodius #keyboard .white-key:nth-of-type(#{$i}) {
+    left: #{($i * $increment) - $increment};
+    background-color: pink;
+    top: 0;
+    
+
   }
+  
 }
 
 
 /* white keys c2 - g2 "left values at increments 6.66% for both black and white keys (black - starting at 4.5%)". */ 
 // #c2 {
-//   top: 0;
-//   left: 0
+//   // top: 0;
+//   // left: 0
 // }
 
 // #d2 {
-//   top: 0;
-//   left: 6.66%;
+//   // top: 0;
+//   // left: 6.66%;
 // }
 
 // #e2 {
-//   top: 0;
-//   left: 13.32%;
+//   // top: 0;
+//   // left: 13.32%;
 // }
 
 // #f2 {
-//   top: 0;
-//   left: 19.98%;
+//   // top: 0;
+//   // left: 19.98%;
 // }
 
 // #g2 {
-//   top: 0;
-//   left: 26.64%;
+//   // top: 0;
+//   // left: 26.64%;
 // }
 
 
-// /* white keys a3 - g3 */
+// // /* white keys a3 - g3 */
 // #a3 {
 //   top: 0;
 //   left: 33.30%;
@@ -173,7 +168,7 @@ html, body {
 //   left: 73.26%;
 // } 
 
-// /* white keys a4 - c4 */
+/* white keys a4 - c4 */
 // #a4 {
 //   top: 0;
 //   left: 79.92%;
@@ -189,50 +184,50 @@ html, body {
 //   left: 93.24%;
 // }
 
-// /* black keys cs2 - as4 */
+/* black keys cs2 - as4 */
 
-// #cs2 {
-//   top: 0;
-//   left: 4.54%;
-// }
+#cs2 {
+  top: 0;
+  left: 4.54%;
+}
 
-// #ds2 {
-//   top: 0;
-//   left: 11.2%;
-// }
+#ds2 {
+  top: 0;
+  left: 11.2%;
+}
 
-// #fs2 {
-//   top: 0;
-//   left: 24.52%;
-// }
-// #gs2 {
-//   top: 0;
-//   left: 31.18%;
-// }
-// #as3 {
-//   top: 0;
-//   left: 37.84%;
-// }
-// #cs3 {
-//   top: 0;
-//   left: 51.16%;
-// }
-// #ds3 {
-//   top: 0;
-//   left: 57.82%;
-// }
-// #fs3 {
-//   top: 0;
-//   left: 71.14%;
-// }
-// #gs3{
-//   top: 0;
-//   left: 77.80%;
-// }
-// #as4 {
-//   top: 0;
-//   left: 84.46%;
-// }
+#fs2 {
+  top: 0;
+  left: 24.52%;
+}
+#gs2 {
+  top: 0;
+  left: 31.18%;
+}
+#as3 {
+  top: 0;
+  left: 37.84%;
+}
+#cs3 {
+  top: 0;
+  left: 51.16%;
+}
+#ds3 {
+  top: 0;
+  left: 57.82%;
+}
+#fs3 {
+  top: 0;
+  left: 71.14%;
+}
+#gs3{
+  top: 0;
+  left: 77.80%;
+}
+#as4 {
+  top: 0;
+  left: 84.46%;
+ }
 /*
 POSSIBLE COLOR SCHEME
 
