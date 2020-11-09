@@ -55,162 +55,189 @@ html, body {
       height: 220px;
       justify-items: stretch;
       z-index: 0;
-      width: 6.66%;
-  }
-  
-  .white-key > span {
-    left: 35%;
-  }
-  
-  .black-key{
-    border: 1px solid #FFF;
-    background-color: #142648;
-    /* background-color: #000; */
-    height: 120px;
-    color: #FFF;
-    z-index: 1;
-    width: 4.2%;
-  }
-  
-  .black-key > span {
-    left: 20%;
-  }
-  
-  .key {
-    border-radius: 5px;
-    position: absolute;
-  }
-  
-  .key > span {
-    position: absolute;
-    bottom: 3%;
+      width: 6.66%; //1.06%
+    }
+    
+    .white-key > span {
+      left: 35%;
+    }
+    
+    .black-key{
+      border: 1px solid #FFF;
+      background-color: #142648;
+      /* background-color: #000; */
+      height: 120px;
+      color: #FFF;
+      z-index: 1;
+      width: 4.2%; //0.63%
+    }
+    
+    .black-key > span {
+      left: 20%;
+    }
+    
+    .key {
+      border-radius: 5px;
+      position: absolute;
+    }
+    
+    .key > span {
+      position: absolute;
+      bottom: 3%;
+    }
+}
+
+
+$whiteKeyNumber: 15; 
+$blackKeyNumber: 10;
+$wIncrement: percentage(1 / $whiteKeyNumber);
+$bIncrement: percentage(1 / $blackKeyNumber);
+
+@for $i from 1 through $whiteKeyNumber {
+  #melodius #keyboard .white-key:nth-of-type(#{$i}) {
+    left: #{($i * $wIncrement) - $wIncrement};
+    top: 0;
+
   }
 }
+
+@for $i from 1 through $blackKeyNumber {
+  #melodius #keyboard .black-key:nth-last-of-type(#{$i}) {
+    background-color: yellow;
+    left: 500px;
+    top: 0;
+    // @if #{$i} == 1 {
+    //   left: percentage(#{$i * 4.5});
+    // }
+  }
+}
+
+
 
 
 /* white keys c2 - g2 "left values at increments 6.66% for both black and white keys (black - starting at 4.5%)". */ 
-#c2 {
-  top: 0;
-  left: 0
-}
+// #c2 {
+//   // top: 0;
+//   // left: 0
+// }
 
-#d2 {
-  top: 0;
-  left: 6.66%;
-}
+// #d2 {
+//   // top: 0;
+//   // left: 6.66%;
+// }
 
-#e2 {
-  top: 0;
-  left: 13.32%;
-}
+// #e2 {
+//   // top: 0;
+//   // left: 13.32%;
+// }
 
-#f2 {
-  top: 0;
-  left: 19.98%;
-}
+// #f2 {
+//   // top: 0;
+//   // left: 19.98%;
+// }
 
-#g2 {
-  top: 0;
-  left: 26.64%;
-}
+// #g2 {
+//   // top: 0;
+//   // left: 26.64%;
+// }
 
 
-/* white keys a3 - g3 */
-#a3 {
-  top: 0;
-  left: 33.30%;
-}
+// // /* white keys a3 - g3 */
+// #a3 {
+//   top: 0;
+//   left: 33.30%;
+// }
 
-#b3 {
-  top: 0;
-  left: 39.96%;
-}
+// #b3 {
+//   top: 0;
+//   left: 39.96%;
+// }
 
-#c3 {
-  top: 0;
-  left: 46.62%;
-}
+// #c3 {
+//   top: 0;
+//   left: 46.62%;
+// }
 
-#d3 {
-  top: 0;
-  left: 53.28%;
-}
+// #d3 {
+//   top: 0;
+//   left: 53.28%;
+// }
 
-#e3 {
-  top: 0;
-  left: 59.94%;
-}
+// #e3 {
+//   top: 0;
+//   left: 59.94%;
+// }
 
-#f3 {
-  top: 0;
-  left: 66.60%;
-} 
+// #f3 {
+//   top: 0;
+//   left: 66.60%;
+// } 
 
-#g3 {
-  top: 0;
-  left: 73.26%;
-} 
+// #g3 {
+//   top: 0;
+//   left: 73.26%;
+// } 
 
 /* white keys a4 - c4 */
-#a4 {
-  top: 0;
-  left: 79.92%;
-}
+// #a4 {
+//   top: 0;
+//   left: 79.92%;
+// }
 
-#b4 {
-  top: 0;
-  left: 86.58%;
-}
+// #b4 {
+//   top: 0;
+//   left: 86.58%;
+// }
 
-#c4 {
-  top: 0;
-  left: 93.24%;
-}
+// #c4 {
+//   top: 0;
+//   left: 93.24%;
+// }
 
 /* black keys cs2 - as4 */
 
-#cs2 {
-  top: 0;
-  left: 4.54%;
-}
+// #cs2 {
+//   top: 0;
+//   left: 4.54%;
+// }
 
-#ds2 {
-  top: 0;
-  left: 11.2%;
-}
+// #ds2 {
+//   top: 0;
+//   left: 11.2%;
+// }
 
-#fs2 {
-  top: 0;
-  left: 24.52%;
-}
-#gs2 {
-  top: 0;
-  left: 31.18%;
-}
-#as3 {
-  top: 0;
-  left: 37.84%;
-}
-#cs3 {
-  top: 0;
-  left: 51.16%;
-}
-#ds3 {
-  top: 0;
-  left: 57.82%;
-}
-#fs3 {
-  top: 0;
-  left: 71.14%;
-}
-#gs3{
-  top: 0;
-  left: 77.80%;
-}
-#as4 {
-  top: 0;
-  left: 84.46%;
-}
+// #fs2 {
+//   top: 0;
+//   left: 24.52%;
+// }
+// #gs2 {
+//   top: 0;
+//   left: 31.18%;
+// }
+// #as3 {
+//   top: 0;
+//   left: 37.84%;
+// }
+// #cs3 {
+//   top: 0;
+//   left: 51.16%;
+// }
+// #ds3 {
+//   top: 0;
+//   left: 57.82%;
+// }
+// #fs3 {
+//   top: 0;
+//   left: 71.14%;
+// }
+// #gs3{
+//   top: 0;
+//   left: 77.80%;
+// }
+// #as4 {
+//   top: 0;
+//   left: 84.46%;
+//  }
 /*
 POSSIBLE COLOR SCHEME
 
