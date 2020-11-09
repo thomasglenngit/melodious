@@ -87,130 +87,152 @@ html, body {
   }
 }
 
+@function piano($note) {
+  $noteArray: []'a', 'as', 'b', 'c', 'cs', 'd', 'ds', 'e', 'f', 'fs', 'g', 'gs';
+  $keyBoardArray: [];
+  $octave: '1';
+  $left: 0;
+  $right: 0;
+
+  @for $i from 0 through 7 {
+    @each $note in $noteArray {
+      @if $note include 'cs' or 'fs' {
+          $left += 9.08;
+      } @else if $note includes 'ds' or 'gs' or 'as' {
+          $left += 4.54;
+      } @else if $note {
+          $left += 6.66;
+      }
+      console.log('#' + note + octave + '{\n top: 0 ;\n left:' + left.toFixed(2) + '%' + ';\n }\n')
+    }
+    octave++
+  }
+}
+
 
 /* white keys c2 - g2 "left values at increments 6.66% for both black and white keys (black - starting at 4.5%)". */ 
-#c2 {
-  top: 0;
-  left: 0
-}
+// #c2 {
+//   top: 0;
+//   left: 0
+// }
 
-#d2 {
-  top: 0;
-  left: 6.66%;
-}
+// #d2 {
+//   top: 0;
+//   left: 6.66%;
+// }
 
-#e2 {
-  top: 0;
-  left: 13.32%;
-}
+// #e2 {
+//   top: 0;
+//   left: 13.32%;
+// }
 
-#f2 {
-  top: 0;
-  left: 19.98%;
-}
+// #f2 {
+//   top: 0;
+//   left: 19.98%;
+// }
 
-#g2 {
-  top: 0;
-  left: 26.64%;
-}
+// #g2 {
+//   top: 0;
+//   left: 26.64%;
+// }
 
 
-/* white keys a3 - g3 */
-#a3 {
-  top: 0;
-  left: 33.30%;
-}
+// /* white keys a3 - g3 */
+// #a3 {
+//   top: 0;
+//   left: 33.30%;
+// }
 
-#b3 {
-  top: 0;
-  left: 39.96%;
-}
+// #b3 {
+//   top: 0;
+//   left: 39.96%;
+// }
 
-#c3 {
-  top: 0;
-  left: 46.62%;
-}
+// #c3 {
+//   top: 0;
+//   left: 46.62%;
+// }
 
-#d3 {
-  top: 0;
-  left: 53.28%;
-}
+// #d3 {
+//   top: 0;
+//   left: 53.28%;
+// }
 
-#e3 {
-  top: 0;
-  left: 59.94%;
-}
+// #e3 {
+//   top: 0;
+//   left: 59.94%;
+// }
 
-#f3 {
-  top: 0;
-  left: 66.60%;
-} 
+// #f3 {
+//   top: 0;
+//   left: 66.60%;
+// } 
 
-#g3 {
-  top: 0;
-  left: 73.26%;
-} 
+// #g3 {
+//   top: 0;
+//   left: 73.26%;
+// } 
 
-/* white keys a4 - c4 */
-#a4 {
-  top: 0;
-  left: 79.92%;
-}
+// /* white keys a4 - c4 */
+// #a4 {
+//   top: 0;
+//   left: 79.92%;
+// }
 
-#b4 {
-  top: 0;
-  left: 86.58%;
-}
+// #b4 {
+//   top: 0;
+//   left: 86.58%;
+// }
 
-#c4 {
-  top: 0;
-  left: 93.24%;
-}
+// #c4 {
+//   top: 0;
+//   left: 93.24%;
+// }
 
-/* black keys cs2 - as4 */
+// /* black keys cs2 - as4 */
 
-#cs2 {
-  top: 0;
-  left: 4.54%;
-}
+// #cs2 {
+//   top: 0;
+//   left: 4.54%;
+// }
 
-#ds2 {
-  top: 0;
-  left: 11.2%;
-}
+// #ds2 {
+//   top: 0;
+//   left: 11.2%;
+// }
 
-#fs2 {
-  top: 0;
-  left: 24.52%;
-}
-#gs2 {
-  top: 0;
-  left: 31.18%;
-}
-#as3 {
-  top: 0;
-  left: 37.84%;
-}
-#cs3 {
-  top: 0;
-  left: 51.16%;
-}
-#ds3 {
-  top: 0;
-  left: 57.82%;
-}
-#fs3 {
-  top: 0;
-  left: 71.14%;
-}
-#gs3{
-  top: 0;
-  left: 77.80%;
-}
-#as4 {
-  top: 0;
-  left: 84.46%;
-}
+// #fs2 {
+//   top: 0;
+//   left: 24.52%;
+// }
+// #gs2 {
+//   top: 0;
+//   left: 31.18%;
+// }
+// #as3 {
+//   top: 0;
+//   left: 37.84%;
+// }
+// #cs3 {
+//   top: 0;
+//   left: 51.16%;
+// }
+// #ds3 {
+//   top: 0;
+//   left: 57.82%;
+// }
+// #fs3 {
+//   top: 0;
+//   left: 71.14%;
+// }
+// #gs3{
+//   top: 0;
+//   left: 77.80%;
+// }
+// #as4 {
+//   top: 0;
+//   left: 84.46%;
+// }
 /*
 POSSIBLE COLOR SCHEME
 

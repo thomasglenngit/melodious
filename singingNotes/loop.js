@@ -1,44 +1,45 @@
-const noteArray = ['a', 'as', 'b', 'c', 'cs', 'd', 'ds', 'e', 'f', 'fs', 'g', 'gs']
-keyBoardArray = []
-octave = '1'
-left = 0
-right = 0
+function piano() {
+  const noteArray = ['a', 'as', 'b', 'c', 'cs', 'd', 'ds', 'e', 'f', 'fs', 'g', 'gs']
+  keyBoardArray = []
+  octave = '1'
+  left = 0
+  right = 0
 
-//for sharps
-//if(noteArray.note.includes('s')) {
-//   left+= '4.54%'
-// }
-
-//for naturals
-//if(note)) {
-//   left+= '6.66%'
-// }
-
-
-for (let i = 0; i <= 7; i++) {
-  noteArray.forEach(function (note) {
-    if(note.includes('cs' || 'fs')) {
-      left += 9.08
-    }
-    else if (note.includes('ds' || 'gs' || 'as')) {
-      left += 4.54
-    } 
-    else if (note) {
-      left+= 6.66
-    }
-    console.log('#' + note + octave + '{\n top: 0 ;\n left:' + left.toFixed(2) + '%' + ';\n }\n')
-  })
-  octave++
+  for (let i = 0; i <= 7; i++) {
+    noteArray.forEach(function (note) {
+      if (note.includes('cs' || 'fs')) {
+        left += 9.08
+      }
+      else if (note.includes('ds' || 'gs' || 'as')) {
+        left += 4.54
+      }
+      else if (note) {
+        left += 6.66
+      }
+      console.log('#' + note + octave + '{\n top: 0 ;\n left:' + left.toFixed(2) + '%' + ';\n }\n')
+    })
+    octave++
+  }
 }
 
 //in Sass is the following:
+// $noteArray: ['a', 'as', 'b', 'c', 'cs', 'd', 'ds', 'e', 'f', 'fs', 'g', 'gs']
+// $keyBoardArray: []
+// $octave = '1'
+// $left = @debug 0
+// $right = @debug 0
 
-// @for $i from 0 through 7 {
-//   @each $note in $noteArray {
-//     #{'#'$note} {
-//       top: ;
-//       left: ;
-
+// @function piano($note) {
+//   @for $i from 0 through 7 {
+//     @each $note in $noteArray {
+//       @if $note includes 'cs' || 'fs' {
+//           $left += 9.08
+// //       } @else if $note includes 'ds' || 'gs' || 'as' {
+//           $left += 4.54
+//       // } @else if $note {
+//           $left += 6.66
+//       }
+        // @return('#' + note + octave + '{\n top: 0 ;\n left:' + left.toFixed(2) + '%' + ';\n }\n')
 //     }
 //   }
 // }
