@@ -56,53 +56,63 @@ html, body {
       justify-items: stretch;
       z-index: 0;
       width: 6.66%; //1.06%
-  }
-  
-  .white-key > span {
-    left: 35%;
-  }
-  
-  .black-key{
-    border: 1px solid #FFF;
-    background-color: #142648;
-    /* background-color: #000; */
-    height: 120px;
-    color: #FFF;
-    z-index: 1;
-    width: 4.2%; //0.63%
-  }
-  
-  .black-key > span {
-    left: 20%;
-  }
-  
-  .key {
-    border-radius: 5px;
-    position: absolute;
-  }
-  
-  .key > span {
-    position: absolute;
-    bottom: 3%;
-  }
+    }
+    
+    .white-key > span {
+      left: 35%;
+    }
+    
+    .black-key{
+      border: 1px solid #FFF;
+      background-color: #142648;
+      /* background-color: #000; */
+      height: 120px;
+      color: #FFF;
+      z-index: 1;
+      width: 4.2%; //0.63%
+    }
+    
+    .black-key > span {
+      left: 20%;
+    }
+    
+    .key {
+      border-radius: 5px;
+      position: absolute;
+    }
+    
+    .key > span {
+      position: absolute;
+      bottom: 3%;
+    }
 }
 
 
 $whiteKeyNumber: 15; 
 $blackKeyNumber: 10;
-$increment: percentage(1 / $whiteKeyNumber);
-
+$wIncrement: percentage(1 / $whiteKeyNumber);
+$bIncrement: percentage(1 / $blackKeyNumber);
 
 @for $i from 1 through $whiteKeyNumber {
   #melodius #keyboard .white-key:nth-of-type(#{$i}) {
-    left: #{($i * $increment) - $increment};
-    background-color: pink;
+    left: #{($i * $wIncrement) - $wIncrement};
     top: 0;
-    
 
   }
-  
 }
+
+@for $i from 1 through $blackKeyNumber {
+  #melodius #keyboard .black-key:nth-last-of-type(#{$i}) {
+    background-color: yellow;
+    left: 500px;
+    top: 0;
+    // @if #{$i} == 1 {
+    //   left: percentage(#{$i * 4.5});
+    // }
+  }
+}
+
+
 
 
 /* white keys c2 - g2 "left values at increments 6.66% for both black and white keys (black - starting at 4.5%)". */ 
@@ -186,48 +196,48 @@ $increment: percentage(1 / $whiteKeyNumber);
 
 /* black keys cs2 - as4 */
 
-#cs2 {
-  top: 0;
-  left: 4.54%;
-}
+// #cs2 {
+//   top: 0;
+//   left: 4.54%;
+// }
 
-#ds2 {
-  top: 0;
-  left: 11.2%;
-}
+// #ds2 {
+//   top: 0;
+//   left: 11.2%;
+// }
 
-#fs2 {
-  top: 0;
-  left: 24.52%;
-}
-#gs2 {
-  top: 0;
-  left: 31.18%;
-}
-#as3 {
-  top: 0;
-  left: 37.84%;
-}
-#cs3 {
-  top: 0;
-  left: 51.16%;
-}
-#ds3 {
-  top: 0;
-  left: 57.82%;
-}
-#fs3 {
-  top: 0;
-  left: 71.14%;
-}
-#gs3{
-  top: 0;
-  left: 77.80%;
-}
-#as4 {
-  top: 0;
-  left: 84.46%;
- }
+// #fs2 {
+//   top: 0;
+//   left: 24.52%;
+// }
+// #gs2 {
+//   top: 0;
+//   left: 31.18%;
+// }
+// #as3 {
+//   top: 0;
+//   left: 37.84%;
+// }
+// #cs3 {
+//   top: 0;
+//   left: 51.16%;
+// }
+// #ds3 {
+//   top: 0;
+//   left: 57.82%;
+// }
+// #fs3 {
+//   top: 0;
+//   left: 71.14%;
+// }
+// #gs3{
+//   top: 0;
+//   left: 77.80%;
+// }
+// #as4 {
+//   top: 0;
+//   left: 84.46%;
+//  }
 /*
 POSSIBLE COLOR SCHEME
 
