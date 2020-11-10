@@ -32,10 +32,17 @@ html, body {
   }
   
   sketch-container.sketch-api {
-    width: 200px;
-    height: 200px;
-    background-color: red;
+    width: 80%;
+    height: 50%;
+    display: block;
+    margin: 5% auto;
+    border: 1px solid black;
+    // switch to position absolute?
   }
+
+  // .helper {
+  //   height: 250px;
+  // }
   
 }
 
@@ -43,7 +50,7 @@ html, body {
   border: none;
   padding: 10px;
   height: 200px;
-  /* outline: none; => if you want to turn off the outline to keys." */
+  /* outline: none; => if you want to turn off the outline to keys. Not recommended due to accessibility */
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -100,14 +107,13 @@ $bIncrement: percentage(1 / $blackKeyNumber);
 
 @for $i from 1 through $whiteKeyNumber {
   #melodius #keyboard .white-key:nth-of-type(#{$i}) {
-    left: #{($i * $wIncrement) - $wIncrement};
     top: 0;
+    left: #{($i * $wIncrement) - $wIncrement};
   }
 }
 
 @for $i from 1 through $blackKeyNumber {
   #melodius #keyboard .black-key:nth-of-type(#{$i}) {
-    background-color: purple;
     top: 0;
     left: #{$wIncrement + ($i * $wIncrement) - $wIncrement};
   }
