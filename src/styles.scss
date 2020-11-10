@@ -32,12 +32,16 @@ html, body {
   }
   
   sketch-container.sketch-api {
-    width: 80%;
+    // width: 80%;
     height: 50%;
-    display: block;
-    margin: 5% auto;
+    // display: block;
+    position: absolute;
+    top: 10px;
+    // left: 50px;
+    // right: 50px;
     border: 1px solid black;
-    // switch to position absolute?
+    overflow: hidden;
+    // width: 90vw;
   }
 
   // .helper {
