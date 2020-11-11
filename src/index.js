@@ -41,7 +41,9 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
     const piano = document.getElementById('keyboard')
     piano.addEventListener('click', async function(event){
+      console.log(event);
       const keyPressed = event.target.textContent; //gets actual text of clicked key
+      // keyPressed = A3
       await playSound(keyPressed)
 			await emitSketchLayers(keyPressed)
     })
@@ -53,7 +55,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
 				A: 'star',
 				B: 'square',
 				C: 'triangle',
-				D: 'polygon',
+				D: 'regularPolygon',
 				E: 'spiral',
 				F: 'heart',
 				G: 'burst'
@@ -69,13 +71,13 @@ window.addEventListener('load', (event) => {  // may want to remove...
       }
       
       const doc = sketch.doc
-			const note = key.charAt(0)
-			console.log(shapes[note])
+			const note = key.charAt(0) // 'A'
+			console.log(shapes[note]) // 'A'
 			await doc.addLayer({
-				type: shapes[note],
+				type: shapes[note],  // [shapes[A]]
 				fill: colors[note],
-				x: getRandomValue(0, doc.width - 50),
-				y: getRandomValue(0, doc.height - 50)
+				x: getRandomValue(0, doc.width - 100),
+				y: getRandomValue(0, doc.height - 100)
 			})
 
 			function getRandomValue(min, max) {
