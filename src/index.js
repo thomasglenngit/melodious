@@ -43,6 +43,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       const keyPressed = event.target.textContent; //gets actual text of clicked key
       playSound(keyPressed)
       console.log(keyPressed);
+      keyColor()
     })
     //dragging?
     
@@ -60,6 +61,22 @@ window.addEventListener('load', (event) => {  // may want to remove...
       // getSoundModule()
       // setSoundModule()
     }
+
+    // async function keyColor() {
+    //   let response = something
+    //   await something 
+    //   let color = 'background-color: green;'
+
+      
+    // }
+
+    // async function graphic() {
+    //   sk.doc.addEventListener {
+
+    //   }
+    // }
+    
+
     
     // MIDI.SoundModule gets the sound module or returns null and console warning if you don't have a sound module
     
