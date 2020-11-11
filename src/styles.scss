@@ -32,16 +32,22 @@ html, body {
   }
   
   sketch-container.sketch-api {
+    background: none;
     // width: 80%;
-    height: 50%;
+    height: 50vh;
+    max-height: 500px;
     // display: block;
-    position: absolute;
-    top: 10px;
+    //position: absolute;
+    //top: 10px;
     // left: 50px;
     // right: 50px;
-    border: 1px solid black;
+    //border: 1px solid black;
     overflow: hidden;
     // width: 90vw;
+
+    sketch-DocLayout {
+      background: none;
+    }
   }
 
   // .helper {
@@ -53,7 +59,7 @@ html, body {
 #keyboard {
   border: none;
   padding: 10px;
-  height: 200px;
+  height: 220px;
   /* outline: none; => if you want to turn off the outline to keys. Not recommended due to accessibility */
   position: absolute;
   bottom: 5px;
