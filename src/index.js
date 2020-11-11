@@ -48,7 +48,8 @@ window.addEventListener('load', (event) => {  // may want to remove...
     //dragging?
 
     async function emitSketchLayers(key) {
-    	const shapes = {
+
+      const shapes = {
 				A: 'star',
 				B: 'square',
 				C: 'triangle',
@@ -65,8 +66,9 @@ window.addEventListener('load', (event) => {  // may want to remove...
 				E: 'blue',
 				F: 'indigo',
 				G: 'violet'
-			}
-    	const doc = sketch.doc
+      }
+      
+      const doc = sketch.doc
 			const note = key.charAt(0)
 			console.log(shapes[note])
 			await doc.addLayer({
