@@ -98,6 +98,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       // setSoundModule()
     }
 
+
     // MIDI.SoundModule gets the sound module or returns null and console warning if you don't have a sound module
 
     // based off Basic.js
