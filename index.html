@@ -15,15 +15,19 @@
       <header>
         <h1>Melodius</h1>
       </header>
-      <section>
-        <p>Press a key to hear a note.</p>
+      <section class="instructions">
+        <div id="par1" class="toggleText1">
+          <p>Press a note, see a shape, hear a voice. When you're finished, save your artwork!</p> 
+        </div>
+        <div id="par2" class="toggleText2">
+          <p>Press the keys as they light up to complete the melody.</p> 
+        </div>
       </section>
-      
     </div>
     <sketch-container></sketch-container>
     <section id="radio-buttons">
       <div>
-        <input type="radio" id="free-play" name="setting" value="free-play">
+        <input type="radio" id="free-play" name="setting" value="free-play" checked>
         <label for="free-play">Free Play</label>
       </div>
       <div>
