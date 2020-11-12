@@ -60,18 +60,20 @@ window.addEventListener('load', (event) => {  // may want to remove...
   const piano = document.getElementById('keyboard')
   piano.addEventListener('click', async function (event) {
     const keyPressed = event.target.textContent; //gets actual text of clicked key
+    const keyId = event.target.id
+    console.log('keyId', keyId)
     await playSound(keyPressed)
     await emitSketchLayers(keyPressed)
-    await keyLight(keyPressed)
+    await keyLight(keyId)
   })
   //dragging?
 
-  async function keyLight(key) {
+  async function keyLight(keyId) {
     // when you press a key, it changes color.
-    const change = document.getElementById('g2')
+
+    const change = document.getElementById(keyId)
     change.classList.add('colorAdd')
     console.log(change)
-
   }
 
   async function emitSketchLayers(key) {
