@@ -6,122 +6,132 @@ import { load } from './load';
 // import './../index.html';
 
 window.addEventListener('load', (event) => {  // may want to remove... 
-    // const range = ['A#3', 'A#4', 'A3', 'A4', 'B3', 'B4', 'C#2', 'C#3', 'C2', 'C3', 'C4', 'D#2', 'D#3', 'D2', 'D3', 'E2', 'E3', 'F#2', 'F#3', 'F2', 'F3', 'G#2', 'G#3', 'G2', 'G3']
+  // const range = ['A#3', 'A#4', 'A3', 'A4', 'B3', 'B4', 'C#2', 'C#3', 'C2', 'C3', 'C4', 'D#2', 'D#3', 'D2', 'D3', 'E2', 'E3', 'F#2', 'F#3', 'F2', 'F3', 'G#2', 'G#3', 'G2', 'G3']
 
-    // global.MIDI = MIDI
-    startup()
+  // global.MIDI = MIDI
+  startup()
 
-    async function startup() {
-      await load(['sketch/min/sketch-api.min.css', 'sketch/min/app.min.css', 'sketch/babelHelpers.js', 'sketch/min/sketch-config.min.js', 'sketch/min/sketch-api.min.js'])
-      // 'sketch/min/sketch-api.min.css',
-      window.sketchOnReady = async function(){
-        const sketch = window.sketch;
-        const sketchConfig = window.sketchConfig;
-        const sketchContainer = document.querySelector('sketch-container');
-        sketch.$container = sketchContainer;
-        sketch.config(sketchConfig);
-        await sketch.createDocument({
-          element: sketchContainer
-        })
-				await sketch.setTool('select')
-      }
-
-      await MIDI.autoconnect()
-      MIDI.channels = 1
-      const {default: program} = await import('./../singingNotes/index.json')
-      // const res = await fetch('./singingNotes/index.json')
-      // const program = await res.json()
-      // program will be a json file with all sound files in it
-      await MIDI.programs.load({
-          programID: 0,
-          program
+  async function startup() {
+    await load(['sketch/min/sketch-api.min.css', 'sketch/min/app.min.css', 'sketch/babelHelpers.js', 'sketch/min/sketch-config.min.js', 'sketch/min/sketch-api.min.js'])
+    // 'sketch/min/sketch-api.min.css',
+    window.sketchOnReady = async function () {
+      const sketch = window.sketch;
+      const sketchConfig = window.sketchConfig;
+      const sketchContainer = document.querySelector('sketch-container');
+      sketch.$container = sketchContainer;
+      sketch.config(sketchConfig);
+      await sketch.createDocument({
+        element: sketchContainer
       })
-      await MIDI.jobs.wait()
+      await sketch.setTool('select')
     }
 
-    //checks which radio button user has selected
-    const radioBtns = document.querySelector('#radio-buttons')
-    const par1 = document.querySelector('#par1')
-    const par2 = document.querySelector('#par2')
-    radioBtns.addEventListener('click', function(event){
-      const checkedButton = event.target.value;
-      console.log(checkedButton)
-      if(checkedButton === 'free-play'){
-        console.log('user is in free play mode')
-        par1.classList.remove('toggleText2')
-        par2.classList.add('toggleText2')
-      } else {
-        console.log('user is in learn melody mode')
-        par2.classList.remove('toggleText2')
-        par1.classList.add('toggleText2')
-      }
+    await MIDI.autoconnect()
+    MIDI.channels = 1
+    const { default: program } = await import('./../singingNotes/index.json')
+    // const res = await fetch('./singingNotes/index.json')
+    // const program = await res.json()
+    // program will be a json file with all sound files in it
+    await MIDI.programs.load({
+      programID: 0,
+      program
     })
+    await MIDI.jobs.wait()
+  }
 
-    const piano = document.getElementById('keyboard')
-    piano.addEventListener('click', async function(event){
-      const keyPressed = event.target.textContent; //gets actual text of clicked key
-      await playSound(keyPressed)
-			await emitSketchLayers(keyPressed)
-    })
-    //dragging?
+  //checks which radio button user has selected
+  const radioBtns = document.querySelector('#radio-buttons')
+  const par1 = document.querySelector('#par1')
+  const par2 = document.querySelector('#par2')
+  radioBtns.addEventListener('click', function (event) {
+    const checkedButton = event.target.value;
+    console.log(checkedButton)
+    if (checkedButton === 'free-play') {
+      console.log('user is in free play mode')
+      par1.classList.remove('toggleText2')
+      par2.classList.add('toggleText2')
+    } else {
+      console.log('user is in learn melody mode')
+      par2.classList.remove('toggleText2')
+      par1.classList.add('toggleText2')
+    }
+  })
 
-    async function emitSketchLayers(key) {
+  const piano = document.getElementById('keyboard')
+  piano.addEventListener('click', async function (event) {
+    const keyPressed = event.target.textContent; //gets actual text of clicked key
+    await playSound(keyPressed)
+    await emitSketchLayers(keyPressed)
+    await keyLight(keyPressed)
+  })
+  //dragging?
 
-      const shapes = {
-				A: 'star',
-				B: 'square',
-				C: 'triangle',
-				D: 'regularPolygon',
-				E: 'spiral',
-				F: 'heart',
-				G: 'burst'
-			}
-			const colors = {
-				A: 'red',
-				B: 'orange',
-				C: 'yellow',
-				D: 'green',
-				E: 'blue',
-				F: 'indigo',
-				G: 'violet'
-      }
-      
-      const doc = sketch.doc
-			const note = key.charAt(0) // 'A'
-			console.log(shapes[note]) // 'A'
-			await doc.addLayer({
-				type: shapes[note],  // [shapes[A]]
-				fill: colors[note],
-				x: getRandomValue(0, doc.width - 100),
-				y: getRandomValue(0, doc.height - 100)
-			})
+  async function keyLight(key) {
+    // when you press a key, it changes color.
+    const change = document.getElementById('g2')
+    change.classList.add('colorAdd')
+    console.log(change)
 
-			function getRandomValue(min, max) {
-				min = Math.ceil(min)
-				max = Math.floor(max)
-				return Math.floor(Math.random() * (max - min) + min)
-			}
-		}
+  }
 
-    async function playSound(noteToPlay){
+  async function emitSketchLayers(key) {
 
-      let start = MIDI.currentTime
-      // MIDI.noteOn(0, note, 127, start) // velocity = volume, max is 128, start is used to schedule notes in the future
-      MIDI.noteOn(0, noteToPlay, 127, start);
-      MIDI.noteOff(0, noteToPlay, start + 1500) // Do we add a decay or delay here?
-
-      // Do we need any of the following functions?:
-      // getCurrentTime()
-      // async autoConnect()
-      // onProgress()
-      // getSoundModule()
-      // setSoundModule()
+    const shapes = {
+      A: 'star',
+      B: 'square',
+      C: 'triangle',
+      D: 'regularPolygon',
+      E: 'spiral',
+      F: 'heart',
+      G: 'burst'
+    }
+    const colors = {
+      A: 'red',
+      B: 'orange',
+      C: 'yellow',
+      D: 'green',
+      E: 'blue',
+      F: 'indigo',
+      G: 'violet'
     }
 
+    const doc = sketch.doc
+    const note = key.charAt(0) // 'A'
+    console.log(shapes[note]) // 'A'
+    await doc.addLayer({
+      type: shapes[note],  // [shapes[A]]
+      fill: colors[note],
+      x: getRandomValue(0, doc.width - 100),
+      y: getRandomValue(0, doc.height - 100),
+      rotation: 6
+    })
 
-    // MIDI.SoundModule gets the sound module or returns null and console warning if you don't have a sound module
+    function getRandomValue(min, max) {
+      min = Math.ceil(min)
+      max = Math.floor(max)
+      return Math.floor(Math.random() * (max - min) + min)
+    }
+  }
 
-    // based off Basic.js
+  async function playSound(noteToPlay) {
+
+    let start = MIDI.currentTime
+    // MIDI.noteOn(0, note, 127, start) // velocity = volume, max is 128, start is used to schedule notes in the future
+    MIDI.noteOn(0, noteToPlay, 127, start);
+    MIDI.noteOff(0, noteToPlay, start + 1500) // Do we add a decay or delay here?
+
+    // Do we need any of the following functions?:
+    // getCurrentTime()
+    // async autoConnect()
+    // onProgress()
+    // getSoundModule()
+    // setSoundModule()
+  }
+
+
+  // MIDI.SoundModule gets the sound module or returns null and console warning if you don't have a sound module
+
+  // based off Basic.js
 
 });
 
