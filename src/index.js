@@ -71,10 +71,11 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
   async function keyLight(keyId) {
     // when you press a key, it changes color.
-
     const change = document.getElementById(keyId)
     change.classList.add('colorAdd')
-    console.log(change)
+    setTimeout(function(){
+      change.classList.remove('colorAdd')
+    }, 1000)
   }
 
   async function emitSketchLayers(key) {
