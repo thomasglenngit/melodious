@@ -40,13 +40,19 @@ window.addEventListener('load', (event) => {  // may want to remove...
     }
 
     //checks which radio button user has selected
-    const radioBtns = document.getElementById('radio-buttons');
+    const radioBtns = document.getElementById('radio-buttons')
+    const par1 = document.querySelector('#par1')
+    const par2 = document.querySelector('#par2')
     radioBtns.addEventListener('click', function(event){
       const checkedButton = event.target.value;
       if(checkedButton === 'free-play'){
         console.log('user is in free play mode')
+        par2.classList.remove('redText')
+        par1.classList.add('redText')
       } else {
         console.log('user is in learn melody mode')
+        par1.classList.remove('redText')
+        par2.classList.add('redText')
       }
     })
 
