@@ -6,12 +6,13 @@ html, body {
 
 #melodius {
   background-image: url(./img/piano-background.jpg);
-  // background-image: url(img/pretty-colors.png);/* Need to pay for this image if we would like to use it*/
+  // background-image: url(img/pretty-colors.png); /* Need to pay for this image if we would like to use it*/
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 2;
   color: #FFF;
+  // color: #000;
 
   header {
     height: 10vh;

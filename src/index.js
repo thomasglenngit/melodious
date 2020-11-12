@@ -39,7 +39,8 @@ window.addEventListener('load', (event) => {  // may want to remove...
     await MIDI.jobs.wait()
   }
 
-  //checks which radio button user has selected
+  //checks which radio button user has selected this should effect what user sees and how they interact with the page. if user switches from free-play to learn melody mode, will they lose their progress? How can we prevent this? Do we need to save the user's progress in a database and then reload it?
+  // Save ? Download ? Warn user they will lose their progress on the canvas and give them the option to 'download my work' or 'continue and discard'
   const radioBtns = document.querySelector('#radio-buttons')
   const par1 = document.querySelector('#par1')
   const par2 = document.querySelector('#par2')
@@ -88,13 +89,13 @@ window.addEventListener('load', (event) => {  // may want to remove...
       G: 'burst'
     }
     const colors = {
-      A: 'red',
-      B: 'orange',
-      C: 'yellow',
-      D: 'green',
-      E: 'blue',
-      F: 'indigo',
-      G: 'violet'
+      A: '#4c5c76',
+      B: '#8e97a4',
+      C: '#ebbcc4',
+      D: '#e7dada',
+      E: '#dc9c55',
+      F: '#eccb9c',
+      G: '#bbcbd2'
     }
 
     const doc = sketch.doc
