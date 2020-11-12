@@ -39,6 +39,17 @@ window.addEventListener('load', (event) => {  // may want to remove...
       await MIDI.jobs.wait()
     }
 
+    //checks which radio button user has selected
+    const radioBtns = document.getElementById('radio-buttons');
+    radioBtns.addEventListener('click', function(event){
+      const checkedButton = event.target.value;
+      if(checkedButton === 'free-play'){
+        console.log('user is in free play mode')
+      } else {
+        console.log('user is in learn melody mode')
+      }
+    })
+
     const piano = document.getElementById('keyboard')
     piano.addEventListener('click', async function(event){
       const keyPressed = event.target.textContent; //gets actual text of clicked key
