@@ -41,9 +41,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
     const piano = document.getElementById('keyboard')
     piano.addEventListener('click', async function(event){
-      console.log(event);
       const keyPressed = event.target.textContent; //gets actual text of clicked key
-      // keyPressed = A3
       await playSound(keyPressed)
 			await emitSketchLayers(keyPressed)
     })
