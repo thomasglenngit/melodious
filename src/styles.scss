@@ -74,7 +74,7 @@ html, body {
   
     .white-key {
       border: 1px solid #000;
-      background-color: #FFF;
+      background-color: #FFFF;
       height: 30vh;
       justify-items: stretch;
       z-index: 0;
@@ -112,6 +112,10 @@ html, body {
     .key > span {
       position: absolute;
       bottom: 3%;
+    }
+
+    .colorAdd {
+      background-color: pink;
     }
 }
 
