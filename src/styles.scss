@@ -6,40 +6,37 @@ html, body {
 
 #melodius {
   background-image: url(./img/piano-background.jpg);
-  /* background-image: url(img/pretty-colors.png); Need to pay for this image if we would like to use it*/
+  // background-image: url(img/pretty-colors.png);/* Need to pay for this image if we would like to use it*/
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 2;
+  color: #FFF;
 
-  .top {
-    height: 20vh;
-  }
-  
-  h1 {
+  header {
+    height: 10vh;
     font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
-  }
-  
-  section {
-    font-size: 2rem;
+    font-size: 4rem;
+    text-align: center;
   }
 
-  .textBlack {
-    color: #000;
+  .instructions {
+    margin-top: 1rem;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
-  .redText {
+  .toggleText2 {
     display: none;
-  }
-  
-  h1, section {
-    color: #FFF;
   }
 
   sketch-container.sketch-api {
     background: #FFF;
-    height: 35vh;
+    height: 30vh;
     overflow: hidden;
 
     sketch-DocLayout {
