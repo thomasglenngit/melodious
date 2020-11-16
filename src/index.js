@@ -29,6 +29,25 @@ window.addEventListener('load', (event) => {  // may want to remove...
       await sketch.setTool('select')
     }
 
+    // UNDO, REDO, DOWNLOAD AND DELETE/CLEAR
+    const undo = document.querySelector('#undo');
+    undo.addEventListener('click', function(event) {
+      sketch.doc.undo();
+      console.log("undo clicked")
+    })
+
+    const redo = document.querySelector('#redo');
+    redo.addEventListener('click', function(event) {
+      sketch.doc.redo();
+      console.log("undo clicked")
+    })
+
+    const saveBtn = document.querySelector('#save')
+    saveBtn.addEventListener('click', function() {
+    sketch.download.svg()
+    })
+
+
     await MIDI.autoconnect()
     MIDI.channels = 1
     const { default: program } = await import('./../singingNotes/index.json')
@@ -42,9 +61,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
     await MIDI.jobs.wait()
   }
 
-  //checks which radio button user has selected this should effect what user sees and how they interact with the page. if user switches from free-play to learn melody mode, will they lose their progress? How can we prevent this? Do we need to save the user's progress in a database and then reload it?
-  // Save ? Download ? Warn user they will lose their progress on the canvas and give them the option to 'download my work' or 'continue and discard'
-
+  //checks which radio button user has selected this should effect what user sees and how they interact with the page.
   const radioBtns = document.querySelector('#radio-buttons')
   // let checkedButton = document.querySelector('input[name="setting"]:checked').value;
   const par1 = document.querySelector('#par1')
