@@ -5,6 +5,9 @@ import { MIDI } from './../MIDI.js';
 import { load } from './load';
 // import './../index.html';
 
+
+
+
 window.addEventListener('load', (event) => {  // may want to remove... 
   // const range = ['A#3', 'A#4', 'A3', 'A4', 'B3', 'B4', 'C#2', 'C#3', 'C2', 'C3', 'C4', 'D#2', 'D#3', 'D2', 'D3', 'E2', 'E3', 'F#2', 'F#3', 'F2', 'F3', 'G#2', 'G#3', 'G2', 'G3']
 
@@ -41,22 +44,23 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
   //checks which radio button user has selected this should effect what user sees and how they interact with the page. if user switches from free-play to learn melody mode, will they lose their progress? How can we prevent this? Do we need to save the user's progress in a database and then reload it?
   // Save ? Download ? Warn user they will lose their progress on the canvas and give them the option to 'download my work' or 'continue and discard'
+
   const radioBtns = document.querySelector('#radio-buttons')
+  // let checkedButton = document.querySelector('input[name="setting"]:checked').value;
   const par1 = document.querySelector('#par1')
   const par2 = document.querySelector('#par2')
   radioBtns.addEventListener('click', function (event) {
-    const checkedButton = event.target.value;
+    let checkedButton = event.target.value;
     console.log(checkedButton)
     if (checkedButton === 'free-play') {
-      console.log('user is in free play mode')
       par1.classList.remove('toggleText2')
       par2.classList.add('toggleText2')
     } else {
-      console.log('user is in learn melody mode')
       par2.classList.remove('toggleText2')
       par1.classList.add('toggleText2')
     }
   })
+
 
   const piano = document.getElementById('keyboard')
   piano.addEventListener('click', async function (event) {
