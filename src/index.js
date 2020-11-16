@@ -39,7 +39,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
     const redo = document.querySelector('#redo');
     redo.addEventListener('click', function() {
       sketch.doc.redo();
-      // sketch.doc.deselectAll()
+      // sketch.doc.deselectAll() - not working... why?
       console.log("undo clicked")
     })
 
@@ -140,17 +140,88 @@ window.addEventListener('load', (event) => {  // may want to remove...
     }
 
     const doc = sketch.doc
+    // const gesture = sketch.gesture;
+    // const pianoplay = document.querySelector('#keyboard')
+    
     const note = key.charAt(0) // 'A'
     console.log(shapes[note]) // 'A'
     await doc.addLayer({
+      scale: {
+        x: getRandomValue(0, 3),
+        y: getRandomValue(0, 3),
+      },
       type: shapes[note],  // [shapes[A]]
       fill: colors[note],
-      x: getRandomValue(0, doc.width - 100),
-      y: -50
       // x: getRandomValue(0, doc.width - 100),
-      // y: getRandomValue(0, doc.height - 100),
+      // y: /*-50*/ 0
+      x: getRandomValue(0, doc.width - 100),
+      y: getRandomValue(0, doc.height - 100),
       // rotation: 6
     })
+    // gesture.addEventListener(pianoplay, click, () => {
+    //   console.log('hmmm')
+    // })
+    sketch.doc.deselectAll()
+
+  
+    // let animated = sketch.doc.layers
+    // // let animatedCenter = animated.pointAt(0.5, 0.5)
+    // // const delta = {
+    // //   x: animated[i].x,
+    // //   y: 500
+    // // }
+    // for(let i = 0; i < animated.length; i++){
+    //   const delta = {
+    //     x: animated[i].x,
+    //     y: 500
+    //   }
+    //   let animatedCenter = animated[i].pointAt(0.5, 0.5)
+    //   // await puppet.delay(200)
+    //   await animated[i].transform([
+    //     animatedCenter,
+    //     animatedCenter.clone().add(delta)
+    //   ], {
+    //     ms: 500
+    //   })
+    // }
+
+
+
+    /* 
+    example of sketch animation for name challenge
+    await puppet.delay(delay)
+    await sketch.doc.addLayer({
+    name: 'tTop',
+    type: 'rectangle',
+    fill: blue,
+    roundness: 0.2,
+    width: 350,
+    height: 50,
+    x: 560,
+    y: 50,
+    idx: 2
+    })
+
+    // T - Horizontal Drag
+    await puppet.delay(delay)
+    let tTop = sketch.doc.layers.filter(layer => layer.name === 'tTop')
+    tTop = tTop[0]
+    let tTopCenter = tTop.pointAt(0.5, 0.5)
+    const delta = {
+        x: 0,
+        y: 150
+    }
+    await puppet.delay(200)
+    await puppet.drag([
+        tTopCenter,
+        tTopCenter.clone().add(delta)
+    ], {
+        ms: 500
+    })
+    */
+
+    // console.log(sketch.doc.layers)
+    // await puppet.drag()
 
     function getRandomValue(min, max) {
       min = Math.ceil(min)
