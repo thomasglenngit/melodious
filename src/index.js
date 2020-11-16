@@ -31,13 +31,13 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
     // UNDO, REDO, DOWNLOAD AND DELETE/CLEAR
     const undo = document.querySelector('#undo');
-    undo.addEventListener('click', function(event) {
+    undo.addEventListener('click', function() {
       sketch.doc.undo();
       console.log("undo clicked")
     })
 
     const redo = document.querySelector('#redo');
-    redo.addEventListener('click', function(event) {
+    redo.addEventListener('click', function() {
       sketch.doc.redo();
       console.log("undo clicked")
     })
@@ -45,6 +45,14 @@ window.addEventListener('load', (event) => {  // may want to remove...
     const saveBtn = document.querySelector('#save')
     saveBtn.addEventListener('click', function() {
     sketch.download.svg()
+    })
+
+    const deleteBtn = document.querySelector('#deleteBtn')
+    deleteBtn.addEventListener('click', function() {
+      let result = confirm('Are you sure you want to delete? You will lose your work.')
+      if(result) {
+        sketch.doc.reset()
+      } 
     })
 
 
