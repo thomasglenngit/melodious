@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <title>Melodius</title>
 </head>
 
@@ -24,7 +24,14 @@
         </div>
       </section>
     </div>
-    <sketch-container></sketch-container>
+    <sketch-container>
+      <div class="buttons">
+        <button id="undo"><i class="fas fa-undo-alt"></i></button>
+        <button id="redo"><i class="fas fa-redo-alt"></i></button>
+        <button id="save"><i class="fas fa-file-download"></i></button>
+        <button id="deleteBtn"><i class="fas fa-trash"></i></button>
+      </div>
+    </sketch-container>
     <section id="radio-buttons">
       <div>
         <input type="radio" id="free-play" name="setting" value="free-play" checked>

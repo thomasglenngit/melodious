@@ -5,6 +5,9 @@ import { MIDI } from './../MIDI.js';
 import { load } from './load';
 // import './../index.html';
 
+
+
+
 window.addEventListener('load', (event) => {  // may want to remove... 
   // const range = ['A#3', 'A#4', 'A3', 'A4', 'B3', 'B4', 'C#2', 'C#3', 'C2', 'C3', 'C4', 'D#2', 'D#3', 'D2', 'D3', 'E2', 'E3', 'F#2', 'F#3', 'F2', 'F3', 'G#2', 'G#3', 'G2', 'G3']
 
@@ -26,6 +29,33 @@ window.addEventListener('load', (event) => {  // may want to remove...
       await sketch.setTool('select')
     }
 
+    // UNDO, REDO, DOWNLOAD AND DELETE/CLEAR
+    const undo = document.querySelector('#undo');
+    undo.addEventListener('click', function() {
+      sketch.doc.undo();
+      console.log("undo clicked")
+    })
+
+    const redo = document.querySelector('#redo');
+    redo.addEventListener('click', function() {
+      sketch.doc.redo();
+      console.log("undo clicked")
+    })
+
+    const saveBtn = document.querySelector('#save')
+    saveBtn.addEventListener('click', function() {
+    sketch.download.svg()
+    })
+
+    const deleteBtn = document.querySelector('#deleteBtn')
+    deleteBtn.addEventListener('click', function() {
+      let result = confirm('Are you sure you want to delete? You will lose your work.')
+      if(result) {
+        sketch.doc.reset()
+      } 
+    })
+
+
     await MIDI.autoconnect()
     MIDI.channels = 1
     const { default: program } = await import('./../singingNotes/index.json')
@@ -39,24 +69,30 @@ window.addEventListener('load', (event) => {  // may want to remove...
     await MIDI.jobs.wait()
   }
 
-  //checks which radio button user has selected this should effect what user sees and how they interact with the page. if user switches from free-play to learn melody mode, will they lose their progress? How can we prevent this? Do we need to save the user's progress in a database and then reload it?
-  // Save ? Download ? Warn user they will lose their progress on the canvas and give them the option to 'download my work' or 'continue and discard'
+  //checks which radio button user has selected this should effect what user sees and how they interact with the page.
   const radioBtns = document.querySelector('#radio-buttons')
+  // let checkedButton = document.querySelector('input[name="setting"]:checked').value;
   const par1 = document.querySelector('#par1')
   const par2 = document.querySelector('#par2')
   radioBtns.addEventListener('click', function (event) {
-    const checkedButton = event.target.value;
+    let checkedButton = event.target.value;
     console.log(checkedButton)
     if (checkedButton === 'free-play') {
-      console.log('user is in free play mode')
       par1.classList.remove('toggleText2')
       par2.classList.add('toggleText2')
     } else {
-      console.log('user is in learn melody mode')
-      par2.classList.remove('toggleText2')
-      par1.classList.add('toggleText2')
+      let result = confirm('Changing modes will delete your artwork. Click okay to switch modes or cancel to stay in free-play and save your work before switching.')
+      if(result) {
+        sketch.doc.reset()
+        par2.classList.remove('toggleText2')
+        par1.classList.add('toggleText2')
+      } else {
+        document.getElementById('free-play').checked = true;
+        document.getElementById('learn-melody').checked = false;
+      }
     }
   })
+
 
   const piano = document.getElementById('keyboard')
   piano.addEventListener('click', async function (event) {
