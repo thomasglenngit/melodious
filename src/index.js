@@ -39,6 +39,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
     const redo = document.querySelector('#redo');
     redo.addEventListener('click', function() {
       sketch.doc.redo();
+      // sketch.doc.deselectAll()
       console.log("undo clicked")
     })
 
@@ -71,7 +72,6 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
   //checks which radio button user has selected this should effect what user sees and how they interact with the page.
   const radioBtns = document.querySelector('#radio-buttons')
-  // let checkedButton = document.querySelector('input[name="setting"]:checked').value;
   const par1 = document.querySelector('#par1')
   const par2 = document.querySelector('#par2')
   radioBtns.addEventListener('click', function (event) {
@@ -96,12 +96,16 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
   const piano = document.getElementById('keyboard')
   piano.addEventListener('click', async function (event) {
+    let checkedButton = document.querySelector('input[name="setting"]:checked').value;
     const keyPressed = event.target.textContent; //gets actual text of clicked key
     const keyId = event.target.id
     console.log('keyId', keyId)
-    await playSound(keyPressed)
-    await emitSketchLayers(keyPressed)
-    await keyLight(keyId)
+    if(checkedButton === 'free-play'){
+      await playSound(keyPressed)
+      await emitSketchLayers(keyPressed)
+    } else {
+      await keyLight(keyId)
+    }
   })
   //dragging?
 
@@ -142,8 +146,10 @@ window.addEventListener('load', (event) => {  // may want to remove...
       type: shapes[note],  // [shapes[A]]
       fill: colors[note],
       x: getRandomValue(0, doc.width - 100),
-      y: getRandomValue(0, doc.height - 100),
-      rotation: 6
+      y: -50
+      // x: getRandomValue(0, doc.width - 100),
+      // y: getRandomValue(0, doc.height - 100),
+      // rotation: 6
     })
 
     function getRandomValue(min, max) {
