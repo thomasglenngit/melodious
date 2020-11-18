@@ -5,9 +5,6 @@ import { MIDI } from './../MIDI.js';
 import { load } from './load';
 // import './../index.html';
 
-
-
-
 window.addEventListener('load', (event) => {  // may want to remove... 
   // const range = ['A#3', 'A#4', 'A3', 'A4', 'B3', 'B4', 'C#2', 'C#3', 'C2', 'C3', 'C4', 'D#2', 'D#3', 'D2', 'D3', 'E2', 'E3', 'F#2', 'F#3', 'F2', 'F3', 'G#2', 'G#3', 'G2', 'G3']
 
@@ -56,7 +53,6 @@ window.addEventListener('load', (event) => {  // may want to remove...
       } 
     })
 
-
     await MIDI.autoconnect()
     MIDI.channels = 1
     const { default: program } = await import('./../singingNotes/index.json')
@@ -103,14 +99,15 @@ window.addEventListener('load', (event) => {  // may want to remove...
     if(checkedButton === 'free-play'){
       await playSound(keyPressed)
       await emitSketchLayers(keyPressed)
+      await moveShape()
     } else {
       await keyLight(keyId)
     }
   })
   //dragging?
 
+  // when you press a key, it changes color.
   async function keyLight(keyId) {
-    // when you press a key, it changes color.
     const change = document.getElementById(keyId)
     change.classList.add('colorAdd')
     setTimeout(function(){
@@ -122,8 +119,8 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
     const shapes = {
       A: 'star',
-      B: 'square',
-      C: 'triangle',
+      B: 'triangle',
+      C: 'ring',
       D: 'regularPolygon',
       E: 'spiral',
       F: 'heart',
@@ -140,88 +137,19 @@ window.addEventListener('load', (event) => {  // may want to remove...
     }
 
     const doc = sketch.doc
-    // const gesture = sketch.gesture;
-    // const pianoplay = document.querySelector('#keyboard')
-    
     const note = key.charAt(0) // 'A'
     console.log(shapes[note]) // 'A'
     await doc.addLayer({
       scale: {
-        x: getRandomValue(0, 3),
-        y: getRandomValue(0, 3),
+        x: 0.3,
+        y: 0.4
       },
       type: shapes[note],  // [shapes[A]]
       fill: colors[note],
-      // x: getRandomValue(0, doc.width - 100),
-      // y: /*-50*/ 0
       x: getRandomValue(0, doc.width - 100),
-      y: getRandomValue(0, doc.height - 100),
-      // rotation: 6
+      y: -50
     })
-    // gesture.addEventListener(pianoplay, click, () => {
-    //   console.log('hmmm')
-    // })
     sketch.doc.deselectAll()
-
-  
-    // let animated = sketch.doc.layers
-    // // let animatedCenter = animated.pointAt(0.5, 0.5)
-    // // const delta = {
-    // //   x: animated[i].x,
-    // //   y: 500
-    // // }
-    // for(let i = 0; i < animated.length; i++){
-    //   const delta = {
-    //     x: animated[i].x,
-    //     y: 500
-    //   }
-    //   let animatedCenter = animated[i].pointAt(0.5, 0.5)
-    //   // await puppet.delay(200)
-    //   await animated[i].transform([
-    //     animatedCenter,
-    //     animatedCenter.clone().add(delta)
-    //   ], {
-    //     ms: 500
-    //   })
-    // }
-
-
-
-    /* 
-    example of sketch animation for name challenge
-    await puppet.delay(delay)
-    await sketch.doc.addLayer({
-    name: 'tTop',
-    type: 'rectangle',
-    fill: blue,
-    roundness: 0.2,
-    width: 350,
-    height: 50,
-    x: 560,
-    y: 50,
-    idx: 2
-    })
-
-    // T - Horizontal Drag
-    await puppet.delay(delay)
-    let tTop = sketch.doc.layers.filter(layer => layer.name === 'tTop')
-    tTop = tTop[0]
-    let tTopCenter = tTop.pointAt(0.5, 0.5)
-    const delta = {
-        x: 0,
-        y: 150
-    }
-    await puppet.delay(200)
-    await puppet.drag([
-        tTopCenter,
-        tTopCenter.clone().add(delta)
-    ], {
-        ms: 500
-    })
-    */
-
-    // console.log(sketch.doc.layers)
-    // await puppet.drag()
 
     function getRandomValue(min, max) {
       min = Math.ceil(min)
@@ -230,8 +158,16 @@ window.addEventListener('load', (event) => {  // may want to remove...
     }
   }
 
-  async function playSound(noteToPlay) {
+  // moves the shapes on the canvas
+  async function moveShape() {
+    let layers = sketch.layers
+    layers.forEach(function(layer){
+      layer.y += 20
+      sketch.doc.render()
+    })
+  }
 
+  async function playSound(noteToPlay) {
     let start = MIDI.currentTime
     // MIDI.noteOn(0, note, 127, start) // velocity = volume, max is 128, start is used to schedule notes in the future
     MIDI.noteOn(0, noteToPlay, 127, start);
@@ -244,12 +180,5 @@ window.addEventListener('load', (event) => {  // may want to remove...
     // getSoundModule()
     // setSoundModule()
   }
-
-
-  // MIDI.SoundModule gets the sound module or returns null and console warning if you don't have a sound module
-
-  // based off Basic.js
-
 });
-
 
