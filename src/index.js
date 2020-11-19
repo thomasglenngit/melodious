@@ -3,9 +3,11 @@ import './styles.scss'
 import { MIDI } from './../MIDI.js'
 import { load } from './load'
 import { moveShapes } from './move-shapes'
-import { keyLightup } from './key-lightup'
+// import { keyLightup } from './key-lightup'
 import { emitSketchLayers } from './emit-sketch-layers'
 import { playSound } from './play-sound'
+import './learn-melody'
+import { learnMelody } from './learn-melody'
 // import { toggleMode } from './toggle-mode'
 // import image-name from './path.png' / 
 
@@ -66,7 +68,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
   const radioBtns = document.querySelector('#radio-buttons')
   const par1 = document.querySelector('#par1')
   const par2 = document.querySelector('#par2')
-  radioBtns.addEventListener('click', function (event) {
+  radioBtns.addEventListener('click', async function (event) {
     let checkedButton = event.target.value;
     console.log(checkedButton)
 
@@ -79,9 +81,10 @@ window.addEventListener('load', (event) => {  // may want to remove...
         sketch.doc.reset()
         par2.classList.remove('toggleText2')
         par1.classList.add('toggleText2')
+        learnMelody()
       } else {
         document.getElementById('free-play').checked = true;
-        document.getElementById('learn-melody').checked = false;
+        document.getElementById('learn-melody').checked = false; 
       }
     }
   })
@@ -91,15 +94,15 @@ window.addEventListener('load', (event) => {  // may want to remove...
   const piano = document.getElementById('keyboard')
   piano.addEventListener('click', async function (event) {
     let checkedButton = document.querySelector('input[name="setting"]:checked').value;
-    const keyPressed = event.target.textContent; //gets actual text of clicked key
+    const keyPressed = event.target.textContent //gets actual text of clicked key
     const keyId = event.target.id
-    console.log('keyId', keyId)
+    // console.log('keyId', keyId)
     if(checkedButton === 'free-play'){
       await playSound(keyPressed)
       await emitSketchLayers(keyPressed)
       await moveShapes()
     } else {
-      await keyLightup(keyId)
+      // await keyLightup(keyId)
     }
   })
   //dragging?
