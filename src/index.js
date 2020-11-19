@@ -7,6 +7,7 @@ import { load } from './load';
 import { moveShapes } from './move-shapes';
 import { keyLightup } from './key-lightup';
 import { emitSketchLayers } from './emit-sketch-layers';
+// import { toggleMode } from './toggle-mode';
 
 
 window.addEventListener('load', (event) => {  // may want to remove... 
@@ -90,6 +91,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       }
     }
   })
+  // radioBtns.addEventListener('click', toggleMode(event, par1, par2));
 
   const piano = document.getElementById('keyboard')
   piano.addEventListener('click', async function (event) {
