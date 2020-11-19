@@ -2,7 +2,8 @@ import './index';
 import { playSound } from './play-sound';
 
 //Procedure
-//Melody: 'Take Me Out to the Ball Game' in F major.
+//Melody: 'Somewhere Over the Rainbow' in F major.
+// 'f2', 'f3', 'e3', 'c3', 'd3', 'e3', 'f3'
 //Define for each note: 1. Target note(currentKey); 2. light() 3. Sound(); 4. Shape() 5. Next note(nextKey); 6. Next light()
 //Play - to begin the melody (one event listener)
 //Correct Note Click - event listener for each correct note in the right order.
@@ -14,7 +15,7 @@ import { playSound } from './play-sound';
 
 //Melody starts with "learn-melody" radio button
 export async function learnMelody() {
-  const melody = ['f2', 'g3']
+  const melody = ['f2', 'f3', 'e3', 'c3', 'd3', 'e3', 'f3']
   const piano = document.getElementById('keyboard')
   
   let note = 0
@@ -29,16 +30,30 @@ export async function learnMelody() {
     if(keyId === melody[note]) {
       change.classList.remove('colorAdd')
       await playSound(keyPressed)
+      //await syllable()
       note++
+      //syllable++
       change = document.getElementById(melody[note])
-      change.classList.add('colorAdd')
+      if(change === null) {
+        console.log('Yay, you made it!')
 
+      } else {
+        change.classList.add('colorAdd')
+      }
+      
     } else {
       const warning = document.querySelector('#hidden-warning')
       warning.classList.remove('continue')
+      setTimeout(function(){
+      warning.classList.add('continue')
+      }, 6000)
       console.log('Something went wrong')
     }
   })
+
+  // if(note === melody.length - 1) {
+  //   console.log('Yay, you made it!')
+  // }
 }
   
 
