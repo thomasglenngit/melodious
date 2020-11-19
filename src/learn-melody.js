@@ -1,5 +1,6 @@
-import './index';
-import { playSound } from './play-sound';
+import './index'
+import { playSound } from './play-sound'
+import { showSyllable } from './show-syllable'
 
 //Procedure
 //Melody: 'Somewhere Over the Rainbow' in F major.
@@ -16,6 +17,7 @@ import { playSound } from './play-sound';
 //Melody starts with "learn-melody" radio button
 export async function learnMelody() {
   const melody = ['f2', 'f3', 'e3', 'c3', 'd3', 'e3', 'f3']
+  const syllables = ['some', 'where', 'o', 'ver', 'the', 'rain', 'bow']
   const piano = document.getElementById('keyboard')
   
   let note = 0
@@ -30,9 +32,8 @@ export async function learnMelody() {
     if(keyId === melody[note]) {
       change.classList.remove('colorAdd')
       await playSound(keyPressed)
-      //await syllable()
+      await showSyllable(syllables[note])
       note++
-      //syllable++
       change = document.getElementById(melody[note])
       if(change === null) {
         console.log('Yay, you made it!')
