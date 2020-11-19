@@ -46,6 +46,7 @@ To allow users to free play on the keyboard to hear notes and create animations 
 | What do I expect |  What is happening  | Error Message |  Resolved | How was the issue resolved  |
 | ------- | ----- | ------ | ------- | ------- |
 |  note  |  note  |  message  |  Y, N or in progress  |  note  |
+| Expect `redo` UI to re-place items in their previous location | Contextual Menu re-appears, but shape layer is not visible | no message | in progress | Issue may be related to Sketch.io API | 
 <br/>
 <br/>
 
