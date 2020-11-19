@@ -1,4 +1,6 @@
 import './index';
+import { playSound } from './play-sound';
+
 //Procedure
 //Melody: 'Take Me Out to the Ball Game' in F major.
 //Define for each note: 1. Target note(currentKey); 2. light() 3. Sound(); 4. Shape() 5. Next note(nextKey); 6. Next light()
@@ -11,7 +13,7 @@ import './index';
 //Step 4. Repeat steps 3 and 4 until the end of the array
 
 //Melody starts with "learn-melody" radio button
-export function learnMelody() {
+export async function learnMelody() {
   const melody = ['f2', 'g3']
   const piano = document.getElementById('keyboard')
   
@@ -21,15 +23,19 @@ export function learnMelody() {
   change.classList.add('colorAdd')
   console.log(change)
 
-  piano.addEventListener('click', function(event) {
+  piano.addEventListener('click', async function(event) {
     const keyId = event.target.id
-
+    const keyPressed = event.target.textContent
     if(keyId === melody[note]) {
       change.classList.remove('colorAdd')
+      await playSound(keyPressed)
       note++
       change = document.getElementById(melody[note])
       change.classList.add('colorAdd')
+
     } else {
+      const warning = document.querySelector('#hidden-warning')
+      warning.classList.remove('continue')
       console.log('Something went wrong')
     }
   })
