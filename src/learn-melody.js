@@ -16,7 +16,9 @@ export async function learnMelody() {
   piano.addEventListener('click', async function(event) {
     const keyId = event.target.id
     const keyPressed = event.target.textContent
+    const warning = document.querySelector('#hidden-warning')
     if(keyId === melody[note]) {
+      warning.classList.add('continue-message')
       change.classList.remove('colorAdd')
       await playSound(keyPressed)
       await showSyllable(syllables[note])
@@ -24,17 +26,16 @@ export async function learnMelody() {
       change = document.getElementById(melody[note])
       if(change === null) {
         console.log('Yay, you made it!')
-
       } else {
         change.classList.add('colorAdd')
       }
       
     } else {
-      const warning = document.querySelector('#hidden-warning')
-      warning.classList.remove('continue')
-      setTimeout(function(){
-      warning.classList.add('continue')
-      }, 6000)
+      // const warning = document.querySelector('#hidden-warning')
+      warning.classList.remove('continue-message')
+      // setTimeout(function(){
+      // warning.classList.add('continue')
+      // }, 6000)
       console.log('Something went wrong')
     }
   })
