@@ -3,11 +3,11 @@ export async function showSyllable(syllable){
 
   await doc.addLayer({
     type: 'fancyText',  // [shapes[A]]
-    fontFamily: 'Open Sans',
-    fill: 'charteuse',
+    fontFamily: 'freckle-face',
+    fill: '#000',
     textAlign: 'center',
     fontSize: 50,
-    content: 'What is up?',
+    content: `${syllable}`,
     x: 0,
     y: 0
 
