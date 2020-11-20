@@ -7,9 +7,9 @@ export async function showSyllable(syllable){
   // sketch.setTool('text').then(tool => {
   //   await doc.addLayer(tool)
   // })
-  await doc.addLayer({
+  // await doc.addLayer({
 
-  })
+  // })
   // sketch.setTool('text')
   // await doc.setTool('')
   console.log(syllable);
