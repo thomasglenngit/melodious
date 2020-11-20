@@ -72,6 +72,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
     let checkedButton = event.target.value;
     console.log(checkedButton)
     if (checkedButton === 'free-play') {
+      location.reload()
       par1.classList.remove('toggleText2')
       par2.classList.add('toggleText2')
     } else {
