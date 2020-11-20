@@ -12,8 +12,7 @@ export async function showSyllable(syllable){
     y: 0
 
   })
-  // sketch.setTool('text')
-  // await doc.setTool('')
+
   console.log(syllable);
   
     

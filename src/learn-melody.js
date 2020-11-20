@@ -4,7 +4,7 @@ import { showSyllable } from './show-syllable'
 
 export async function learnMelody() {
   const melody = ['f2', 'f3', 'e3', 'c3', 'd3', 'e3', 'f3']
-  const syllables = ['some', 'where', 'o', 'ver', 'the', 'rain', 'bow']
+  const syllables = ['Some', 'where', 'o', 'ver', 'the', 'rain', 'bow', 'way', 'up', ]
   const piano = document.getElementById('keyboard')
   
   let note = 0
