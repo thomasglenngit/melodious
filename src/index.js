@@ -70,7 +70,6 @@ window.addEventListener('load', (event) => {  // may want to remove...
   const par2 = document.querySelector('#par2')
   radioBtns.addEventListener('click', async function (event) {
     let checkedButton = event.target.value;
-    console.log(checkedButton)
 
     if (checkedButton === 'free-play') {
       par1.classList.remove('toggleText2')
@@ -88,22 +87,17 @@ window.addEventListener('load', (event) => {  // may want to remove...
       }
     }
   })
-  // radioBtns.addEventListener('click', toggleMode(event, par1, par2));
 
   // user interaction with keyboard based on mode
   const piano = document.getElementById('keyboard')
   piano.addEventListener('click', async function (event) {
     let checkedButton = document.querySelector('input[name="setting"]:checked').value;
     const keyPressed = event.target.textContent //gets actual text of clicked key
-    const keyId = event.target.id
-    // console.log('keyId', keyId)
     if(checkedButton === 'free-play'){
       await playSound(keyPressed)
       await emitSketchLayers(keyPressed)
       await moveShapes()
-    } else {
-      // await keyLightup(keyId)
-    }
+    } 
   })
   //dragging?
 });
