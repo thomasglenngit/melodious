@@ -4,6 +4,10 @@ html, body {
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 #melodius {
   background-image: url(./img/piano-background.jpg);
   // background-image: url(img/pretty-colors.png); /* Need to pay for this image if we would like to use it*/

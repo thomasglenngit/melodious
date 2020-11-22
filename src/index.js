@@ -3,17 +3,21 @@ import './styles.scss'
 import { MIDI } from './../MIDI.js'
 import { load } from './load'
 import { moveShapes } from './move-shapes'
-// import { keyLightup } from './key-lightup'
 import { emitSketchLayers } from './emit-sketch-layers'
 import { playSound } from './play-sound'
 import './learn-melody'
 import { learnMelody } from './learn-melody'
-// import { toggleMode } from './toggle-mode'
-// import image-name from './path.png' / 
+
+
+const undo = document.querySelector('#undo')
+const redo = document.querySelector('#redo');
+const saveBtn = document.querySelector('#save')
+const deleteBtn = document.querySelector('#deleteBtn')
 
 
 window.addEventListener('load', (event) => {  // may want to remove... 
   // global.MIDI = MIDI
+
   startup()
 
   async function startup() {
@@ -31,22 +35,17 @@ window.addEventListener('load', (event) => {  // may want to remove...
     }
 
     // UNDO, REDO, DOWNLOAD AND DELETE/CLEAR
-    const undo = document.querySelector('#undo')
+    
+    const canvasUi = [undo, redo, saveBtn, deleteBtn]
     undo.addEventListener('click', function() {
       sketch.doc.undo()
     })
-
-    const redo = document.querySelector('#redo');
     redo.addEventListener('click', function() {
       sketch.doc.redo();
     })
-
-    const saveBtn = document.querySelector('#save')
     saveBtn.addEventListener('click', function() {
     sketch.download.svg()
     })
-
-    const deleteBtn = document.querySelector('#deleteBtn')
     deleteBtn.addEventListener('click', function() {
       let result = confirm('Are you sure you want to delete? You will lose your work.')
       if(result) {
@@ -66,20 +65,20 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
   //checks which radio button is selected 
   const radioBtns = document.querySelector('#radio-buttons')
-  const par1 = document.querySelector('#par1')
-  const par2 = document.querySelector('#par2')
-  radioBtns.addEventListener('click', async function (event) {
+  const par1 = document.querySelector('#par1').classList
+  const par2 = document.querySelector('#par2').classList
+  radioBtns.addEventListener('click', function (event) {
     let checkedButton = event.target.value;
-
     if (checkedButton === 'free-play') {
-      par1.classList.remove('toggleText2')
-      par2.classList.add('toggleText2')
+      canvasB
+      par1.remove('toggleText2')
+      par2.add('toggleText2')
     } else {
       let result = confirm('Changing modes will delete your artwork. Click okay to switch modes or cancel to stay in free-play and save your work before switching.')
       if(result) {
         sketch.doc.reset()
-        par2.classList.remove('toggleText2')
-        par1.classList.add('toggleText2')
+        par2.remove('toggleText2')
+        par1.add('toggleText2')
         learnMelody()
       } else {
         document.getElementById('free-play').checked = true;
