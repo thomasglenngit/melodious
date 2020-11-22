@@ -8,11 +8,18 @@ import { playSound } from './play-sound'
 import './learn-melody'
 import { learnMelody } from './learn-melody'
 
-
+// canvas UI
 const undo = document.querySelector('#undo')
 const redo = document.querySelector('#redo');
 const saveBtn = document.querySelector('#save')
 const deleteBtn = document.querySelector('#deleteBtn')
+const canvasButtons = [undo, redo, saveBtn, deleteBtn]
+// radio button UI
+const radioBtns = document.querySelector('#radio-buttons')
+const par1 = document.querySelector('#par1').classList
+const par2 = document.querySelector('#par2').classList
+// keyboard
+const piano = document.getElementById('keyboard')
 
 
 window.addEventListener('load', (event) => {  // may want to remove... 
@@ -34,9 +41,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       await sketch.setTool('select')
     }
 
-    // UNDO, REDO, DOWNLOAD AND DELETE/CLEAR
-    
-    const canvasUi = [undo, redo, saveBtn, deleteBtn]
+    // canvas UI events
     undo.addEventListener('click', function() {
       sketch.doc.undo()
     })
@@ -63,14 +68,13 @@ window.addEventListener('load', (event) => {  // may want to remove...
     await MIDI.jobs.wait()
   }
 
-  //checks which radio button is selected 
-  const radioBtns = document.querySelector('#radio-buttons')
-  const par1 = document.querySelector('#par1').classList
-  const par2 = document.querySelector('#par2').classList
+  // radio button UI events 
   radioBtns.addEventListener('click', function (event) {
     let checkedButton = event.target.value;
     if (checkedButton === 'free-play') {
-      canvasB
+      canvasButtons.forEach(function(btn) {
+        btn.classList.remove('hidden')
+      })
       par1.remove('toggleText2')
       par2.add('toggleText2')
     } else {
@@ -79,6 +83,9 @@ window.addEventListener('load', (event) => {  // may want to remove...
         sketch.doc.reset()
         par2.remove('toggleText2')
         par1.add('toggleText2')
+        canvasButtons.forEach(function(btn) {
+          btn.classList.add('hidden')
+        })
         learnMelody()
       } else {
         document.getElementById('free-play').checked = true;
@@ -88,7 +95,6 @@ window.addEventListener('load', (event) => {  // may want to remove...
   })
 
   // user interaction with keyboard based on mode
-  const piano = document.getElementById('keyboard')
   piano.addEventListener('click', async function (event) {
     let checkedButton = document.querySelector('input[name="setting"]:checked').value;
     const keyPressed = event.target.textContent //gets actual text of clicked key
@@ -98,6 +104,6 @@ window.addEventListener('load', (event) => {  // may want to remove...
       await moveShapes()
     } 
   })
-  //dragging?
+  // add ability for user to drag cursor up and down keyboard?
 });
 
