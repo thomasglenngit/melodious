@@ -44,6 +44,7 @@ export async function learnMelody() {
         playAgain.addEventListener('click', function() {
           modal.classList.add('modal-hidden')
           modalOverlay.classList.add('modal-hidden')
+          sketch.doc.reset()
           learnMelody()
         })
       
@@ -61,6 +62,4 @@ export async function learnMelody() {
       console.log('Something went wrong')
     }
   })
-
-
 }
