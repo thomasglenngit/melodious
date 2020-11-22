@@ -13,3 +13,5 @@ export async function showSyllable(syllable){
     opacity: 1
   })
 }
+
+

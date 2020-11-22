@@ -6,10 +6,11 @@ import { moveShapes } from './move-shapes'
 import { emitSketchLayers } from './emit-sketch-layers'
 import { playSound } from './play-sound'
 import { confirmBeginMelody } from './learn-melody'
+import { fadeSyllables } from './fade-syllables'
 
 // canvas UI
 const undoBtn = document.querySelector('#undo')
-const redoBtn = document.querySelector('#redo');
+const redoBtn = document.querySelector('#redo')
 const saveBtn = document.querySelector('#save')
 const deleteBtn = document.querySelector('#delete')
 const startSongBtn = document.querySelector('#startSong')
@@ -130,15 +131,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
     } 
 
     if(checkedButton === 'learn-melody') {
-      // let syllableLayers = sketch.layers
-
-      // syllableLayers.forEach(function(layer) {
-      //   setTimeout(function(){
-      //     layer.opacity -= 0.5
-      //   }, 1000)
-      // })
-
-      // DO SOMETHING HERE TO AFFECT OPACITY OF SYLLABLES
+      await fadeSyllables()
     }
   })
   // add ability for user to drag cursor up and down keyboard?
