@@ -1,4 +1,3 @@
-import './index'
 import { playSound } from './play-sound'
 import { showSyllable } from './show-syllable'
 
