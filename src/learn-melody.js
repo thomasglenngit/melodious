@@ -17,19 +17,13 @@ export async function learnMelody() {
   let currentNote = 0
   let noteToPlay = document.getElementById(melody[currentNote])
 
-
-
-  
   noteToPlay.classList.add('colorAdd')
 
   piano.addEventListener('click', async function(event) {
 
-
     const keyId = event.target.id
     const keyPressed = event.target.textContent
     const warning = document.querySelector('#hidden-warning')
-
-    
 
     if(keyId === melody[currentNote]) {
       warning.classList.add('continue-message')
@@ -39,7 +33,6 @@ export async function learnMelody() {
       currentNote++
       noteToPlay = document.getElementById(melody[currentNote])
       if(noteToPlay === null) {
-        console.log('Yay, you made it!')
         
         const modal = document.querySelector('#song-completed-modal')
         await modal.classList.remove('modal-hidden')
@@ -59,7 +52,6 @@ export async function learnMelody() {
           modalOverlay.classList.add('modal-hidden')
           location.reload()
         })
-
 
       } else {
         noteToPlay.classList.add('colorAdd')
