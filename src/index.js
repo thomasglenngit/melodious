@@ -88,7 +88,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       par2.add('toggleText2')
       // hide learn melody canvas UI
       startSongBtn.classList.add('hidden')
-      restartSongBtn.classList.add('hidden')
+      // restartSongBtn.classList.add('hidden')
     } else {
       // LEARN MELODY MODE
       if(sketch.layers.length === 0) {
@@ -101,7 +101,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
         })
         // show learn melody canvas UI
         startSongBtn.classList.remove('hidden')
-        restartSongBtn.classList.remove('hidden')
+        // restartSongBtn.classList.remove('hidden')
         confirmBeginMelody()
         // learnMelody()
       } else {
