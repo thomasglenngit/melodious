@@ -2,6 +2,13 @@ import './index'
 import { playSound } from './play-sound'
 import { showSyllable } from './show-syllable'
 
+export async function confirmBeginMelody(){
+  const startSongBtn = document.querySelector('#startSong')
+  startSongBtn.addEventListener('click', function() {
+    learnMelody()
+  })
+}
+
 export async function learnMelody() {
 
   const melody = ['f2', 'f3', 'e3', 'c3', 'd3', 'e3', 'f3']

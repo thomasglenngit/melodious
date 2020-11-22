@@ -7,6 +7,7 @@ import { emitSketchLayers } from './emit-sketch-layers'
 import { playSound } from './play-sound'
 import './learn-melody'
 import { learnMelody } from './learn-melody'
+import { confirmBeginMelody } from './learn-melody'
 
 // canvas UI
 const undoBtn = document.querySelector('#undo')
@@ -76,6 +77,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
   // radio button UI events 
   radioBtns.addEventListener('click', function (event) {
     let checkedButton = event.target.value;
+    // FREE PLAY MODE
     if (checkedButton === 'free-play') {
       location.reload()
       // show free play canvas UI
@@ -88,6 +90,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       startSongBtn.classList.add('hidden')
       restartSongBtn.classList.add('hidden')
     } else {
+      // LEARN MELODY MODE
       if(sketch.layers.length === 0) {
         sketch.doc.reset()
         par2.remove('toggleText2')
@@ -99,7 +102,8 @@ window.addEventListener('load', (event) => {  // may want to remove...
         // show learn melody canvas UI
         startSongBtn.classList.remove('hidden')
         restartSongBtn.classList.remove('hidden')
-        learnMelody()
+        confirmBeginMelody()
+        // learnMelody()
       } else {
         let result = confirm('Changing modes will delete your artwork. Click okay to switch modes or cancel to stay in free-play and save your work before switching.')
         if(result) {
