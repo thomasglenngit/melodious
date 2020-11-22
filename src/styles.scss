@@ -139,12 +139,17 @@ html, body {
     .key {
       border-radius: 5px;
       position: absolute;
+
+      & > span {
+        position: absolute;
+        bottom: 3%;
+      }
     }
     
-    .key > span {
-      position: absolute;
-      bottom: 3%;
-    }
+    // .key > span {
+    //   position: absolute;
+    //   bottom: 3%;
+    // }
 
     .colorAdd {
       background-color: pink;
@@ -168,6 +173,48 @@ $bIncrement: percentage(1 / $blackKeyNumber);
     top: 0;
     left: #{$wIncrement + ($i * $wIncrement) - $wIncrement};
   }
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  max-width: 100%;
+  height: 200px;
+  max-height: 100%;
+  background: #333;
+  text-align: center;
+  padding: 30px;
+  z-index: 100;
+  border-radius: 5px;
+  // &-body {
+  //   color: #000;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   padding: 20px 50px 20px 20px;
+  //   overflow: auto;
+  // }
+
+  &-hidden {
+    display: none;
+  }
+}
+
+// not working
+.modal-overlay {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  opacity: 1;
 }
 
 /*
