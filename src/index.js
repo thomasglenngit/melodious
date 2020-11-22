@@ -9,11 +9,13 @@ import './learn-melody'
 import { learnMelody } from './learn-melody'
 
 // canvas UI
-const undo = document.querySelector('#undo')
-const redo = document.querySelector('#redo');
+const undoBtn = document.querySelector('#undo')
+const redoBtn = document.querySelector('#redo');
 const saveBtn = document.querySelector('#save')
-const deleteBtn = document.querySelector('#deleteBtn')
-const canvasButtons = [undo, redo, saveBtn, deleteBtn]
+const deleteBtn = document.querySelector('#delete')
+const startSongBtn = document.querySelector('#startSong')
+const restartSongBtn = document.querySelector('#restartSong')
+const canvasButtons = [undoBtn, redoBtn, saveBtn, deleteBtn]
 // radio button UI
 const radioBtns = document.querySelector('#radio-buttons')
 const par1 = document.querySelector('#par1').classList
@@ -42,15 +44,18 @@ window.addEventListener('load', (event) => {  // may want to remove...
     }
 
     // canvas UI events
-    undo.addEventListener('click', function() {
-      sketch.doc.undo()
+    undoBtn.addEventListener('click', function() {
+      sketch.doc.undoBtn()
     })
-    redo.addEventListener('click', function() {
-      sketch.doc.redo();
+
+    redoBtn.addEventListener('click', function() {
+      sketch.doc.redoBtn();
     })
+
     saveBtn.addEventListener('click', function() {
     sketch.download.svg()
     })
+
     deleteBtn.addEventListener('click', function() {
       let result = confirm('Are you sure you want to delete? You will lose your work.')
       if(result) {
@@ -73,19 +78,27 @@ window.addEventListener('load', (event) => {  // may want to remove...
     let checkedButton = event.target.value;
     if (checkedButton === 'free-play') {
       location.reload()
+      // show free play canvas UI
       canvasButtons.forEach(function(btn) {
         btn.classList.remove('hidden')
       })
       par1.remove('toggleText2')
       par2.add('toggleText2')
+      // hide learn melody canvas UI
+      startSongBtn.classList.add('hidden')
+      restartSongBtn.classList.add('hidden')
     } else {
       if(sketch.layers.length === 0) {
         sketch.doc.reset()
         par2.remove('toggleText2')
         par1.add('toggleText2')
+        // hide free play canvas UI
         canvasButtons.forEach(function(btn) {
           btn.classList.add('hidden')
         })
+        // show learn melody canvas UI
+        startSongBtn.classList.remove('hidden')
+        restartSongBtn.classList.remove('hidden')
         learnMelody()
       } else {
         let result = confirm('Changing modes will delete your artwork. Click okay to switch modes or cancel to stay in free-play and save your work before switching.')
