@@ -13,6 +13,7 @@ export async function learnMelody() {
   const melody = ['f2', 'f3', 'e3', 'c3', 'd3', 'e3', 'f3']
   const syllables = ['Some', 'where', 'o', 'ver', 'the', 'rain', 'bow', 'way', 'up', ]
   const piano = document.getElementById('keyboard')
+  // change name of currentNote to index since it is accessing the index of multiple arrays?
   let currentNote = 0
   let noteToPlay = document.getElementById(melody[currentNote])
   
