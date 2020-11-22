@@ -5,8 +5,6 @@ import { load } from './load'
 import { moveShapes } from './move-shapes'
 import { emitSketchLayers } from './emit-sketch-layers'
 import { playSound } from './play-sound'
-import './learn-melody'
-import { learnMelody } from './learn-melody'
 import { confirmBeginMelody } from './learn-melody'
 
 // canvas UI
@@ -15,12 +13,11 @@ const redoBtn = document.querySelector('#redo');
 const saveBtn = document.querySelector('#save')
 const deleteBtn = document.querySelector('#delete')
 const startSongBtn = document.querySelector('#startSong')
-const restartSongBtn = document.querySelector('#restartSong')
 const canvasButtons = [undoBtn, redoBtn, saveBtn, deleteBtn]
 // radio button UI
 const radioBtns = document.querySelector('#radio-buttons')
-const par1 = document.querySelector('#par1').classList
-const par2 = document.querySelector('#par2').classList
+const par1 = document.querySelector('#par1')
+const par2 = document.querySelector('#par2')
 // keyboard
 const piano = document.getElementById('keyboard')
 
@@ -75,48 +72,45 @@ window.addEventListener('load', (event) => {  // may want to remove...
     await MIDI.jobs.wait()
   }
 
-  // radio button UI events 
+  // Handles mode selection
   radioBtns.addEventListener('click', function (event) {
     let checkedButton = event.target.value;
+
     // FREE PLAY MODE
     if (checkedButton === 'free-play') {
       location.reload()
-      // show free play canvas UI
+      par1.classList.remove('toggleText2')
+      par2.classList.add('toggleText2')
+      startSongBtn.classList.add('hidden')
       canvasButtons.forEach(function(btn) {
         btn.classList.remove('hidden')
       })
-      par1.remove('toggleText2')
-      par2.add('toggleText2')
-      // hide learn melody canvas UI
-      startSongBtn.classList.add('hidden')
-      // restartSongBtn.classList.add('hidden')
-    } else {
-      // LEARN MELODY MODE
+    } 
+
+    // LEARN MELODY MODE
+    if(checkedButton === 'learn-melody') {
       if(sketch.layers.length === 0) {
         sketch.doc.reset()
-        par2.remove('toggleText2')
-        par1.add('toggleText2')
-        // hide free play canvas UI
+        confirmBeginMelody()
+        par2.classList.remove('toggleText2')
+        par1.classList.add('toggleText2')
+        startSongBtn.classList.remove('hidden')
         canvasButtons.forEach(function(btn) {
           btn.classList.add('hidden')
         })
-        // show learn melody canvas UI
-        startSongBtn.classList.remove('hidden')
-        // restartSongBtn.classList.remove('hidden')
-        confirmBeginMelody()
-        // learnMelody()
-      } else {
+      } 
+      
+      if(sketch.layers.length > 0) {
         let result = confirm('Changing modes will delete your artwork. Click okay to switch modes or cancel to stay in free-play and save your work before switching.')
         if(result) {
+          sketch.doc.reset()
+          par2.classList.remove('toggleText2')
+          par1.classList.add('toggleText2')
+          startSongBtn.classList.remove('hidden')
           canvasButtons.forEach(function(btn) {
             btn.classList.add('hidden')
           })
-          startSongBtn.classList.remove('hidden')
-          sketch.doc.reset()
-          par2.remove('toggleText2')
-          par1.add('toggleText2')
           confirmBeginMelody()
-          // learnMelody()
         } else {
           document.getElementById('free-play').checked = true;
           document.getElementById('learn-melody').checked = false; 
