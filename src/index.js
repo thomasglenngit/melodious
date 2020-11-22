@@ -46,11 +46,12 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
     // canvas UI events
     undoBtn.addEventListener('click', function() {
-      sketch.doc.undoBtn()
+      sketch.doc.undo()
     })
 
+    // remove redo button since it does not work with moved layers ?
     redoBtn.addEventListener('click', function() {
-      sketch.doc.redoBtn();
+      sketch.doc.redo();
     })
 
     saveBtn.addEventListener('click', function() {
@@ -107,10 +108,15 @@ window.addEventListener('load', (event) => {  // may want to remove...
       } else {
         let result = confirm('Changing modes will delete your artwork. Click okay to switch modes or cancel to stay in free-play and save your work before switching.')
         if(result) {
+          canvasButtons.forEach(function(btn) {
+            btn.classList.add('hidden')
+          })
+          startSongBtn.classList.remove('hidden')
           sketch.doc.reset()
           par2.remove('toggleText2')
           par1.add('toggleText2')
-          learnMelody()
+          confirmBeginMelody()
+          // learnMelody()
         } else {
           document.getElementById('free-play').checked = true;
           document.getElementById('learn-melody').checked = false; 
