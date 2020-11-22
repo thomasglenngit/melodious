@@ -6,14 +6,10 @@ export async function showSyllable(syllable){
     fontFamily: 'freckle-face',
     fill: '#000',
     textAlign: 'center',
-    fontSize: 50,
+    fontSize: 100,
     content: `${syllable}`,
-    x: 0,
-    y: 0
-
+    x: 200,
+    y: 30,
+    opacity: 1
   })
-
-  console.log(syllable);
-  
-    
 }

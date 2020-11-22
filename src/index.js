@@ -128,6 +128,18 @@ window.addEventListener('load', (event) => {  // may want to remove...
       await emitSketchLayers(keyPressed)
       await moveShapes()
     } 
+
+    if(checkedButton === 'learn-melody') {
+      // let syllableLayers = sketch.layers
+
+      // syllableLayers.forEach(function(layer) {
+      //   setTimeout(function(){
+      //     layer.opacity -= 0.5
+      //   }, 1000)
+      // })
+
+      // DO SOMETHING HERE TO AFFECT OPACITY OF SYLLABLES
+    }
   })
   // add ability for user to drag cursor up and down keyboard?
 });
