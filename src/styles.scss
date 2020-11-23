@@ -4,6 +4,10 @@ html, body {
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 #melodius {
   background-image: url(./img/piano-background.jpg);
   // background-image: url(img/pretty-colors.png); /* Need to pay for this image if we would like to use it*/
@@ -29,6 +33,7 @@ html, body {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    text-align: center;
   }
 
   .toggleText2 {
@@ -36,16 +41,15 @@ html, body {
   }
 
   #hidden-warning {
-    color: whitesmoke;
+    color: #000;
     border: 3px solid white;
-    background-color: #333;
+    background-color: #f6bd60;
     padding: 6px;
-
+    text-align: center;
   }
 
-  .continue {
+  .continue-message {
     display: none;
-
   }
 
   sketch-container.sketch-api {
@@ -64,6 +68,10 @@ html, body {
       bottom: 1rem;
       right: 2rem;
       z-index: 3;
+
+      #startSong {
+        padding: 0.2rem;
+      }
     }
   }
 
@@ -131,12 +139,17 @@ html, body {
     .key {
       border-radius: 5px;
       position: absolute;
+
+      & > span {
+        position: absolute;
+        bottom: 3%;
+      }
     }
     
-    .key > span {
-      position: absolute;
-      bottom: 3%;
-    }
+    // .key > span {
+    //   position: absolute;
+    //   bottom: 3%;
+    // }
 
     .colorAdd {
       background-color: pink;
@@ -160,6 +173,42 @@ $bIncrement: percentage(1 / $blackKeyNumber);
     top: 0;
     left: #{$wIncrement + ($i * $wIncrement) - $wIncrement};
   }
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  max-width: 100%;
+  height: 220px;
+  max-height: 100%;
+  background: #000;
+  text-align: center;
+  padding: 30px;
+  z-index: 100;
+  border-radius: 5px;
+  padding: 50px auto;
+
+  &-hidden {
+    display: none;
+  }
+
+  &-buttons {
+    margin-top: 40px;
+  }
+}
+
+.modal-overlay {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  opacity: 0.5;
 }
 
 /*

@@ -20,8 +20,8 @@
           <p>Press a note, see a shape, hear a voice. When you're finished, save your artwork!</p> 
         </div>
         <div id="par2" class="toggleText2">
-          <p>Press the keys as they light up to complete the melody.</p> 
-          
+          <p>Click <strong>play</strong> to begin learning a melody.</p>
+          <p>Press the keys as they light up to play the song.</p> 
         </div>
       </section>
     </div>
@@ -30,7 +30,9 @@
         <button id="undo"><i class="fas fa-undo-alt"></i></button>
         <button id="redo"><i class="fas fa-redo-alt"></i></button>
         <button id="save"><i class="fas fa-file-download"></i></button>
-        <button id="deleteBtn"><i class="fas fa-trash"></i></button>
+        <button id="delete"><i class="fas fa-trash"></i></button>
+        <button id="startSong" class="hidden"><i class="far fa-play-circle fa-2x"></i></button>
+        <!-- <button id="restartSong" class="hidden"><i class="fas fa-sync-alt"></i></button> -->
       </div>
     </sketch-container>
     <section id="radio-buttons">
@@ -43,7 +45,7 @@
         <label for="learn-melody">Learn a Melody</label>
       </div>
     </section>
-    <p id="hidden-warning" class="continue">Please press the highlighted piano key to continue with the current melody.</p>
+    <p id="hidden-warning" class="continue-message">Please press the highlighted piano key to continue with the current melody.</p>
     <div id="keyboard">
       <div id="whiteKeys">
         <button id="c2" class="key white-key"><span>C2</span></button>
@@ -79,6 +81,19 @@
       </div>
 
     </div>
+  </div>
+  <div id="song-completed-modal" class="modal modal-hidden">
+    <div class="modal-body">
+      <h1>Congratulations!   <i class="fas fa-birthday-cake"></i></h1>
+      <p>You finished the song! Press play to play again or choose to return to free-play mode.</p>
+    </div>
+    <div class="modal-buttons">
+      <button id="play-again">Play Again</button>
+      <button id="switch-modes">Return to Free Play</button>
+    </div>
+  </div>
+  <div class="modal-overlay modal-hidden">
+      <!-- empty overlay div -->
   </div>
 </body>
 
