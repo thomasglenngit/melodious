@@ -47,7 +47,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       sketch.doc.undo()
     })
 
-    // remove redo button since it does not work with moved layers ?
+    // remove redo button since it does not work with moved layers ? check in with Ryan
     redoBtn.addEventListener('click', function() {
       sketch.doc.redo();
     })
@@ -130,9 +130,9 @@ window.addEventListener('load', (event) => {  // may want to remove...
       await moveShapes()
     } 
 
-    if(checkedButton === 'learn-melody') {
-      await fadeSyllables()
-    }
+    // if(checkedButton === 'learn-melody') {
+    //   await fadeSyllables()
+    // }
   })
   // add ability for user to drag cursor up and down keyboard?
 });

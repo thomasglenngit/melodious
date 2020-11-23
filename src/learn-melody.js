@@ -1,7 +1,7 @@
 import { playSound } from './play-sound'
 import { showSyllable } from './show-syllable'
 
-export async function confirmBeginMelody(){
+export async function confirmBeginMelody(){ // do we even need a function here ?
   const startSongBtn = document.querySelector('#startSong')
   startSongBtn.addEventListener('click', function() {
     learnMelody()
@@ -15,14 +15,14 @@ export async function learnMelody() {
   const piano = document.getElementById('keyboard')
   // change name of currentNote to index since it is accessing the index of multiple arrays?
   let currentNote = 0
-  let noteToPlay = document.getElementById(melody[currentNote])
+  let noteToPlay = document.getElementById(melody[currentNote]) // lowercase ex: f2
 
   noteToPlay.classList.add('colorAdd')
 
   piano.addEventListener('click', async function(event) {
 
     const keyId = event.target.id
-    const keyPressed = event.target.textContent
+    const keyPressed = event.target.textContent // uppercase ex: F2
     const warning = document.querySelector('#hidden-warning')
 
     if(keyId === melody[currentNote]) {
@@ -35,7 +35,7 @@ export async function learnMelody() {
       if(noteToPlay === null) {
         
         const modal = document.querySelector('#song-completed-modal')
-        await modal.classList.remove('modal-hidden')
+        await modal.classList.remove('modal-hidden') // don't need the awaits ?
         const modalOverlay = document.querySelector('.modal-overlay')
         await modalOverlay.classList.remove('modal-hidden')
         const playAgain = document.querySelector('#play-again')
