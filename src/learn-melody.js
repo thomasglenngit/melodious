@@ -35,9 +35,9 @@ export async function learnMelody() {
       if(noteToPlay === null) {
         
         const modal = document.querySelector('#song-completed-modal')
-        await modal.classList.remove('modal-hidden') // don't need the awaits ?
+        modal.classList.remove('modal-hidden') // don't need the awaits ?
         const modalOverlay = document.querySelector('.modal-overlay')
-        await modalOverlay.classList.remove('modal-hidden')
+        modalOverlay.classList.remove('modal-hidden')
         const playAgain = document.querySelector('#play-again')
         const switchModes = document.querySelector('#switch-modes')
       
