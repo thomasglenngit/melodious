@@ -11,7 +11,9 @@
     "build": "webpack",
     "serveBuild": "http-server dist",
     "buildAndTest": "run-s build serveBuild",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "deploy": "./deploy.sh",
+    "buildDeploy": "npm run build && npm run deploy"
   },
   "keywords": [
     "keyboard",
