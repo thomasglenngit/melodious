@@ -13,16 +13,8 @@ export async function showSyllable(syllable){
     textAlign: 'center',
     fontSize: 50,
     content: `${syllable}`,
-    x: 900,
+    x: doc.width - 50,
     y: 30,
     opacity: 1,
   })
 }
-
-//requestAnimationFrame(callback, update render)
-//setInterval()
-//
-
-
-
-// once user switches to learn melody mode, activate the animator and then when the melody is completed the animation will complete
