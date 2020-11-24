@@ -6,9 +6,9 @@
 /_______  /__|_ \\___  >__|  \___  >___|  /__|\____/
         \/     \/    \/          \/     \/
 
- Sketch API v2020.0.617
+ Sketch API v2020.0.652
  Copyright (c) Sketch.IO, Inc. <https://sketch.io>
- Commit: 4574c4558eadcb48109e40c934c631ea67cf21a2
+ Commit: e7f64380e1db0f4ba148c728005fd9331a33310e
 
  SketchAPI uses certain modules under license from third parties.
  Sketch.IO offers the SketchAPI, pursuant to its own license,
