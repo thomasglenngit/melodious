@@ -95,6 +95,10 @@ window.addEventListener('load', (event) => {  // may want to remove...
 
     // LEARN MELODY MODE
     if(checkedButton === 'learn-melody') {
+
+      requestAnimationFrame(animate)
+
+
       if(sketch.layers.length === 0) {
         sketch.doc.reset()
         confirmBeginMelody()

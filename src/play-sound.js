@@ -15,6 +15,6 @@ export async function playSound(noteToPlay) {
 
   // use sliders to adjust volume ?
 
-  MIDI.noteOn(0, noteToPlay, volume, start);
+  MIDI.noteOn(0, noteToPlay, 127, start);
   MIDI.noteOff(0, noteToPlay, start + offset + beatCount / 120) 
 }
