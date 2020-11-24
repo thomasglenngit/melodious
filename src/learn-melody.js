@@ -1,6 +1,7 @@
 import { playSound } from './play-sound'
 import { showSyllable } from './show-syllable'
 
+
 export async function confirmBeginMelody() { // do we even need a function here ?
   const startSongBtn = document.querySelector('#startSong')
   startSongBtn.addEventListener('click', function () {
@@ -80,7 +81,7 @@ export async function learnMelody() {
   piano.addEventListener('click', async function (event) {
 
     const keyId = event.target.id
-    const keyPressed = event.target.textContent // uppercase ex: F2
+    // const keyPressed = event.target.textContent // uppercase ex: F2
     const warning = document.querySelector('#hidden-warning')
 
     if (keyId !== entry().keyToHighlight) {
@@ -90,7 +91,7 @@ export async function learnMelody() {
     }
 
     warning.classList.add('continue-message')
-    await playSound(keyPressed)
+    await playSound(entry().noteID)
     await showSyllable(entry().syllable)
     index++
     if (index < melody.length) {
