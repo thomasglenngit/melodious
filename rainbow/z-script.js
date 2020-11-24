@@ -14,7 +14,10 @@ fs.readdir('.', async function (err, files) {
   const soundFont = {}
   for (const sound of mp3s) {
     let response = await getBase64(sound)
-    let noteName = basename(sound, '.mp3')
+    let noteName = parseInt(basename(sound, '.mp3'))
+    if (isNaN(noteName)) {
+      continue
+    } //reduces rainbow array to numeric noteID's
     soundFont[noteName] = {
 
         noteData:
