@@ -1,8 +1,6 @@
 import { MIDI } from './../MIDI.js'
 
 export async function playSound(noteToPlay) {
-  let volume = document.querySelector('#myRange').value
-  console.log('slider value ', volume)
   let start = MIDI.currentTime
   // MIDI.noteOn(0, note, 127, start) // velocity = volume, max is 128, start is used to schedule notes in the future
   let beatCount = 1/4
@@ -13,6 +11,6 @@ export async function playSound(noteToPlay) {
 
   // use sliders to adjust volume ?
 
-  MIDI.noteOn(0, noteToPlay, volume, start);
+  MIDI.noteOn(0, noteToPlay, 127, start);
   MIDI.noteOff(0, noteToPlay, start + offset + beatCount / 120) 
 }
