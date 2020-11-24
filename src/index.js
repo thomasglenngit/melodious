@@ -24,7 +24,7 @@ const piano = document.getElementById('keyboard')
 
 
 window.addEventListener('load', (event) => {  // may want to remove... 
-  // global.MIDI = MIDI
+  global.MIDI = MIDI
 
   startup()
 
@@ -66,10 +66,15 @@ window.addEventListener('load', (event) => {  // may want to remove...
     await MIDI.autoconnect()
     MIDI.channels = 1
     const { default: program } = await import('./../singingNotes/index.json')
+    // const { default: rainbow } = await import('./../rainbow/index.json')
     await MIDI.programs.load({
       programID: 0,
       program
     })
+    // await MIDI.programs.load({
+    //   programID: 1,
+    //   program: rainbow
+    // })
     await MIDI.jobs.wait()
   }
 
