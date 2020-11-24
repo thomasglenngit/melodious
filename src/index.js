@@ -29,7 +29,8 @@ window.addEventListener('load', (event) => {  // may want to remove...
   startup()
 
   async function startup() {
-    await load(['sketch/min/sketch-api.min.css', 'sketch/min/app.min.css', 'sketch/babelHelpers.js', 'sketch/min/sketch-config.min.js', 'sketch/min/sketch-api.min.js'])
+    await load(['sketch/min/sketch-api.min.css', 'sketch/min/app.min.css', 'sketch/babelHelpers.js'])
+    await load(['sketch/min/sketch-config.min.js', 'sketch/min/sketch-api.min.js'])
     window.sketchOnReady = async function () {
       const sketch = window.sketch;
       const sketchConfig = window.sketchConfig;
@@ -76,6 +77,13 @@ window.addEventListener('load', (event) => {  // may want to remove...
     //   program: rainbow
     // })
     await MIDI.jobs.wait()
+
+    // $volume is the DOM element, volume is the value  - use $ to indicate DOM value
+    const $volume = document.querySelector('#myRange')
+    $volume.addEventListener('input', function(event) {
+      const volume = parseInt(event.target.value, 10)
+      MIDI.volume = volume
+    })
   }
 
   // Handles mode selection
@@ -96,9 +104,9 @@ window.addEventListener('load', (event) => {  // may want to remove...
     // LEARN MELODY MODE
     if(checkedButton === 'learn-melody') {
 
-      global.animate = function() {
+      global.animate = function(dt) {
+        console.log(dt)
         let layers = sketch.layers
-        console.log('requestAnimation layers ', layers)
         layers.forEach(layer => {
           layer.x -= 2
         })
@@ -106,7 +114,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
         requestAnimationFrame(animate)
       }
       
-      requestAnimationFrame(animate)
+      animate()
 
 
       if(sketch.layers.length === 0) {
