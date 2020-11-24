@@ -18,6 +18,7 @@ export async function showSyllable(syllable){
     opacity: 1,
   })
 }
+
 //requestAnimationFrame(callback, update render)
 //setInterval()
 //
