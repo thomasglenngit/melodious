@@ -96,6 +96,16 @@ window.addEventListener('load', (event) => {  // may want to remove...
     // LEARN MELODY MODE
     if(checkedButton === 'learn-melody') {
 
+      global.animate = function() {
+        let layers = sketch.layers
+        console.log('requestAnimation layers ', layers)
+        layers.forEach(layer => {
+          layer.x -= 2
+        })
+        sketch.doc.render()
+        requestAnimationFrame(animate)
+      }
+      
       requestAnimationFrame(animate)
 
 

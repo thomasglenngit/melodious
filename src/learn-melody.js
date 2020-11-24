@@ -8,14 +8,17 @@ export async function confirmBeginMelody() { // do we even need a function here 
   })
 }
 
-global.animate = function() {
-  let layers = sketch.layers
-  console.log('requestAnimation layers ', layers)
-  layers.forEach(layer => {
-    layer.x -= 10
-  })
-  sketch.doc.render()
-}
+// global.animate = function() {
+//   let layers = sketch.layers
+//   console.log('requestAnimation layers ', layers)
+//   layers.forEach(layer => {
+//     layer.x -= 10
+//   })
+//   sketch.doc.render()
+//   requestAnimationFrame(animate)
+// }
+
+// requestAnimationFrame(animate)
 
 export async function learnMelody() {
 
