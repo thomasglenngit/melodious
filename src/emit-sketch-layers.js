@@ -30,7 +30,7 @@ export async function emitSketchLayers(key) {
     type: shapes[note],  // [shapes[A]]
     fill: colors[note],
     x: getRandomValue(0, doc.width - 100),
-    y: -50
+    y: -30
   })
   sketch.doc.deselectAll()
 
