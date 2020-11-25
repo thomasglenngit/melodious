@@ -34,7 +34,7 @@ export async function learnMelody() {
     },
     {
       keyToHighlight: 'e3',
-      syllable: 'o-',
+      syllable: 'o',
       noteID: 2
     },
     {
@@ -49,7 +49,7 @@ export async function learnMelody() {
     },
     {
       keyToHighlight: 'e3',
-      syllable: 'rain-',
+      syllable: 'rain',
       noteID: 5
     },
     {
@@ -124,12 +124,12 @@ export async function learnMelody() {
     },
     {
       keyToHighlight: 'g2',
-      syllable: 'lul-',
+      syllable: 'lul',
       noteID: 20
     },
     {
       keyToHighlight: 'a3',
-      syllable: 'la-',
+      syllable: 'la',
       noteID: 21
     },
     {
