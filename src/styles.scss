@@ -107,7 +107,7 @@ html, body {
   }
 
   section#radio-buttons {
-    min-height: 10vh;
+    min-height: 6vh;
     background-color: lightblue;
     display: flex;
     flex-direction: row;
@@ -120,17 +120,14 @@ html, body {
     label, input {
       vertical-align: middle;
     }
-
   }
 }
-
-
 
 #keyboard {
   border: none;
   height: 30vh;
   position: absolute;
-  bottom: 5px;
+  bottom: 50px;
   right: 5px;
   left: 5px;
   
@@ -176,15 +173,37 @@ html, body {
         bottom: 3%;
       }
     }
-    
-    // .key > span {
-    //   position: absolute;
-    //   bottom: 3%;
-    // }
 
     .colorAdd {
       background-color: pink;
     }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-color: #000;
+  color: #FFF; 
+  text-align: center;
+
+  a:link {
+    color:#FFF;
+  }
+
+  a:visited {
+    color: #ebbcc4;
+  }
+
+  a:hover {
+    color: #4c5c76;
+  }
+
+  a:active {
+    color: #dc9c55;
+  }
 }
 
 $whiteKeyNumber: 15; 

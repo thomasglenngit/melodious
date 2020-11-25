@@ -24,8 +24,6 @@ export async function learnMelody() {
 
   let melody;
 
-  // melody = getMelodyRainbow("rainbow")
-
   function setMelody() {
     let selectedSong = "rainbow"
     if(selectedSong === "rainbow") {
@@ -46,8 +44,8 @@ export async function learnMelody() {
     }
     const pianoKey = document.getElementById(keyId)
     pianoKey.classList.add('colorAdd')
-
   }
+
   let index = 0
   const entry = () => melody[index]
 
@@ -56,7 +54,6 @@ export async function learnMelody() {
   piano.addEventListener('click', async function (event) {
 
     const keyId = event.target.id
-    // const keyPressed = event.target.textContent // uppercase ex: F2
     const warning = document.querySelector('#hidden-warning')
 
     if (keyId !== entry().keyToHighlight) {

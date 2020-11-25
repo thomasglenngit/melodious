@@ -15,6 +15,7 @@ const deleteBtn = document.querySelector('#delete')
 const startSongBtn = document.querySelector('#startSong')
 const canvasButtons = [undoBtn, saveBtn, deleteBtn]
 // , redoBtn - if using, add to canvasButtons array above
+
 // radio button UI
 const radioBtns = document.querySelector('#radio-buttons')
 const par1 = document.querySelector('#par1')
@@ -117,9 +118,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
         sketch.doc.render()
         requestAnimationFrame(animate)
       }
-
       animate()
-
 
       if (sketch.layers.length === 0) {
         sketch.doc.reset()
@@ -160,10 +159,6 @@ window.addEventListener('load', (event) => {  // may want to remove...
       await emitSketchLayers(keyPressed)
       await moveShapes()
     }
-
-    // if(checkedButton === 'learn-melody') {
-    //   await fadeSyllables()
-    // }
   })
   // add ability for user to drag cursor up and down keyboard?
 });
