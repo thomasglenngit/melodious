@@ -46,9 +46,16 @@ To allow users to free play on the keyboard to hear notes and create animations 
 | What do I expect |  What is happening  | Error Message |  Resolved | How was the issue resolved  |
 | ------- | ----- | ------ | ------- | ------- |
 |  note  |  note  |  message  |  Y, N or in progress  |  note  |
-| Expect `redo` UI to re-place items in their previous location | Contextual Menu re-appears, but shape layer is not visible | no message | in progress | Issue may be related to Sketch.io API | 
+| Expect `redo` UI to re-place items in their previous location | Contextual Menu re-appears, but shape layer is not visible | no message | in progress | Issue related to Sketch.io API | 
+| Expect volume slider to adjust application volume | Volume does not update when slider is updated - able to access new slider value, but `MIDI.volume = int` has no effect. In console can programmatically type `MIDI.volume = 10` and then `MIDI.noteOn(0, "B3")` and volume is adjusted to velocity of 10  | no message | in progress | Issue related to MIDI.js library | 
 <br/>
 <br/>
+
+## Setup
+The deploy.sh script utilizes a unique username. If you would like to update the deploy script file, take the following steps.
+1. Enter `npm run ignoreDeploySh` into the terminal
+2. Git will now ignore any changes made to deploy.sh
+3. Update deploy.sh as needed
 
 
 ### ToDos
