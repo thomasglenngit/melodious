@@ -8,7 +8,7 @@
    * @typedef {getMelody} function 
    */
 
-  export function getMelody() {
+  export function getMelodyRainbow() {
     // if(melody === 'rainbow') {
       return [
         {
