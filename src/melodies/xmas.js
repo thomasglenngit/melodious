@@ -12,7 +12,7 @@ export function getMelodyXmas() {
   return [
     {
       keyToHighlight: 'f2',
-      syllable: 'Chest',
+      syllable: 'Chestnuts',
       noteID: 0
     }
   ]
