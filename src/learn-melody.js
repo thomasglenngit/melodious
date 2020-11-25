@@ -134,7 +134,7 @@ export async function learnMelody() {
     },
     {
       keyToHighlight: 'f2',
-      syllable: 'by',
+      syllable: 'by...',
       noteID: 22
     }
   ]
