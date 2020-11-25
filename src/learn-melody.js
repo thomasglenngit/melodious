@@ -1,6 +1,6 @@
 import { playSound } from './play-sound'
 import { showSyllable } from './show-syllable'
-import { getMelody } from './melodies/rainbow'
+import { getMelodyRainbow } from './melodies/rainbow'
 
 
 export async function confirmBeginMelody() { // do we even need a function here ?
@@ -24,12 +24,12 @@ export async function learnMelody() {
 
   let melody;
 
-  melody = getMelody("rainbow")
+  // melody = getMelodyRainbow("rainbow")
 
   function setMelody() {
     let selectedSong = "rainbow"
     if(selectedSong === "rainbow") {
-      
+      melody = getMelodyRainbow()
     }
   }
   setMelody()

@@ -8,8 +8,8 @@
    * @typedef {getMelody} function 
    */
 
-  export function getMelody(melody) {
-    if(melody === 'rainbow') {
+  export function getMelodyRainbow() {
+    // if(melody === 'rainbow') {
       return [
         {
           keyToHighlight: 'f2',
@@ -128,4 +128,4 @@
         }
       ]
     }
-  }
+  // }
