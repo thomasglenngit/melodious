@@ -24,12 +24,12 @@ export async function learnMelody() {
 
   let melody;
 
-  melody = getMelody("rainbow")
+  // melody = getMelody("rainbow")
 
   function setMelody() {
     let selectedSong = "rainbow"
     if(selectedSong === "rainbow") {
-      
+      melody = getMelody()
     }
   }
   setMelody()
