@@ -13,7 +13,9 @@
     "buildAndTest": "run-s build serveBuild",
     "dev": "webpack-dev-server",
     "deploy": "./deploy.sh",
-    "buildDeploy": "npm run build && npm run deploy"
+    "buildDeploy": "npm run build && npm run deploy",
+    "ignoreDeploySh": "git update-index --assume-unchanged deploy.sh",
+    "noIgnoreDeploySh": "git update-index --no-assume-unchanged deploy.sh"
   },
   "keywords": [
     "keyboard",
