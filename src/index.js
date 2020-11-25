@@ -6,15 +6,15 @@ import { moveShapes } from './move-shapes'
 import { emitSketchLayers } from './emit-sketch-layers'
 import { playSound } from './play-sound'
 import { confirmBeginMelody } from './learn-melody'
-import { fadeSyllables } from './fade-syllables'
 
 // canvas UI
 const undoBtn = document.querySelector('#undo')
-const redoBtn = document.querySelector('#redo')
+// const redoBtn = document.querySelector('#redo')
 const saveBtn = document.querySelector('#save')
 const deleteBtn = document.querySelector('#delete')
 const startSongBtn = document.querySelector('#startSong')
-const canvasButtons = [undoBtn, redoBtn, saveBtn, deleteBtn]
+const canvasButtons = [undoBtn, saveBtn, deleteBtn]
+// , redoBtn - if using, add to canvasButtons array above
 // radio button UI
 const radioBtns = document.querySelector('#radio-buttons')
 const par1 = document.querySelector('#par1')
@@ -49,9 +49,9 @@ window.addEventListener('load', (event) => {  // may want to remove...
     })
 
     // remove redo button since it does not work with moved layers ? check in with Ryan
-    redoBtn.addEventListener('click', function () {
-      sketch.doc.redo();
-    })
+    // redoBtn.addEventListener('click', function () {
+    //   sketch.doc.redo();
+    // })
 
     saveBtn.addEventListener('click', function () {
       sketch.download.svg()
@@ -79,11 +79,12 @@ window.addEventListener('load', (event) => {  // may want to remove...
     await MIDI.jobs.wait()
 
     // $volume is the DOM element, volume is the value  - use $ to indicate DOM value
-    const $volume = document.querySelector('#myRange')
-    $volume.addEventListener('input', function (event) {
-      const volume = parseInt(event.target.value, 10)
-      MIDI.volume = volume
-    })
+    // uncomment once MIDI.volume is incorporated
+    // const $volume = document.querySelector('#myRange')
+    // $volume.addEventListener('input', function (event) {
+    //   const volume = parseInt(event.target.value, 10)
+    //   MIDI.volume = volume
+    // })
   }
 
   // Handles mode selection
