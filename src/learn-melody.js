@@ -26,6 +26,14 @@ export async function learnMelody() {
 
   melody = getMelody("rainbow")
 
+  function setMelody() {
+    let selectedSong = "rainbow"
+    if(selectedSong === "rainbow") {
+      
+    }
+  }
+  setMelody()
+
   const piano = document.getElementById('keyboard')
 
     /**
