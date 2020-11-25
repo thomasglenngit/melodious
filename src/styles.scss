@@ -25,6 +25,15 @@ html, body {
     text-align: center;
   }
 
+  .drop-down {
+    text-align: right;
+    color: #000;
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+    z-index: 3;
+
+  }
   .instructions {
     margin-top: 1rem;
     min-height: 10vh;

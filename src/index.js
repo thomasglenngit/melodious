@@ -13,10 +13,13 @@ const undoBtn = document.querySelector('#undo')
 const saveBtn = document.querySelector('#save')
 const deleteBtn = document.querySelector('#delete')
 const startSongBtn = document.querySelector('#startSong')
+const dropDown = document.querySelector('.drop-down')
+console.log('drop-down', dropDown)
 const canvasButtons = [undoBtn, saveBtn, deleteBtn]
 // , redoBtn - if using, add to canvasButtons array above
 // radio button UI
 const radioBtns = document.querySelector('#radio-buttons')
+
 const par1 = document.querySelector('#par1')
 const par2 = document.querySelector('#par2')
 // keyboard
@@ -91,6 +94,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
   radioBtns.addEventListener('click', function (event) {
     let checkedButton = event.target.value;
 
+
     // FREE PLAY MODE
     if (checkedButton === 'free-play') {
       MIDI.channels[0].programID = 0
@@ -102,6 +106,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
       canvasButtons.forEach(function (btn) {
         btn.classList.remove('hidden')
       })
+      dropDown.classList.add('hidden')
     }
 
     // LEARN MELODY MODE
@@ -130,19 +135,23 @@ window.addEventListener('load', (event) => {  // may want to remove...
         canvasButtons.forEach(function (btn) {
           btn.classList.add('hidden')
         })
+        dropDown.classList.remove('hidden')
+      
       }
 
       if (sketch.layers.length > 0) {
         let result = confirm('Changing modes will delete your artwork. Click okay to switch modes or cancel to stay in free-play and save your work before switching.')
         if (result) {
           sketch.doc.reset()
+          confirmBeginMelody()
           par2.classList.remove('toggleText2')
           par1.classList.add('toggleText2')
           startSongBtn.classList.remove('hidden')
           canvasButtons.forEach(function (btn) {
             btn.classList.add('hidden')
           })
-          confirmBeginMelody()
+          dropDown.classList.remove('hidden')
+
         } else {
           document.getElementById('free-play').checked = true;
           document.getElementById('learn-melody').checked = false;
