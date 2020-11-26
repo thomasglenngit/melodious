@@ -117,7 +117,7 @@ html, body {
 
   section#radio-buttons {
     min-height: 6vh;
-    background-color: lightblue;
+    background-color: #6698ff;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -184,7 +184,11 @@ html, body {
     }
 
     .colorAdd {
-      background-color: pink;
+      background: #6698ff;
+      background: -webkit-linear-gradient(25deg, #6698ff, #ff6698, #ffb366, #ffff66, #98ff66);
+      background: -o-linear-gradient(25deg, #6698ff, #ff6698, #ffb366, #ffff66, #98ff66);
+      background: -moz-linear-gradient(25deg, #6698ff, #ff6698, #ffb366, #ffff66, #98ff66);
+      background: linear-gradient(15deg, #6698ff, #ff6698, #ffb366, #ffff66, #98ff66);
     }
 }
 
