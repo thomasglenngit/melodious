@@ -4,6 +4,7 @@
   "license": "MIT",
   "description": "Interactive piano app that teaches simple melodies in \"learn melody\" mode or creates fun visual effects in \"free play\" mode",
   "homepage": "",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",

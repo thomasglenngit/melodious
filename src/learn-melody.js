@@ -28,10 +28,10 @@ export async function learnMelody() {
   function setMelody() {
     let selectedSong = document.getElementById('song-select')
     var value = selectedSong.options[selectedSong.selectedIndex].value;
-    if(value === "rainbow") {
+    if (value === "rainbow") {
       melody = getMelodyRainbow()
     }
-    if(value === "xmas") {
+    if (value === "xmas") {
       melody = getMelodyXmas()
     }
   }
@@ -39,9 +39,9 @@ export async function learnMelody() {
 
   const piano = document.getElementById('keyboard')
 
-    /**
-   * @param {string} keyId
-   */
+  /**
+ * @param {string} keyId
+ */
   function addHighlight(keyId) {
     const clear = document.querySelectorAll('.colorAdd')
     for (const elem of clear) {
