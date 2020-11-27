@@ -8,7 +8,7 @@
  * @typedef {getMelody} function 
  */
 
-export function getMelodyRainbow() {
+export function getMelodySun() {
 
   return [
     {
