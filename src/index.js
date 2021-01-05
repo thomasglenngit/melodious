@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import './styles.scss'
-import { MIDI } from '../MIDI.js'
+import { MIDI } from './../MIDI.js'
 import { load } from './load'
 import { moveShapes } from './move-shapes'
 import { emitSketchLayers } from './emit-sketch-layers'
@@ -72,6 +72,8 @@ window.addEventListener('load', (event) => {  // may want to remove...
     MIDI.channels = 1
     const { default: program } = await import('./../singingNotes/index.json')
     const { default: rainbow } = await import('./../rainbow/index.json')
+    const { default: sun } = await import('./../sun/index.json')
+    const { default: dorma } = await import('./../dorma/index.json')
     await MIDI.programs.load({
       programID: 0,
       program
@@ -79,6 +81,14 @@ window.addEventListener('load', (event) => {  // may want to remove...
     await MIDI.programs.load({
       programID: 1,
       program: rainbow
+    })
+    await MIDI.programs.load({
+      programID: 2,
+      program: sun
+    })
+    await MIDI.programs.load({
+      programID: 3,
+      program: dorma
     })
     await MIDI.jobs.wait()
 
@@ -99,7 +109,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
     // FREE PLAY MODE
     if (checkedButton === 'free-play') {
       MIDI.channels[0].programID = 0
-      
+
       location.reload()
       par1.classList.remove('toggleText2')
       par2.classList.add('toggleText2')
@@ -109,6 +119,8 @@ window.addEventListener('load', (event) => {  // may want to remove...
       })
       dropDown.classList.add('hidden')
     }
+
+
 
     // LEARN MELODY MODE
     if (checkedButton === 'learn-melody') {
@@ -135,7 +147,7 @@ window.addEventListener('load', (event) => {  // may want to remove...
           btn.classList.add('hidden')
         })
         dropDown.classList.remove('hidden')
-      
+
       }
 
       if (sketch.layers.length > 0) {

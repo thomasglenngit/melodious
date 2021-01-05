@@ -2,6 +2,9 @@ import { playSound } from './play-sound'
 import { showSyllable } from './show-syllable'
 import { getMelodyRainbow } from './melodies/rainbow'
 import { getMelodyXmas } from './melodies/xmas'
+import { getMelodySun } from './melodies/sun'
+import { getMelodyDorma} from './melodies/dorma'
+import { MIDI } from './../MIDI.js'
 
 
 export async function confirmBeginMelody() { // do we even need a function here ?
@@ -25,17 +28,29 @@ export async function learnMelody() {
 
   let melody;
 
+  const selectedSong = document.getElementById('song-select')
+
   function setMelody() {
-    let selectedSong = document.getElementById('song-select')
     var value = selectedSong.options[selectedSong.selectedIndex].value;
     if (value === "rainbow") {
       melody = getMelodyRainbow()
+      MIDI.channels[0].programID = 1
     }
     if (value === "xmas") {
       melody = getMelodyXmas()
     }
+    if (value === "sun") {
+      melody = getMelodySun()
+      MIDI.channels[0].programID = 2
+    }
+    if (value === 'dorma') {
+      melody = getMelodyDorma()
+      MIDI.channels[0].programID = 3
+    }
   }
   setMelody()
+
+  selectedSong.addEventListener('change', setMelody) //assigns melody to dropdown selection
 
   const piano = document.getElementById('keyboard')
 
