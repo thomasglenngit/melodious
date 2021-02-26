@@ -4,7 +4,7 @@ import { getMelodyRainbow } from './melodies/rainbow'
 import { getMelodyXmas } from './melodies/xmas'
 import { getMelodySun } from './melodies/sun'
 import { getMelodyDorma} from './melodies/dorma'
-import { MIDI } from './../MIDI.js'
+import { MIDI } from '../MIDI.js/src/MIDI/MIDI'
 
 
 export async function confirmBeginMelody() { // do we even need a function here ?

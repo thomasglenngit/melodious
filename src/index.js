@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import './styles.scss'
-import { MIDI } from './../MIDI.js'
+import { MIDI } from '../MIDI.js/src/MIDI/MIDI'
 import { load } from './load'
 import { moveShapes } from './move-shapes'
 import { emitSketchLayers } from './emit-sketch-layers'
