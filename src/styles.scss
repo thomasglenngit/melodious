@@ -3,7 +3,9 @@ html, body {
   margin: 0;
   box-sizing: border-box;
 }
-
+li {
+  display: inline;
+}
 .hidden {
   display: none;
 }
