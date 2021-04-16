@@ -8,139 +8,143 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
     integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link href="./src/about.html">
+  <link href="./src/contact.html">
+  <link href="./src/learn.html">
 
 
   <title>Melodious</title>
 </head>
+
 <body>
-<section id="melodius">
+  <section id="melodius">
 
-  <section style="background-color: brown; height: 3000px">
-    <nav>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    </nav>
-    hello.. Welcome to Melodious, an application to play custom recorded sounds (singing, instruments, noise)
-  </section>
-  <section >
-    <div class="container">
+    <section style="background-color: brown; height: 3000px">
+      <nav>
+        <ul>
+          <li><a href="/src/about.html">About</a></li>
+          <li><a href="/src/contact.html">Contact</a></li>
+          <li><a href="/src/learn.html">Learn</a></li>
+        </ul>
+      </nav>
+      hello.. Welcome to Melodious, an application to play custom recorded sounds (singing, instruments, noise)
+    </section>
+    <section>
+      <div class="container">
 
-      <div class="top">
-        <header>
-          <h1>Melodious</h1>
-        </header>
+        <div class="top">
+          <header>
+            <h1>Melodious</h1>
+          </header>
 
-        <section class="instructions">
-          <div id="par1" class="toggleText1">
-            <p>Press a note, see a shape, hear a voice. When you're finished, save your artwork!</p>
-          </div>
-          <div id="par2" class="toggleText2">
-            <p>Click <strong>play</strong> to begin learning a melody.</p>
-            <p>Press the keys as they light up to play the song.</p>
-          </div>
-        </section>
-      </div>
-      <sketch-container class="ui container">
-        <div class="drop-down hidden">
-          <label for="song-select"></label>
-          <select name="song-select" id="song-select">
-            <option value="rainbow">Somewhere Over the Rainbow</option>
-            <!-- <option value="xmas">The Christmas Song</option> -->
-            <!-- <option value="dorma">Nessun Dorma</option> -->
-            <option value="sun">Here Comes the Sun</option>
-          </select>
+          <section class="instructions">
+            <div id="par1" class="toggleText1">
+              <p>Press a note, see a shape, hear a voice. When you're finished, save your artwork!</p>
+            </div>
+            <div id="par2" class="toggleText2">
+              <p>Click <strong>play</strong> to begin learning a melody.</p>
+              <p>Press the keys as they light up to play the song.</p>
+            </div>
+          </section>
         </div>
-        <!-- <div class="slidecontainer"> MIDI VOLUME NOT YET WORKING
+        <sketch-container class="ui container">
+          <div class="drop-down hidden">
+            <label for="song-select"></label>
+            <select name="song-select" id="song-select">
+              <option value="rainbow">Somewhere Over the Rainbow</option>
+              <!-- <option value="xmas">The Christmas Song</option> -->
+              <!-- <option value="dorma">Nessun Dorma</option> -->
+              <option value="sun">Here Comes the Sun</option>
+            </select>
+          </div>
+          <!-- <div class="slidecontainer"> MIDI VOLUME NOT YET WORKING
         <label for="myRange"><i class="fas fa-volume-up"></i></label>
         <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
       </div> -->
-        <div class="buttons">
-          <button id="undo"><i class="fas fa-undo-alt"></i></button>
-          <!-- <button id="redo"><i class="fas fa-redo-alt"></i></button> -->
-          <button id="save"><i class="fas fa-file-download"></i></button>
-          <button id="delete"><i class="fas fa-trash"></i></button>
-          <button id="startSong" class="hidden"><i class="far fa-play-circle fa-2x"></i></button>
-          <!-- <button id="restartSong" class="hidden"><i class="fas fa-sync-alt"></i></button> -->
+          <div class="buttons">
+            <button id="undo"><i class="fas fa-undo-alt"></i></button>
+            <!-- <button id="redo"><i class="fas fa-redo-alt"></i></button> -->
+            <button id="save"><i class="fas fa-file-download"></i></button>
+            <button id="delete"><i class="fas fa-trash"></i></button>
+            <button id="startSong" class="hidden"><i class="far fa-play-circle fa-2x"></i></button>
+            <!-- <button id="restartSong" class="hidden"><i class="fas fa-sync-alt"></i></button> -->
+          </div>
+        </sketch-container>
+        <section id="radio-buttons" style="margin: 20px">
+          <div>
+            <input type="radio" id="free-play" name="setting" value="free-play" checked>
+            <label for="free-play">Free Play</label>
+          </div>
+          <div>
+            <input type="radio" id="learn-melody" name="setting" value="learn-melody">
+            <label for="learn-melody">Learn a Melody</label>
+          </div>
+        </section>
+        <p id="hidden-warning" class="continue-message">Please press the highlighted piano key to continue with the
+          current
+          melody.</p>
+        </br>
+        </br>
+        <div id="keyboard">
+          <div id="whiteKeys">
+            <button id="c2" class="key white-key"><span>C2</span></button>
+            <button id="d2" class="key white-key"><span>D2</span></button>
+            <button id="e2" class="key white-key"><span>E2</span></button>
+            <button id="f2" class="key white-key"><span>F2</span></button>
+            <button id="g2" class="key white-key"><span>G2</span></button>
+            <button id="a3" class="key white-key"><span>A3</span></button>
+            <button id="b3" class="key white-key"><span>B3</span></button>
+            <button id="c3" class="key white-key"><span>C3</span></button>
+            <button id="d3" class="key white-key"><span>D3</span></button>
+            <button id="e3" class="key white-key"><span>E3</span></button>
+            <button id="f3" class="key white-key"><span>F3</span></button>
+            <button id="g3" class="key white-key"><span>G3</span></button>
+            <button id="a4" class="key white-key"><span>A4</span></button>
+            <button id="b4" class="key white-key"><span>B4</span></button>
+            <button id="c4" class="key white-key"><span>C4</span></button>
+          </div>
+          <div id="blackKeys">
+            <button id="cs2" class="key black-key"><span>C#2</span></button>
+            <button id="ds2" class="key black-key"><span>D#2</span></button>
+            <button class="key black-key spacer"></button>
+            <button id="fs2" class="key black-key"><span>F#2</span></button>
+            <button id="gs2" class="key black-key"><span>G#2</span></button>
+            <button id="as3" class="key black-key"><span>A#3</span></button>
+            <button class="key black-key spacer"></button>
+            <button id="cs3" class="key black-key"><span>C#3</span></button>
+            <button id="ds3" class="key black-key"><span>D#3</span></button>
+            <button class="key black-key spacer"></button>
+            <button id="fs3" class="key black-key"><span>F#3</span></button>
+            <button id="gs3" class="key black-key"><span>G#3</span></button>
+            <button id="as4" class="key black-key"><span>A#4</span></button>
+          </div>
         </div>
-      </sketch-container>
-      <section id="radio-buttons" style="margin: 20px">
-        <div>
-          <input type="radio" id="free-play" name="setting" value="free-play" checked>
-          <label for="free-play">Free Play</label>
-        </div>
-        <div>
-          <input type="radio" id="learn-melody" name="setting" value="learn-melody">
-          <label for="learn-melody">Learn a Melody</label>
-        </div>
-      </section>
-      <p id="hidden-warning" class="continue-message">Please press the highlighted piano key to continue with the
-        current
-        melody.</p>
-      </br>
-    </br>
-      <div id="keyboard">
-        <div id="whiteKeys">
-          <button id="c2" class="key white-key"><span>C2</span></button>
-          <button id="d2" class="key white-key"><span>D2</span></button>
-          <button id="e2" class="key white-key"><span>E2</span></button>
-          <button id="f2" class="key white-key"><span>F2</span></button>
-          <button id="g2" class="key white-key"><span>G2</span></button>
-          <button id="a3" class="key white-key"><span>A3</span></button>
-          <button id="b3" class="key white-key"><span>B3</span></button>
-          <button id="c3" class="key white-key"><span>C3</span></button>
-          <button id="d3" class="key white-key"><span>D3</span></button>
-          <button id="e3" class="key white-key"><span>E3</span></button>
-          <button id="f3" class="key white-key"><span>F3</span></button>
-          <button id="g3" class="key white-key"><span>G3</span></button>
-          <button id="a4" class="key white-key"><span>A4</span></button>
-          <button id="b4" class="key white-key"><span>B4</span></button>
-          <button id="c4" class="key white-key"><span>C4</span></button>
-        </div>
-        <div id="blackKeys">
-          <button id="cs2" class="key black-key"><span>C#2</span></button>
-          <button id="ds2" class="key black-key"><span>D#2</span></button>
-          <button class="key black-key spacer"></button>
-          <button id="fs2" class="key black-key"><span>F#2</span></button>
-          <button id="gs2" class="key black-key"><span>G#2</span></button>
-          <button id="as3" class="key black-key"><span>A#3</span></button>
-          <button class="key black-key spacer"></button>
-          <button id="cs3" class="key black-key"><span>C#3</span></button>
-          <button id="ds3" class="key black-key"><span>D#3</span></button>
-          <button class="key black-key spacer"></button>
-          <button id="fs3" class="key black-key"><span>F#3</span></button>
-          <button id="gs3" class="key black-key"><span>G#3</span></button>
-          <button id="as4" class="key black-key"><span>A#4</span></button>
-        </div>
-      </div>
 
-      <footer>
-        <p><span>&copy;</span>Brittany Lindgren & Thomas Glenn, 2020</p>
-        <span id="photo-cred">Background photo by <a
-            href="https://unsplash.com/@ebuenclemente205?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ebuen
-            Clemente Jr</a> on <a
-            href="https://unsplash.com/s/photos/piano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-      </footer>
-      <section style="background-color: cornflowerblue; height: 1000px">
-        goodbye
-      </section>
+        <footer>
+          <p><span>&copy;</span>Brittany Lindgren & Thomas Glenn, 2020</p>
+          <span id="photo-cred">Background photo by <a
+              href="https://unsplash.com/@ebuenclemente205?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ebuen
+              Clemente Jr</a> on <a
+              href="https://unsplash.com/s/photos/piano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+        </footer>
+        <section style="background-color: cornflowerblue; height: 1000px">
+          goodbye
+        </section>
 
-    </div>
-    <div id="song-completed-modal" class="modal modal-hidden">
-      <div class="modal-body">
-        <h1>Congratulations! <i class="fas fa-birthday-cake"></i></h1>
-        <p>You finished the song! Press play to play again or choose to return to free-play mode.</p>
       </div>
-      <div class="modal-buttons">
-        <button id="play-again">Play Again</button>
-        <button id="switch-modes">Return to Free Play</button>
+      <div id="song-completed-modal" class="modal modal-hidden">
+        <div class="modal-body">
+          <h1>Congratulations! <i class="fas fa-birthday-cake"></i></h1>
+          <p>You finished the song! Press play to play again or choose to return to free-play mode.</p>
+        </div>
+        <div class="modal-buttons">
+          <button id="play-again">Play Again</button>
+          <button id="switch-modes">Return to Free Play</button>
+        </div>
       </div>
-    </div>
-    <div class="modal-overlay modal-hidden">
-      <!-- empty overlay div -->
-    </div>
+      <div class="modal-overlay modal-hidden">
+        <!-- empty overlay div -->
+      </div>
 
 </body>
 
