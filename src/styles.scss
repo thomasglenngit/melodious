@@ -17,6 +17,7 @@ html, body {
   z-index: 2;
   color: #FFF;
   // color: #000;
+  box-sizing: border-box;
 
   header {
     height: 10vh;
@@ -124,6 +125,8 @@ html, body {
     justify-content: space-evenly;
     align-items: center;
     margin-top: 0.5rem;
+    position: static;
+    
     
 
     label, input {
@@ -135,10 +138,11 @@ html, body {
 #keyboard {
   border: none;
   height: 30vh;
-  position: absolute;
+  position: relative;
   bottom: 40px;
   right: 5px;
   left: 5px;
+  background-color: greenyellow;
   
   
     .white-key {
