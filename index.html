@@ -13,21 +13,51 @@
 </head>
 
 <body>
+
   <section id="melodius">
-    <section >
+    <section>
       <img id="bird-icon" src="./src/img/Bird.png">
       <nav>
         <ul>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Learn</li>
+          <li><a href="#par1">Play</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#learn">Learn</a></li>
+          <li><a href="#contact">Contact</a></li>
+
         </ul>
       </nav>
     </section>
+    <script>
+      window.smoothScroll = function (target) {
+        let scrollContainer = target;
+        do { //find scroll container
+          scrollContainer = scrollContainer.parentNode;
+          if (!scrollContainer) return;
+          scrollContainer.scrollTop += 1;
+        } while (scrollContainer.scrollTop == 0);
 
-    <section style=" height: 3000px;  padding: 20px" class="ui container">
-      
-      <p>hello.. Welcome to Melodious, an application to play custom recorded sounds (singing, instruments, noise) on a virtual keyboard interface.</p>
+        let targetY = 0;
+        do { //find the top of target relatively to the container
+          if (target == scrollContainer) break;
+          targetY += target.offsetTop;
+        } while (target = target.offsetParent);
+
+        scroll = function (c, a, b, i) {
+          i++; if (i > 30) return;
+          c.scrollTop = a + (b - a) / 30 * i;
+          setTimeout(function () { scroll(c, a, b, i); }, 20);
+        }
+        // start scrolling
+        scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+      }
+    </script>
+    <button style=" position: absolute; align-items:flex-end; margin: 10px; z-index: 1000 " id="home-button" class="ui button primary"
+      onclick="smoothScroll(document.getElementById('bird-icon'))">Home</button>
+
+    <section style=" height: 1450px;  padding: 20px" class="ui container">
+
+      <p>hello.. Welcome to Melodious, an application to play custom recorded sounds (singing, instruments, noise) on a
+        virtual keyboard interface.</p>
       </br>
 
       <p> I'm baby pok pok fanny pack humblebrag 3 wolf moon vexillologist four dollar toast, wolf master cleanse
@@ -89,6 +119,7 @@
             </div>
           </section>
         </div>
+
         <sketch-container class="ui container">
           <div class="drop-down hidden">
             <label for="song-select"></label>
@@ -169,8 +200,14 @@
               Clemente Jr</a> on <a
               href="https://unsplash.com/s/photos/piano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
         </footer>
-        <section style="background-color: cornflowerblue; height: 1000px">
-          goodbye
+        <section id="about" style="background-color: cornflowerblue; height: 500px">
+          About
+        </section>
+        <section id="learn" style="background-color:darkkhaki; height: 500px">
+          Learn
+        </section>
+        <section id="contact" style="background-color: darkorange; height: 300px">
+          Contact
         </section>
 
       </div>
