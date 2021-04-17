@@ -15,18 +15,6 @@
 <body>
 
   <section id="melodius">
-    <section>
-      <img id="bird-icon" src="./src/img/Bird.png">
-      <nav>
-        <ul>
-          <li><a href="#par1">Play</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#learn">Learn</a></li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-      </nav>
-    </section>
     <script>
       window.smoothScroll = function (target) {
         let scrollContainer = target;
@@ -51,8 +39,23 @@
         scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
       }
     </script>
-    <button style=" position: absolute; align-items:flex-end; margin: 10px; z-index: 1000 " id="home-button" class="ui button primary"
+    <div style="align-items: right;">
+    <button style=" position: absolute; top: 15px; right: 18px; margin: 10px; z-index: 1000 " id="home-button" class="ui button primary"
       onclick="smoothScroll(document.getElementById('bird-icon'))">Home</button>
+    </div>
+    <section>
+      <img id="bird-icon" src="./src/img/Bird.png">
+      <nav>
+        <ul>
+          <li><a href="#par1">Play</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#learn">Learn</a></li>
+          <li><a href="#contact">Contact</a></li>
+
+        </ul>
+      </nav>
+    </section>
+    
 
     <section style=" height: 1450px;  padding: 20px" class="ui container">
 
