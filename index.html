@@ -13,50 +13,28 @@
 </head>
 
 <body>
-
   <section id="melodius">
-    <script>
-      window.smoothScroll = function (target) {
-        let scrollContainer = target;
-        do { //find scroll container
-          scrollContainer = scrollContainer.parentNode;
-          if (!scrollContainer) return;
-          scrollContainer.scrollTop += 1;
-        } while (scrollContainer.scrollTop == 0);
+    <nav>
+      <ul>
+        <li><a href="#bird-icon">Home</a></li>
+        <li><a href="#par1">Play</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#contact">Contact</a></li>
 
-        let targetY = 0;
-        do { //find the top of target relatively to the container
-          if (target == scrollContainer) break;
-          targetY += target.offsetTop;
-        } while (target = target.offsetParent);
+      </ul>
+    </nav>
 
-        scroll = function (c, a, b, i) {
-          i++; if (i > 30) return;
-          c.scrollTop = a + (b - a) / 30 * i;
-          setTimeout(function () { scroll(c, a, b, i); }, 20);
-        }
-        // start scrolling
-        scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
-      }
-    </script>
-    <div style="align-items: right;">
-    <button style=" position: absolute; top: 15px; right: 18px; margin: 10px; z-index: 1000 " id="home-button" class="ui button primary"
-      onclick="smoothScroll(document.getElementById('bird-icon'))">Home</button>
+    <div class="ui vertical buttons" style=" position: absolute; top: 20px; right: 18px; margin: 10px; z-index: 1000; ">
+      <button class="ui inverted orange button"><a href="#bird-icon">Home</a></button>
+      <button class="ui inverted orange button"><a href="#par1">Play</a></button>
+      <button class="ui inverted orange button"><a href="#about">About</a></button>
+      <button class="ui inverted orange button"><a href="#learn">Learn</a></button>
+      <button class="ui inverted orange button"><a href="#contact">Contact</a></button>
     </div>
     <section>
       <img id="bird-icon" src="./src/img/Bird.png">
-      <nav>
-        <ul>
-          <li><a href="#par1">Play</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#learn">Learn</a></li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-      </nav>
     </section>
-    
-
     <section style=" height: 1450px;  padding: 20px" class="ui container">
 
       <p>hello.. Welcome to Melodious, an application to play custom recorded sounds (singing, instruments, noise) on a
@@ -203,6 +181,21 @@
               Clemente Jr</a> on <a
               href="https://unsplash.com/s/photos/piano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
         </footer>
+        <section id="create" style="background-color: cyan; height: 500px">
+          <p>
+            Do you have a song you'd like to have created on Melodious? Go to our contact page and find out how to
+            upload your melody to our engineers. We can get it programmed and mounted on our site! (rules of propriety
+            and legality apply.)
+          </p>
+          <button class="ui button primary">Submit Song</button>
+          <p>
+            Do you have a song you'd like to hear? Write to us and tell us what you'd like to hear!
+          </p>
+          <button class="ui button primary">Request Song</button>
+
+
+
+        </section>
         <section id="about" style="background-color: cornflowerblue; height: 500px">
           About
         </section>

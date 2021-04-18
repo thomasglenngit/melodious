@@ -70,3 +70,36 @@ PEACH
 HTML/HEX code:	#eccb9c	
 RGB code:	rgb(236, 203, 156)	
 */
+
+Smooth Scrolling Code:
+    <script>
+      window.smoothScroll = function (target) {
+        let scrollContainer = target;
+        do { //find scroll container
+          scrollContainer = scrollContainer.parentNode;
+          if (!scrollContainer) return;
+          scrollContainer.scrollTop += 1;
+        } while (scrollContainer.scrollTop == 0);
+
+        let targetY = 0;
+        do { //find the top of target relatively to the container
+          if (target == scrollContainer) break;
+          targetY += target.offsetTop;
+        } while (target = target.offsetParent);
+
+        scroll = function (c, a, b, i) {
+          i++; if (i > 30) return;
+          c.scrollTop = a + (b - a) / 30 * i;
+          setTimeout(function () { scroll(c, a, b, i); }, 20);
+        }
+        // start scrolling
+        scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+      }
+    </script>
+      // <button onclick="window.smoothScroll(document.getElementById('bird-icon'))"></button>
+
+Home button onclick href:
+    <div style="align-items: right;">
+      <button style=" position: absolute; top: 15px; right: 18px; margin: 10px; z-index: 1000 " id="home-button"
+      class="ui inverted orange button" onclick="window.location.href='#bird-icon'">Home</button>
+    </div>
