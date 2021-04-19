@@ -103,3 +103,24 @@ Home button onclick href:
       <button style=" position: absolute; top: 15px; right: 18px; margin: 10px; z-index: 1000 " id="home-button"
       class="ui inverted orange button" onclick="window.location.href='#bird-icon'">Home</button>
     </div>
+
+Navigation Alternatives:
+<nav>
+      <ul>
+        <li><a href="#bird-icon">Home</a></li>
+        <li><a href="#play-position">Play</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+      </ul>
+    </nav>
+
+    <div class="mini ui vertical buttons"
+      style=" position: absolute; top: 20px; right: 18px; margin: 10px; z-index: 1000; ">
+      <button class="mini ui inverted orange button"><a href="#bird-icon">Home</a></button>
+      <button class="mini ui inverted orange button"><a href="#play-position">Play</a></button>
+      <button class="mini ui inverted orange button"><a href="#about">About</a></button>
+      <button class="mini ui inverted orange button"><a href="#learn">Learn</a></button>
+      <button class="mini ui inverted orange button"><a href="#contact">Contact</a></button>
+    </div>
