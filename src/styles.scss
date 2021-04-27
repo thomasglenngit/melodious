@@ -256,7 +256,7 @@ img {
 }
 
 .bio {
-  margin: 30px;
+  margin: 60px;
 }
 
 #create {
@@ -308,7 +308,7 @@ img {
 
 #contact {
   padding: 0px 100px 100px 100px;
-  background-color: rgb(247, 131, 59);
+  background-color: rgb(244, 139, 139, 0.3);
 
   .col1 {
     float: left;
@@ -332,6 +332,7 @@ img {
   .col3 {
     width: 10vw;
     
+    padding-top: 5vh;
   }
 }
 
