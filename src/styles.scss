@@ -23,6 +23,21 @@ li {
   // color: #000;
   box-sizing: border-box;
 
+  #intro {
+    height: 800px;  
+    padding: 20px; 
+    font-size: 25px;
+
+    .tab {
+      padding-left: 2vw;
+    }
+
+    #engage {
+      padding-top:4%;
+      padding-left: 8%;
+    }
+  }
+
   header {
     height: 10vh;
     font-family: 'Dancing Script', cursive;
