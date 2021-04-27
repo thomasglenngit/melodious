@@ -38,7 +38,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,  // NEED TO MAKE CASE-INSENSITIVE ???
+        test: /\.(png|svg|jpg|jpeg|gif)$/,  // NEED TO MAKE CASE-INSENSITIVE ???
         use: [
           'file-loader',
           // options: {  ???

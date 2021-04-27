@@ -69,11 +69,20 @@ li {
     display: none;
   }
 
+  #piano-frame {
+   position: relative;
+   height: 800px;
+   width: 100%;
+   background: url('./img/baroque-frame.jpeg');
+   background-size: cover;
+  }
+
   sketch-container.sketch-api {
     background: #FFF;
     height: 30vh;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    background-size: cover;
 
     sketch-DocLayout {
       background: none;
@@ -116,6 +125,8 @@ li {
       //   color: #000;
       // }
     }
+
+
   }
 
   section#radio-buttons {
