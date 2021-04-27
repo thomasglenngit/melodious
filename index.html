@@ -4,120 +4,458 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
     integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
   <title>Melodious</title>
 </head>
 
-<body id="melodius">
-  <div class="container">
-    <div class="top">
-      <header>
-        <h1>Melodious</h1>
-      </header>
-
-      <section class="instructions">
-        <div id="par1" class="toggleText1">
-          <p>Press a note, see a shape, hear a voice. When you're finished, save your artwork!</p>
-        </div>
-        <div id="par2" class="toggleText2">
-          <p>Click <strong>play</strong> to begin learning a melody.</p>
-          <p>Press the keys as they light up to play the song.</p>
-        </div>
-      </section>
+<body>
+  <section id="melodius">
+    <div class="mini ui buttons" style="position: absolute; right: 10px; top: 10px; color: greenyellow; z-index: 1000;">
+      <button class="ui button olive" onclick="window.location.href='#bird-icon'">Home</button>
+      <button class="ui button green" onclick="window.location.href='#play-position'">Play</button>
+      <button class="ui button blue" onclick="window.location.href='#create'">Create</button>
+      <button class="ui button violet" onclick="window.location.href='#about'">About</button>
+      <button class="ui button purple" onclick="window.location.href='#learn'">Learn</button>
+      <button class="ui button yellow" onclick="window.location.href='#contact'">Contact</Contact></button>
     </div>
-    <sketch-container>
-      <div class="drop-down hidden">
-        <label for="song-select"></label>
-        <select name="song-select" id="song-select">
-          <option value="rainbow">Somewhere Over the Rainbow</option>
-          <!-- <option value="xmas">The Christmas Song</option> -->
-          <!-- <option value="dorma">Nessun Dorma</option> -->
-          <option value="sun">Here Comes the Sun</option>
-        </select>
-      </div>
-      <!-- <div class="slidecontainer"> MIDI VOLUME NOT YET WORKING
-        <label for="myRange"><i class="fas fa-volume-up"></i></label>
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div> -->
-      <div class="buttons">
-        <button id="undo"><i class="fas fa-undo-alt"></i></button>
-        <!-- <button id="redo"><i class="fas fa-redo-alt"></i></button> -->
-        <button id="save"><i class="fas fa-file-download"></i></button>
-        <button id="delete"><i class="fas fa-trash"></i></button>
-        <button id="startSong" class="hidden"><i class="far fa-play-circle fa-2x"></i></button>
-        <!-- <button id="restartSong" class="hidden"><i class="fas fa-sync-alt"></i></button> -->
-      </div>
-    </sketch-container>
-    <section id="radio-buttons">
-      <div>
-        <input type="radio" id="free-play" name="setting" value="free-play" checked>
-        <label for="free-play">Free Play</label>
-      </div>
-      <div>
-        <input type="radio" id="learn-melody" name="setting" value="learn-melody">
-        <label for="learn-melody">Learn a Melody</label>
-      </div>
+    </br>
+    </br>
+    <section>
+      <img id="bird-icon" src="./src/img/Bird.png">
     </section>
-    <p id="hidden-warning" class="continue-message">Please press the highlighted piano key to continue with the current
-      melody.</p>
-    <div id="keyboard">
-      <div id="whiteKeys">
-        <button id="c2" class="key white-key"><span>C2</span></button>
-        <button id="d2" class="key white-key"><span>D2</span></button>
-        <button id="e2" class="key white-key"><span>E2</span></button>
-        <button id="f2" class="key white-key"><span>F2</span></button>
-        <button id="g2" class="key white-key"><span>G2</span></button>
-        <button id="a3" class="key white-key"><span>A3</span></button>
-        <button id="b3" class="key white-key"><span>B3</span></button>
-        <button id="c3" class="key white-key"><span>C3</span></button>
-        <button id="d3" class="key white-key"><span>D3</span></button>
-        <button id="e3" class="key white-key"><span>E3</span></button>
-        <button id="f3" class="key white-key"><span>F3</span></button>
-        <button id="g3" class="key white-key"><span>G3</span></button>
-        <button id="a4" class="key white-key"><span>A4</span></button>
-        <button id="b4" class="key white-key"><span>B4</span></button>
-        <button id="c4" class="key white-key"><span>C4</span></button>
-      </div>
-      <div id="blackKeys">
-        <button id="cs2" class="key black-key"><span>C#2</span></button>
-        <button id="ds2" class="key black-key"><span>D#2</span></button>
-        <button class="key black-key spacer"></button>
-        <button id="fs2" class="key black-key"><span>F#2</span></button>
-        <button id="gs2" class="key black-key"><span>G#2</span></button>
-        <button id="as3" class="key black-key"><span>A#3</span></button>
-        <button class="key black-key spacer"></button>
-        <button id="cs3" class="key black-key"><span>C#3</span></button>
-        <button id="ds3" class="key black-key"><span>D#3</span></button>
-        <button class="key black-key spacer"></button>
-        <button id="fs3" class="key black-key"><span>F#3</span></button>
-        <button id="gs3" class="key black-key"><span>G#3</span></button>
-        <button id="as4" class="key black-key"><span>A#4</span></button>
-      </div>
+    <section style=" height: 800px;  padding: 20px; font-size: large;" class="ui container">
 
-    </div>
-    <footer>
-      <p><span>&copy;</span>Brittany Lindgren & Thomas Glenn, 2020</p>
-      <span id="photo-cred">Background photo by <a
-          href="https://unsplash.com/@ebuenclemente205?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ebuen
-          Clemente Jr</a> on <a
-          href="https://unsplash.com/s/photos/piano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-    </footer>
-  </div>
-  <div id="song-completed-modal" class="modal modal-hidden">
-    <div class="modal-body">
-      <h1>Congratulations! <i class="fas fa-birthday-cake"></i></h1>
-      <p>You finished the song! Press play to play again or choose to return to free-play mode.</p>
-    </div>
-    <div class="modal-buttons">
-      <button id="play-again">Play Again</button>
-      <button id="switch-modes">Return to Free Play</button>
-    </div>
-  </div>
-  <div class="modal-overlay modal-hidden">
-    <!-- empty overlay div -->
-  </div>
+      <p>hello.. Welcome to Melodious, an application to play custom recorded sounds on a
+        virtual keyboard interface.</p>
+      <p>You don't have to be musical to try this application.
+        1. Choose between Free-Play and Learn-Melody modes.
+        2. In Free-play mode, the keyboard is your
+      </p>
+      <p>Give it a spin and tell us what you think!</p>
+      <br>
+      <button class="ui button inverted green" onclick="window.location.href='#play-position'">Play</button>
+      <br>
+      <br>
+
+      <!-- <p> I'm baby pok pok fanny pack humblebrag 3 wolf moon vexillologist four dollar toast, wolf master cleanse
+        biodiesel live-edge portland mixtape thundercats bushwick tattooed. Green juice brunch marfa hot chicken hoodie.
+        Prism sriracha ramps, gentrify raclette venmo man bun cold-pressed stumptown neutra you probably haven't heard
+        of them asymmetrical blue bottle. Man bun echo park venmo meh cronut craft beer prism actually man braid wolf
+        pop-up chartreuse disrupt fashion axe. Hexagon craft beer photo booth, scenester mumblecore quinoa listicle
+        viral bushwick. Literally keytar 8-bit everyday carry 90's pinterest, pour-over poutine listicle kale chips
+        lumbersexual pok pok tumeric. Roof party four dollar toast next level pok pok chia flexitarian listicle air
+        plant stumptown letterpress shaman polaroid selvage vegan.</p>
+      </br>
+
+      <p>Hella succulents austin lomo normcore seitan twee forage lo-fi. Blue bottle letterpress helvetica edison bulb
+        echo park hexagon mixtape migas tilde. Cray mlkshk celiac, master cleanse affogato mumblecore tumeric. Vegan
+        kale chips echo park, ethical mumblecore shoreditch swag. Echo park enamel pin readymade, post-ironic franzen
+        bushwick deep v craft beer taiyaki meditation wayfarers waistcoat mixtape wolf. Neutra ethical cronut, shabby
+        chic kinfolk waistcoat irony selfies jianbing trust fund tbh cloud bread vice listicle humblebrag. Chia
+        chicharrones occupy paleo echo park synth fanny pack ennui gentrify fixie whatever live-edge locavore.</p>
+      </br>
+
+      <p>Succulents mustache whatever salvia truffaut polaroid craft beer DIY godard tacos cred poke. Literally squid
+        venmo, listicle hashtag hexagon leggings biodiesel taiyaki 3 wolf moon ramps raw denim butcher kogi pok pok.
+        Pinterest copper mug kinfolk messenger bag ennui craft beer tbh cronut VHS neutra small batch quinoa. Hexagon
+        franzen godard marfa. +1 chillwave flannel ethical hashtag normcore, whatever hell of lyft ramps sartorial
+        helvetica chartreuse migas. Succulents single-origin coffee four dollar toast disrupt lumbersexual, helvetica
+        ethical tofu four loko godard gochujang.</p>
+      </br>
+
+      <p>XOXO whatever fingerstache, PBR&B pop-up irony ethical kinfolk roof party scenester wayfarers you probably
+        haven't heard of them meh vape. Shabby chic cloud bread activated charcoal 8-bit slow-carb wolf tote bag swag 3
+        wolf moon. Church-key marfa gentrify, messenger bag knausgaard helvetica copper mug affogato poke fixie tousled
+        kinfolk put a bird on it. Meditation enamel pin letterpress fashion axe organic vice.</p>
+      </br>
+
+      <p>Snackwave portland small batch succulents thundercats. Pok pok fingerstache sustainable raclette portland
+        keytar retro plaid direct trade locavore meggings biodiesel iceland. Post-ironic cray sriracha artisan shabby
+        chic mustache four dollar toast waistcoat cronut. Ugh polaroid kogi slow-carb, godard selvage woke tote bag vape
+        pinterest kombucha aesthetic pitchfork. Four loko XOXO man braid, fingerstache post-ironic dreamcatcher
+        williamsburg try-hard helvetica meggings air plant normcore sriracha slow-carb. Post-ironic mlkshk snackwave art
+        party lumbersexual pork belly. Forage air plant sustainable, chambray fanny pack mustache distillery kinfolk
+        butcher.</p> -->
+      </br>
+    </section>
+    <section>
+      <div class="container" id="play-position">
+        <div class="top">
+          <!-- <header>
+            <h1>Melodious</h1>
+          </header> -->
+
+          <section class="instructions">
+            <div id="par1" class="toggleText1">
+              <p>Press a note, see a shape, hear a voice. When you're finished, save your artwork!</p>
+            </div>
+            <div id="par2" class="toggleText2">
+              <p>Click <strong>play</strong> to begin learning a melody.</p>
+              <p>Press the keys as they light up to play the song.</p>
+            </div>
+          </section>
+        </div>
+
+        <div id="piano-frame">
+          <sketch-container class="ui container">
+            <div class="drop-down hidden">
+              <label for="song-select"></label>
+              <select name="song-select" id="song-select">
+                <option value="rainbow">Somewhere Over the Rainbow</option>
+                <!-- <option value="xmas">The Christmas Song</option> -->
+                <!-- <option value="dorma">Nessun Dorma</option> -->
+                <option value="sun">Here Comes the Sun</option>
+              </select>
+            </div>
+            <!-- <div class="slidecontainer"> MIDI VOLUME NOT YET WORKING
+                <label for="myRange"><i class="fas fa-volume-up"></i></label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+              </div> -->
+            <div class="buttons">
+              <button id="undo"><i class="fas fa-undo-alt"></i></button>
+              <!-- <button id="redo"><i class="fas fa-redo-alt"></i></button> -->
+              <button id="save"><i class="fas fa-file-download"></i></button>
+              <button id="delete"><i class="fas fa-trash"></i></button>
+              <button id="startSong" class="hidden"><i class="far fa-play-circle fa-2x"></i></button>
+              <!-- <button id="restartSong" class="hidden"><i class="fas fa-sync-alt"></i></button> -->
+            </div>
+          </sketch-container>
+
+          <section id="radio-buttons" style="margin: 20px">
+            <div>
+              <input type="radio" id="free-play" name="setting" value="free-play" checked>
+              <label for="free-play">Free Play</label>
+            </div>
+            <div>
+              <input type="radio" id="learn-melody" name="setting" value="learn-melody">
+              <label for="learn-melody">Learn a Melody</label>
+            </div>
+          </section>
+        </div>
+        <p id="hidden-warning" class="continue-message">Please press the highlighted piano key to continue with the
+          current
+          melody.</p>
+        </br>
+        </br>
+        <div id="keyboard">
+          <div id="whiteKeys">
+            <button id="c2" class="key white-key"><span>C2</span></button>
+            <button id="d2" class="key white-key"><span>D2</span></button>
+            <button id="e2" class="key white-key"><span>E2</span></button>
+            <button id="f2" class="key white-key"><span>F2</span></button>
+            <button id="g2" class="key white-key"><span>G2</span></button>
+            <button id="a3" class="key white-key"><span>A3</span></button>
+            <button id="b3" class="key white-key"><span>B3</span></button>
+            <button id="c3" class="key white-key"><span>C3</span></button>
+            <button id="d3" class="key white-key"><span>D3</span></button>
+            <button id="e3" class="key white-key"><span>E3</span></button>
+            <button id="f3" class="key white-key"><span>F3</span></button>
+            <button id="g3" class="key white-key"><span>G3</span></button>
+            <button id="a4" class="key white-key"><span>A4</span></button>
+            <button id="b4" class="key white-key"><span>B4</span></button>
+            <button id="c4" class="key white-key"><span>C4</span></button>
+          </div>
+          <div id="blackKeys">
+            <button id="cs2" class="key black-key"><span>C#2</span></button>
+            <button id="ds2" class="key black-key"><span>D#2</span></button>
+            <button class="key black-key spacer"></button>
+            <button id="fs2" class="key black-key"><span>F#2</span></button>
+            <button id="gs2" class="key black-key"><span>G#2</span></button>
+            <button id="as3" class="key black-key"><span>A#3</span></button>
+            <button class="key black-key spacer"></button>
+            <button id="cs3" class="key black-key"><span>C#3</span></button>
+            <button id="ds3" class="key black-key"><span>D#3</span></button>
+            <button class="key black-key spacer"></button>
+            <button id="fs3" class="key black-key"><span>F#3</span></button>
+            <button id="gs3" class="key black-key"><span>G#3</span></button>
+            <button id="as4" class="key black-key"><span>A#4</span></button>
+          </div>
+        </div>
+        <section class="spacer">
+
+        </section>
+
+        <section id="create">
+          <h1 class="title">Create</h1>
+          <p>Do you have a song you'd like to have created on Melodious?</p>
+          <p>We would love to have it on our site!</p>
+          <br>
+
+          <p>Musical Submissions to Melodious are subject to the following guidelines:</p>
+          <div class="submissions">
+            <p>Each melody must be submitted in .mp3 format.</p>
+            <p>Each melody must not exceed 30 seconds in length.</p>
+            <p>Bear in mind that each note has a maximum duration of 2 seconds.</p>
+            <p>Submissions must be free from profanity or lewd references, (rated G, please!).</p>
+          </div>
+
+          <br>
+          <p>We encourage you to be creative! Feel free to use instruments, conventional, traditional or makeshift. We'd
+            like to hear traditional melodies from your area, or even sounds from your city or local environment.</p>
+          <br>
+          <p>The process for submission is via email attachment.</p>
+          <p>Simply click <a href="mailto:playlistenfeel@gmail.com">HERE</a> to get it started:</p>
+          <br>
+
+
+
+          <p>
+            Do you have a favorite song? <a href="mailto:playlistenfeel@gmail.com">Write</a> to us, and tell us what
+            you'd like to hear!
+          </p>
+
+
+        </section>
+        <section id="about">
+          <div class="ui container">
+            <h1 class="title">About</h1>
+            <div class="bio">
+              <img class="ui small left floated image" src="./src/img/thomasglenn.jpg"
+                alt="image of thomas glenn, web developer">
+
+              <p>
+                Thomas Glenn
+              </p>
+              <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem
+                aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque
+                electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+
+              <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex
+                duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei
+                quo vide phaedrum, vim vivendum maiestatis in.</p>
+              <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no
+                illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi
+                te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum
+                postulant per id.</p>
+            </div>
+            <div class="bio">
+              <img class="ui small left floated image" src="./src/img/brittanylindgren.png"
+                alt="image of brittany lindgren, web developer">
+
+
+              <p>
+                Brittany Lindgren: Is a web developer at Slide Factory where she works extensively on projects using PHP
+                and GraphQL. She works hard and is an excellent communicator and collaborator.
+              </p>
+              <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem
+                aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque
+                electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+
+              <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex
+                duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei
+                quo vide phaedrum, vim vivendum maiestatis in.</p>
+              <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no
+                illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi
+                te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum
+                postulant per id.</p>
+            </div>
+            <div class="bio">
+              <img class="ui small left floated image" src="./src/img/ryanreese.png"
+                alt="image of ryan reese, creative technology professional; CEO Sketch.IO">
+
+
+              <p>
+                Ryan Reese: Is a creative problem solver and project director working with clients and artists through a
+                place called Sketch.IO. He builds apps and manages projects for over a decade and I’ve had the privilege
+                of
+                working with some amazing people and companies along the way. I’m passionate about making things that
+                work
+                and I never back down from a challenge; even if that means pulling a few all nighters to get a project
+                done
+                on time.
+                I’m always on the lookout for new opportunities so drop me a line if you’d like to chat about a project
+                or
+                idea.
+              </p>
+            </div>
+            <br>
+            <div class="bio">
+              <p>
+                Kenneth Pullen (aka, Sir Oven Mitts) is a coding savant.
+
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="learn">
+          <div class="ui container">
+            <h1 class="title">Learn</h1>
+            <p><span>How does Melodious work?</span></p>
+            <p>The fundamentals are simple. There’s a graphic interface with a musical keyboard. Each key acts as a
+              button, which triggers a pre-recorded sound.</p>
+
+            <p>What is NOT simple is getting sounds to play in JavaScript. That’s where some proprietary technologies
+              come
+              in to play.</p>
+
+            <p>The first is MIDI.js. Most people know of MIDI (Musical Instrumental Digital Interface) from plugging
+              their
+              synthesizers into a stereo receiver, or music-editing and engineering software like Pro-Tools and Garage
+              Band. Those instrument-to-receiver connections usually come in a template of 16 in/out connections. MIDI
+              allows a user to play multiple instrumental sounds from a single controller, like a keyboard, or drum pad.
+            </p>
+
+            <p>You switch the instrument on your Casio to “Glockenspiel” and voila! Your digital keyboard turns into a
+              glockenspiel! </p>
+
+            <p><span>MIDI.js</span> is a virtual coded version of those hardline digital music connections. It has
+              channels that act
+              like your typical bass-guitar hook-ups, transmitting digital sound files from the database, through to the
+              user interface. </p>
+
+            <p>In melodious, we have a database of custom musical sounds that we have connected to the keyboard
+              asynchronously, meaning – you won’t hear the sounds until you press on the keys. It also means that when
+              you
+              want to learn a melody, we not only have to program the keys in sequence, we also have to parse the given
+              melody into melody increments. </p>
+
+            <p><span>Datatypes:</span> We use .mp3 music files. But…, PROBLEM! JavaScript does not understand .mp3
+              files. It can’t
+              read
+              them, and it can’t play them. So, what music files does JS understand?</p>
+
+            <p>Music files in JavaScript must be converted to Base64 JavaScript Object Notation (JSON) files to be read
+              and played. </p>
+
+            <p><span>Base64</span> is a binary encoded scheme that is computer readable. The document you are currently
+              reading is
+              “human readable”. All the coding languages that we have created are also “human readable.” But everything
+              that we understand as humans must be compiled into “computer readable” formats. That format is typically
+              binary (ones and zeros…, you know…).</p>
+
+            <p>Most of the time, this human to computer translation goes unnoticed. For example, when you go on the
+              internet and type in a web address to the browser (ex. www.amazon.com), the internet won’t understand what
+              you wrote. So, it sends the request to a DNS (Domain Name Server) which translates your request to an IP
+              address (Internet Protocol), so your human readable request becomes a number sequence that looks something
+              like this: 157.240.3.35 (this is facebook’s web address. Go ahead! Try it in your browser!)</p>
+
+            <p>In the same way, melodious must translate these .mp3 files to computer readable base64 encoded data.</p>
+
+            <p><span>So, how does it work?</span></p>
+
+            <p>Each note of a melody must be separated into an individual .mp3 file. This is rough work. For example, a
+              simple song like, “Have Yourself A Merry Little Christmas” will have over 170 individual .mp3 files, each
+              file to represent one note. We do this with standard sound editing software. </p>
+
+            <p>Next, we save the sound files in our code editor and convert the sound data using a custom program which
+              loops through all the sound files, one at a time, converts them to Base64 objects, and saves them in a
+              JSON
+              file. </p>
+
+            <p>And these JSON files are not your typical custom APIs! Each object within the file, which may only
+              represent two seconds of music, looks like a thousand lines of code… Huge!</p>
+
+            <p>We then create a custom MIDI.js channel for each melody, and prepare options/buttons/dropdowns, etc. in
+              the
+              user interface to select the melody and load the data. From there, it takes some asynchronous terms to
+              wait
+              for the user to press a key before the code executes. And, voila! We have music!</p>
+
+            <p><span>The Canvas</span> is provided to us by our friends at Sketch.IO who have just released their
+              Sketchpad
+              application
+              on the App Store! You can find it <a href="https://apps.apple.com/app/id1562886727">here.</a></p>
+
+            <p>The sketch canvas, once loaded, can be manipulated, and configured with roughly the same Document Object
+              Model type syntax terminal commands as vanilla JavaScript. </p>
+
+            <p>DOM example: `document.body.style.background = "#FFFFFF”`</p>
+
+            <p>Sketch example: `sketch.doc.setBackground(‘white’)`</p>
+
+            <p>This is a great feature of Sketch.IO which made sandboxing and QA testing easy and a lot of fun.
+              Sketch.IO’s documentation is relatively easy to follow and can be found here.</p>
+
+            <p><span>Free Play:</span> Sketch has a library of fun clip art, as well as shapes and drawing tools. We
+              decided, as a
+              proof of concept, to use Sketch.IO’s shapes library. Our objective in the free play mode was to have
+              shapes
+              fall in random orders and places, as though novelty rain was falling through the canvas window. Let us
+              know
+              if you’d like to see some other interesting shapes or a different appearance to them.</p>
+
+            <p><span>Learn Melody:</span> In this mode, the keys of the keyboard will light up in the order of the
+              melody tones. The
+              user clicks them in succession. If they click the wrong key, an error message appears. Melodious uses the
+              Sketch canvas to scroll the words of the selected melody in the order and speed at which the user presses
+              the keys. Press the keys to quickly, and the words overlap. ‘Too slowly, and the syllable falls off the
+              canvas before it connects to the next syllable. </p>
+
+            <p><span>Canvas scrolling</span>, or the movement of the words across the screen is nothing more than good
+              old-fashioned
+              looping on the x axis, at a rate that is commonly readable and matches the duration of each pitch, of
+              course.</p>
+
+            <p><span>The fonts</span>, however, come from the Sketch library, of which they have over four hundred!
+              Though there are
+              many choices, we’ve learned that scripts work better for scrolling. Current font = Pacifico.</p>
+
+            <p><span>Custom Melodies</span> are welcome. Want to have your own melody played? Check out our Create page
+              <a href="#create">here.</a> We’d
+              love
+              to hear what you have to offer, and we’d love to take requests!
+            </p>
+            </br>
+            <p>‘Enjoy!
+            </p>
+            </br>
+            <p>-The Melodious Team</p>
+          </div>
+        </section>
+        <section id="contact">
+          <div class="row">
+            <div class="col1">
+              <h1 class="title">contact</h1>
+              <br>
+              <p>email:</p>
+              <p><a href="mailto: playlistenfeel@gmail.com">playlistenfeel@gmail.com</a></p>
+              <br>
+              <p>linkedin:</p>
+              <p><a href="https://www.linkedin.com/in/glennergy/">glennergy</a></p>
+            </div>
+            <div class="col2">
+              <h1 class="title">links</h1>
+              <p><a href="https://github.com/thomasglenngit">Thomas Glenn</a></p>
+              <p><a href="https://github.com/LINDGRENBA">Brittany Lindgren</a></p>
+              <p><a href="https://github.com/ryanreese">Ryan Reese</a></p>
+            </div>
+          </div>
+          <br>
+          <div class="col3">
+            <img id="bird-icon" src="./src/img/Bird.png">
+          </div>
+
+        </section>
+
+      </div>
+      <div id="song-completed-modal" class="modal modal-hidden">
+        <div class="modal-body">
+          <h1>Congratulations! <i class="fas fa-birthday-cake"></i></h1>
+          <p>You finished the song! Press play to play again or choose to return to free-play mode.</p>
+        </div>
+        <div class="modal-buttons">
+          <button id="play-again">Play Again</button>
+          <button id="switch-modes">Return to Free Play</button>
+        </div>
+      </div>
+      <div class="modal-overlay modal-hidden">
+        <!-- empty overlay div -->
+      </div>
+      <footer>
+
+        <p><span>&copy;</span>Brittany Lindgren & Thomas Glenn, 2020</p>
+        <span id="photo-cred">Background photo by <a
+            href="https://unsplash.com/@ebuenclemente205?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ebuen
+            Clemente Jr</a> on <a
+            href="https://unsplash.com/s/photos/piano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+      </footer>
+    </section>
+  </section>
+
 </body>
 
 </html>

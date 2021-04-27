@@ -107,7 +107,8 @@ export async function learnMelody() {
       switchModes.addEventListener('click', function () {
         modal.classList.add('modal-hidden')
         modalOverlay.classList.add('modal-hidden')
-        location.reload()
+        // window.location.href='#play-position'
+        window.location.reload(window.location.href='#play-position')
       })
 
     }

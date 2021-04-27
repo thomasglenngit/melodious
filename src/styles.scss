@@ -3,13 +3,17 @@ html, body {
   margin: 0;
   box-sizing: border-box;
 }
-
+li {
+  display: inline;
+}
 .hidden {
   display: none;
 }
 
+
+
 #melodius {
-  background-image: url(./img/piano-background.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/piano-background.jpg');
   // background-image: url(img/pretty-colors.png); /* Need to pay for this image if we would like to use it*/
   background-attachment: fixed;
   background-size: cover;
@@ -17,6 +21,7 @@ html, body {
   z-index: 2;
   color: #FFF;
   // color: #000;
+  box-sizing: border-box;
 
   header {
     height: 10vh;
@@ -66,11 +71,27 @@ html, body {
     display: none;
   }
 
+  #piano-frame {
+   position: relative;
+   padding-left: 10vw;
+   padding-right: 10vw;
+   height: 50vh;
+   width: 100vw;
+   background: url('./img/rusty-texture.jpeg');
+   background-size: cover;
+  }
+
   sketch-container.sketch-api {
     background: #FFF;
-    height: 30vh;
+    top: 15%;
+    bottom: 20%;
+    left: 10%;
+    right: 20%;
+    height: 35vh;
+    border-radius: 10px;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    background-size: cover;
 
     sketch-DocLayout {
       background: none;
@@ -113,17 +134,23 @@ html, body {
       //   color: #000;
       // }
     }
+
+
   }
 
   section#radio-buttons {
     min-height: 6vh;
-    background-color: #6698ff;
+    // background-color: #6698ff;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 0.5rem;
+    padding: 10px 0px 10px 0px;
+    position: static;
+    font-size: 30px;
+    font-weight: bold;
     
 
     label, input {
@@ -135,10 +162,12 @@ html, body {
 #keyboard {
   border: none;
   height: 30vh;
-  position: absolute;
+  position: relative;
   bottom: 40px;
   right: 5px;
   left: 5px;
+  margin-bottom: 400px;
+  
   
   
     .white-key {
@@ -192,8 +221,108 @@ html, body {
     }
 }
 
+.title {
+  font-size: 50px;
+  padding-top: 80px;
+}
+
+.sub-heading {
+  font-size: 30px;
+  padding: 18px;
+}
+
+.glamour {
+  margin: 30px;
+  border-radius: 10px ;
+}
+
+img {
+  border-radius: 10px;
+}
+
+.bio {
+  margin: 30px;
+}
+
+#create {
+  padding: 0px 100px 100px 100px;
+  background-color: rgba(255, 255, 255, 0.3);
+
+  p {
+    padding-left: 3vw;
+    font-size: 25px;
+  }
+
+  a {
+    color: gold;
+    font-size: 30px;
+
+  }
+}
+
+.submissions {
+  padding-left:2vw;
+  color: gold;
+}
+
+#about {
+  padding: 80px 0px 80px 0px;
+}
+
+
+#learn {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding-bottom: 200px;
+
+    p {
+      font-size: 20px;
+      padding: 10px 40px;
+  }
+
+    span {
+      font-size: 23px;
+      font-weight: bolder;
+      color: gold;
+    }
+
+    a {
+      color: rgb(120, 249, 120);
+      font-weight: bold;
+    }
+}
+
+#contact {
+  padding: 0px 100px 100px 100px;
+  background-color: rgb(247, 131, 59);
+
+  .col1 {
+    float: left;
+    // padding-top: 20px;
+    // padding-right: 20%;
+    padding-left: 8%;
+  }
+  
+  .col2 {
+    padding: 0px 20px 20px 0px;
+    padding-left: 40%;
+  }
+  
+  a {
+    color: rgb(84, 225, 247);
+    padding-left: 2vw;
+    font-size: 18px;
+    font-weight: bolder;
+  }
+
+  .col3 {
+    width: 10vw;
+    
+  }
+}
+
 footer {
-  position: absolute;
+  background-color: lightcoral;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
