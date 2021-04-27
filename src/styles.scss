@@ -10,8 +10,10 @@ li {
   display: none;
 }
 
+
+
 #melodius {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./img/piano-background.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/piano-background.jpg');
   // background-image: url(img/pretty-colors.png); /* Need to pay for this image if we would like to use it*/
   background-attachment: fixed;
   background-size: cover;
@@ -71,15 +73,22 @@ li {
 
   #piano-frame {
    position: relative;
-   height: 800px;
-   width: 100%;
-   background: url('./img/baroque-frame.jpeg');
+   padding-left: 10vw;
+   padding-right: 10vw;
+   height: 50vh;
+   width: 100vw;
+   background: url('./img/rusty-texture.jpeg');
    background-size: cover;
   }
 
   sketch-container.sketch-api {
     background: #FFF;
-    height: 30vh;
+    top: 15%;
+    bottom: 20%;
+    left: 10%;
+    right: 20%;
+    height: 40vh;
+    border-radius: 10px;
     overflow: hidden;
     position: absolute;
     background-size: cover;
@@ -131,15 +140,17 @@ li {
 
   section#radio-buttons {
     min-height: 6vh;
-    background-color: #6698ff;
+    // background-color: #6698ff;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 0.5rem;
+    padding: 10px 0px 10px 0px;
     position: static;
-    
+    font-size: 30px;
+    font-weight: bold;
     
 
     label, input {
@@ -155,6 +166,7 @@ li {
   bottom: 40px;
   right: 5px;
   left: 5px;
+  margin-bottom: 400px;
   
   
   
@@ -238,13 +250,23 @@ img {
 
 
 #learn {
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 255, 255, 0);
   padding-bottom: 200px;
 
     p {
       font-size: 20px;
       padding: 10px 40px;
   }
+
+    span {
+      font-size: 23px;
+      font-weight: bolder;
+      color: gold;
+    }
+}
+
+#contact {
+  padding: 0px 100px 100px 100px;
 }
 
 footer {

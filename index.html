@@ -27,7 +27,7 @@
     <section>
       <img id="bird-icon" src="./src/img/Bird.png">
     </section>
-    <section style=" height: 1200px;  padding: 20px; font-size: large;" class="ui container">
+    <section style=" height: 800px;  padding: 20px; font-size: large;" class="ui container">
 
       <p>hello.. Welcome to Melodious, an application to play custom recorded sounds on a
         virtual keyboard interface.</p>
@@ -84,13 +84,10 @@
     </section>
     <section>
       <div class="container" id="play-position">
-        </br>
-        </br>
-        </br>
         <div class="top">
-          <header>
+          <!-- <header>
             <h1>Melodious</h1>
-          </header>
+          </header> -->
 
           <section class="instructions">
             <div id="par1" class="toggleText1">
@@ -102,6 +99,7 @@
             </div>
           </section>
         </div>
+
         <div id="piano-frame">
           <sketch-container class="ui container">
             <div class="drop-down hidden">
@@ -113,7 +111,7 @@
                 <option value="sun">Here Comes the Sun</option>
               </select>
             </div>
-              <!-- <div class="slidecontainer"> MIDI VOLUME NOT YET WORKING
+            <!-- <div class="slidecontainer"> MIDI VOLUME NOT YET WORKING
                 <label for="myRange"><i class="fas fa-volume-up"></i></label>
                 <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
               </div> -->
@@ -126,7 +124,7 @@
               <!-- <button id="restartSong" class="hidden"><i class="fas fa-sync-alt"></i></button> -->
             </div>
           </sketch-container>
-        </div>
+
           <section id="radio-buttons" style="margin: 20px">
             <div>
               <input type="radio" id="free-play" name="setting" value="free-play" checked>
@@ -137,7 +135,7 @@
               <label for="learn-melody">Learn a Melody</label>
             </div>
           </section>
-        
+        </div>
         <p id="hidden-warning" class="continue-message">Please press the highlighted piano key to continue with the
           current
           melody.</p>
@@ -177,7 +175,9 @@
             <button id="as4" class="key black-key"><span>A#4</span></button>
           </div>
         </div>
+        <section class="spacer">
 
+        </section>
 
         <section id="create" style="background-color: cyan; height: 500px">
           <p>
@@ -284,7 +284,7 @@
             <p>You switch the instrument on your Casio to “Glockenspiel” and voila! Your digital keyboard turns into a
               glockenspiel! </p>
 
-            <p>MIDI.js is a virtual coded version of those hardline digital music connections. It has channels that act
+            <p><span>MIDI.js</span> is a virtual coded version of those hardline digital music connections. It has channels that act
               like your typical bass-guitar hook-ups, transmitting digital sound files from the database, through to the
               user interface. </p>
 
@@ -294,14 +294,14 @@
               want to learn a melody, we not only have to program the keys in sequence, we also have to parse the given
               melody into melody increments. </p>
 
-            <p>Datatypes: We use .mp3 music files. But…, PROBLEM! JavaScript does not understand .mp3 files. It can’t
+            <p><span>Datatypes:</span> We use .mp3 music files. But…, PROBLEM! JavaScript does not understand .mp3 files. It can’t
               read
               them, and it can’t play them. So, what music files does JS understand?</p>
 
             <p>Music files in JavaScript must be converted to Base64 JavaScript Object Notation (JSON) files to be read
               and played. </p>
 
-            <p>Base64 is a binary encoded scheme that is computer readable. The document you are currently reading is
+            <p><span>Base64</span> is a binary encoded scheme that is computer readable. The document you are currently reading is
               “human readable”. All the coding languages that we have created are also “human readable.” But everything
               that we understand as humans must be compiled into “computer readable” formats. That format is typically
               binary (ones and zeros…, you know…).</p>
@@ -314,7 +314,7 @@
 
             <p>In the same way, melodious must translate these .mp3 files to computer readable base64 encoded data.</p>
 
-            <p>So, how does it work?</p>
+            <p><span>So, how does it work?</span></p>
 
             <p>Each note of a melody must be separated into an individual .mp3 file. This is rough work. For example, a
               simple song like, “Have Yourself A Merry Little Christmas” will have over 170 individual .mp3 files, each
@@ -334,41 +334,41 @@
               wait
               for the user to press a key before the code executes. And, voila! We have music!</p>
 
-            <p>The Canvas is provided to us by our friends at Sketch.IO who have just released their Sketchpad
+            <p><span>The Canvas</span> is provided to us by our friends at Sketch.IO who have just released their Sketchpad
               application
               on the App Store! You can find it here.</p>
 
             <p>The sketch canvas, once loaded, can be manipulated, and configured with roughly the same Document Object
               Model type syntax terminal commands as vanilla JavaScript. </p>
 
-            <p>DOM example: ` document.body.style.background = "#FFFFFF”`</p>
+            <p>DOM example: `document.body.style.background = "#FFFFFF”`</p>
 
             <p>Sketch example: `sketch.doc.setBackground(‘white’)`</p>
 
             <p>This is a great feature of Sketch.IO which made sandboxing and QA testing easy and a lot of fun.
               Sketch.IO’s documentation is relatively easy to follow and can be found here.</p>
 
-            <p>Free Play: Sketch has a library of fun clip art, as well as shapes and drawing tools. We decided, as a
+            <p><span>Free Play:</span> Sketch has a library of fun clip art, as well as shapes and drawing tools. We decided, as a
               proof of concept, to use Sketch.IO’s shapes library. Our objective in the free play mode was to have
               shapes
               fall in random orders and places, as though novelty rain was falling through the canvas window. Let us
               know
               if you’d like to see some other interesting shapes or a different appearance to them.</p>
 
-            <p>Learn Melody: In this mode, the keys of the keyboard will light up in the order of the melody tones. The
+            <p><span>Learn Melody:</span> In this mode, the keys of the keyboard will light up in the order of the melody tones. The
               user clicks them in succession. If they click the wrong key, an error message appears. Melodious uses the
               Sketch canvas to scroll the words of the selected melody in the order and speed at which the user presses
               the keys. Press the keys to quickly, and the words overlap. ‘Too slowly, and the syllable falls off the
               canvas before it connects to the next syllable. </p>
 
-            <p>Canvas scrolling, or the movement of the words across the screen is nothing more than good old-fashioned
+            <p><span>Canvas scrolling</span>, or the movement of the words across the screen is nothing more than good old-fashioned
               looping on the x axis, at a rate that is commonly readable and matches the duration of each pitch, of
               course.</p>
 
-            <p>The fonts, however, come from the Sketch library, of which they have over four hundred! Though there are
+            <p><span>The fonts</span>, however, come from the Sketch library, of which they have over four hundred! Though there are
               many choices, we’ve learned that scripts work better for scrolling. Current font = Pacifico.</p>
 
-            <p>Custom Melodies are welcome. Want to have your own melody played? Check out our Create page here. We’d
+            <p><span>Custom Melodies</span> are welcome. Want to have your own melody played? Check out our Create page here. We’d
               love
               to hear what you have to offer, and we’d love to take requests! </p>
             </br>
@@ -378,7 +378,7 @@
             <p>-The Melodious Team</p>
           </div>
         </section>
-        <section id="contact" class="ui container" style="background-color: darkorange; height: 300px;">
+        <section id="contact" style="background-color: darkorange; ">
 
           <h1 class="title">contact</h1>
           <h4>Feel free to <a href="mailto: playlistenfeel@gmail.com">contact us</a>
