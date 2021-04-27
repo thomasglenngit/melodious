@@ -11,7 +11,7 @@ li {
 }
 
 #melodius {
-  background-image: url(./img/piano-background.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./img/piano-background.jpg');
   // background-image: url(img/pretty-colors.png); /* Need to pay for this image if we would like to use it*/
   background-attachment: fixed;
   background-size: cover;
@@ -144,7 +144,7 @@ li {
   bottom: 40px;
   right: 5px;
   left: 5px;
-  background-color: greenyellow;
+  
   
   
     .white-key {
@@ -198,18 +198,43 @@ li {
     }
 }
 
+.title {
+  font-size: 50px;
+  padding-top: 80px;
+}
 
+.sub-heading {
+  font-size: 30px;
+  padding: 18px;
+}
 
 .glamour {
   margin: 30px;
   border-radius: 10px ;
 }
 
+img {
+  border-radius: 10px;
+}
+
 .bio {
   margin: 30px;
 }
 
+#about {
+  padding: 80px 0px 80px 0px;
+}
 
+
+#learn {
+  background-color: rgba(255, 255, 255, .3);
+  padding-bottom: 200px;
+
+    p {
+      font-size: 20px;
+      padding: 10px 40px;
+  }
+}
 
 footer {
   background-color: lightcoral;
