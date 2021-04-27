@@ -87,7 +87,7 @@ li {
     bottom: 20%;
     left: 10%;
     right: 20%;
-    height: 40vh;
+    height: 35vh;
     border-radius: 10px;
     overflow: hidden;
     position: absolute;
@@ -246,11 +246,23 @@ img {
 
 #create {
   padding: 0px 100px 100px 100px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
+
+  p {
+    padding-left: 3vw;
+    font-size: 25px;
+  }
+
+  a {
+    color: gold;
+    font-size: 30px;
+
+  }
 }
 
 .submissions {
   padding-left:2vw;
+  color: gold;
 }
 
 #about {
@@ -259,7 +271,7 @@ img {
 
 
 #learn {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.2);
   padding-bottom: 200px;
 
     p {
@@ -272,10 +284,40 @@ img {
       font-weight: bolder;
       color: gold;
     }
+
+    a {
+      color: rgb(120, 249, 120);
+      font-weight: bold;
+    }
 }
 
 #contact {
   padding: 0px 100px 100px 100px;
+  background-color: rgb(247, 131, 59);
+
+  .col1 {
+    float: left;
+    // padding-top: 20px;
+    // padding-right: 20%;
+    padding-left: 8%;
+  }
+  
+  .col2 {
+    padding: 0px 20px 20px 0px;
+    padding-left: 40%;
+  }
+  
+  a {
+    color: rgb(84, 225, 247);
+    padding-left: 2vw;
+    font-size: 18px;
+    font-weight: bolder;
+  }
+
+  .col3 {
+    width: 10vw;
+    
+  }
 }
 
 footer {
